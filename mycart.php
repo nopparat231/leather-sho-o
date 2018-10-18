@@ -46,7 +46,8 @@ $totalRows_mycart = mysql_num_rows($mycart);
 ?>
 
 <?php include('datatable.php'); ?>
-<h3 align="center">รายการสั่งซื้อทั้งหมด</h3>
+<h3 align="center">รายการสั่งซื้อทั้งหมด</h3><br>
+<h4 align="left" style="color: red;" >*รายการสั่งซื้อจะถูกยกเลิก ถ้าหากไม่ชำระเงินภายใน 3 วัน</h4>
 <table id="example" class="display" cellspacing="0" border="0" >
 	<thead>
 		<tr >
@@ -63,7 +64,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
 		<?php do { ?>
 			<tr align="center">
 				<td>
-					<?php echo $row_mycart['oid'];?>
+					JN<?php echo str_pad($row_mycart['oid'], 6, "0", STR_PAD_LEFT);?>
 					<span id="hp">
 						<a href="my_order.php?order_id=<?php echo $row_mycart['oid'];?>act=show-order">
 							<span class="glyphicon glyphicon-zoom-in"></span>
@@ -85,8 +86,8 @@ $totalRows_mycart = mysql_num_rows($mycart);
 				</td>
 				<td> <?php echo $row_mycart['order_date'];?></td>
 				<td><center>
-					<a href="del_order.php?order_id=<?php echo $row_mycart['oid'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการลบ');">
-					ลบ </a></center>
+					<a href="del_order.php?order_id=<?php echo $row_mycart['oid'];?>&order_status=4" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการยกเลิกคำสั่งซื้อ');">
+					ยกเลิก </a></center>
 				</td>
 			</tr>
 

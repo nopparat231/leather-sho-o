@@ -94,9 +94,14 @@ input[type='radio']:checked:before {
 </style>
 <form action="add_payslip_db.php" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
 
-  <p align="center"> <a class="btn btn-danger btn-sm" href="my_order.php?page=mycart" id="hp"> รายการสั่งซื้อทั้งหมด </a></p><a class="btn btn-primary btn-sm pull-left" id="hp" onclick="window.print()"> พิมพ์ </a>
+  <p align="center"> <a class="btn btn-danger btn-sm" href="my_order.php?page=mycart" id="hp"> รายการสั่งซื้อทั้งหมด </a></p>
+
+
+<a href="print_report.php?order_id=<?php echo $colname_cartdone;?>" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบเสร็จ </a> 
+
+
   <table width="700" border="0" align="center" class="table">
-    <tr>
+    <tr><h4 align="left" style="color: red;" >*รายการสั่งซื้อจะถูกยกเลิก ถ้าหากไม่ชำระเงินภายใน 3 วัน</h4>
       <td colspan="7" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ <?php echo $row_cartdone['mem_name'];?> <br />
         <font color="red"> สถานะ :
           <?php 
@@ -114,10 +119,9 @@ input[type='radio']:checked:before {
               <td width="41%" align="left" valign="top"><strong><font color="red"><br />
                 ชำระเงิน ธ.<?php echo $row_cartdone['b_name'];?> <br />
 
-                เลข บ/ช <?php 
-                echo $row_cartdone['b_number'];?> <br />
+                เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br />
 
-                จำนวน <?php echo $row_cartdone['pay_amount',2];?> บาท<br />
+                จำนวน <?php echo $row_cartdone['pay_amount'];?> บาท<br />
                 วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?></font><br />
                 <h4 style="color:blue">
                   เลขพัสดุ :  <?php echo $row_cartdone['postcode'];?>
@@ -163,7 +167,7 @@ input[type='radio']:checked:before {
       $sumems +=$ems;
       ?>
       <tr>
-        <td align="center"><?php echo $row_cartdone['d_id'];?></td>
+        <td align="center">JN<?php echo  str_pad($row_cartdone['order_id'], 6, "0", STR_PAD_LEFT);?></td>
         <td><?php echo $row_cartdone['p_name'];?></td>
         <td align="center"><?php echo $row_cartdone['p_size'];?></td>
         <td align="center"><?php echo number_format($row_cartdone['p_price'],2);?></td>

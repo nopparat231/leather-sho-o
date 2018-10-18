@@ -35,10 +35,11 @@ $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
+$t_name = $_POST['t_name'];
+$t_type = $_POST['t_type'];
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "ptype")) {
-  $insertSQL = sprintf("INSERT INTO tbl_type (t_name) VALUES (%s)",
-                       GetSQLValueString($_POST['t_name'], "text"));
+  $insertSQL = sprintf("INSERT INTO tbl_type (t_name,t_type)VALUES ('$t_name','$t_type')");
 
 mysql_select_db($database_condb);
   $Result1 = mysql_query($insertSQL, $condb) or die(mysql_error());
@@ -79,18 +80,27 @@ $totalRows_ptype = mysql_num_rows($ptype);
       </div>
       <div class="col-md-6">
         <h3 align="center"> เพิ่มประเภทสินค้า </h3>
-        <div class="table-responsive">
-        <form action="<?php echo $editFormAction; ?>" method="POST" name="ptype" id="ptype" class="form-horizontal">
+        <div class="table">
+        <form action="add_product_type.php" method="POST" name="ptype" id="ptype" class="form-horizontal">
         	<div class="form-group">
             	<div class="col-sm-3" align="right"> ประเภทสินค้า </div>
                 <div class="col-sm-7">
                 	<input type="text" name="t_name" class="form-control" required>
                 </div>
+                 <br>
+
+             <br>
+             <div class="col-sm-3" align="right"> ชื่อย่อ </div>
+             <div class="col-sm-4">
+              <input type="text" name="t_type" class="form-control" required>
+            </div>
+
             </div>
             <div class="form-group">
             	<div class="col-sm-3"></div>
                 <div class="col-sm-7">
                 	<button type="submit" name="save" class="btn btn-primary"> บันทึก </button>
+                   <a href="list_product_type.php" type="btn" class="btn btn-danger">ยกเลิก</a>
                 </div>
              </div>
             <input type="hidden" name="MM_insert" value="ptype">

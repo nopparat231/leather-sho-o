@@ -28,7 +28,7 @@
            <a href="index.php" class="btn btn-danger" id="hp">รอชำระเงิน</a>
            <a href="index.php?act=show-payed" class="btn btn-success" id="hp">ชำระเงินแล้ว</a>
            <a href="index.php?act=show-post" class="btn btn-info" id="hp">ส่งของแล้ว</a>
-           <!-- <a href="index.php?act=show-cancel" class="btn btn-danger" id="hp">ยกเลิกคำสั่งซื้อ</a> -->
+           <a href="index.php?act=show-cancel" class="btn btn-danger" id="hp">ยกเลิกคำสั่งซื้อ</a>
            <br />
            <br />
            <?php
@@ -39,8 +39,8 @@
                 include('show_cart_pay.php');
               }elseif ($act == 'show-post') {
                 include('show_cart_post.php');
-              // }elseif ($act == 'show-cancel'){
-              //   include('show_cancel_cart.php');
+              }elseif ($act == 'show-cancel'){
+                include('show_cancel_cart.php');
               }else{
                 include('show_new_cart.php');
               }

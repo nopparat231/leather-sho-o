@@ -61,24 +61,26 @@ $totalRows_ptype = mysql_num_rows($ptype);
       <div class="col-md-10">
         <h3 align="center"> ประเภทสินค้า <a href="add_product_type.php" class="btn btn-primary"> เพิ่มประเภท </a> </h3>
         <table id="example" class="display" cellspacing="0" border="1">
-		<thead>
+		  <thead>
           <tr>
-            <th width="5%">id</th>
-            <th width="50%">name</th>
+            <th width="5%">รหัส</th>
+            <th width="50%">ชื่อย่อ</th>
+            <th width="50%">ประเภท</th>
             <th width="5%"> <center> แก้ไข </center></th>
             <th width="5%"> <center> ลบ </center></th>
           </tr>
         </thead>
         <?php if($totalRows_ptype>0){?>
           <?php do { ?>
-            <tr>
+           <tr>
               <td align="center"><?php echo $row_ptype['t_id']; ?></td>
-              <td><?php echo $row_ptype['t_name']; ?></td>
+              <td align="center"><?php echo $row_ptype['t_type']; ?></td>
+              <td align="center"><?php echo $row_ptype['t_name']; ?></td>
               <td><center> <a href="edit_product_type.php?t_id=<?php echo $row_ptype['t_id'];?>" class="btn btn-warning btn-xs"> แก้ไข </a> </center></td>
               <td><center>
-              <a href="del_product_type.php?t_id=<?php echo $row_ptype['t_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการลบ');">
-              ลบ </a></center></td>
-            </tr>
+                <a href="del_product_type.php?t_id=<?php echo $row_ptype['t_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการลบ');">
+                ลบ </a></center></td>
+              </tr>
             <?php } while ($row_ptype = mysql_fetch_assoc($ptype)); ?>
         <?php } ?>
         </table>
