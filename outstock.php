@@ -1,3 +1,4 @@
+
 <style type="text/css">
 	
 .button {
@@ -48,7 +49,6 @@
 </style>
 
 
-
 <?php 
 $qty = $row_prd['p_qty'];
 if($qty <= 0){ ?>
@@ -59,8 +59,9 @@ if($qty <= 0){ ?>
    
    <?php }else{
         ?>
+<!-- <button class="bb" type="button" >add</button> -->
 
-         <a href="index.php?p_id=<?php echo $row_prd['p_id'];?>&act=add" class="button btn1" >
+         <a href="index.php?p_id=<?php echo $row_prd['p_id'];?>&act=add" class="button btn1 bb" >
         <font color="#FFFFE0" > <span class="glyphicon glyphicon-shopping-cart" ></span>สั่งซื้อ</font></a>
 <div class="dissable"></div>
     

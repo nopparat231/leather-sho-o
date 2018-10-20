@@ -66,12 +66,16 @@ if (isset($_POST['mem_username'])) {
    $_SESSION['MM_Username'] = $loginUsername;
    $_SESSION['MM_UserGroup'] = $loginStrGroup;
 
-   if (isset($_SESSION['PrevUrl']) && false) {
+  
+
+  if (isset($_SESSION['PrevUrl']) && false) {
     $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];
+
   }
-  header("Location: " . $MM_redirectLoginSuccess ); //. $MM_redirectLoginSuccess
-}
-else {
+
+   header("Location: " . $MM_redirectLoginSuccess ); //. $MM_redirectLoginSuccess
+ }
+ else {
   header("Location: " . $MM_redirectLoginFailed ); //. $MM_redirectLoginFailed
 }
 }
@@ -114,14 +118,14 @@ else {
               <a href="index.php" type="button"  data-target='#reset_view' data-toggle='modal'>
                 <span class="glyphicon glyphicon-new-window" >ลืมรหัสผ่าน</a>&nbsp;&nbsp;</span>
 
-                 <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-               </div>
-             </div>
-           </div>
-         </form>
-       </div>
-     </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
 
-   </body>
-   </html>
+  </body>
+  </html>

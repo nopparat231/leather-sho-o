@@ -6,12 +6,8 @@
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <script>	
-
-
 $(document).ready(function() {
-
     $('#example').DataTable( {
-
       "aaSorting" :[[0,'desc']],
       "language": {
             "lengthMenu": "แสดง _MENU_ หน้า",
@@ -20,10 +16,7 @@ $(document).ready(function() {
             "infoEmpty": "ไม่พบข้อมูลในตาราง",
             "infoFiltered": "(กรองจาก _MAX_ จำนวนตรารงทั้งหมด)"
         }
-
 	  //"lengthMenu":[[20,50, 100, -1], [20,50, 100,"All"]]
-
 	});
-
 } );
 </script>

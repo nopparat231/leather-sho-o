@@ -245,7 +245,7 @@ input[type='radio']:checked:before {
           <tr>
             <td align="center">จำนวนเงิน</td>
             <td colspan="5" align="left"><label for="pay_amount"></label>
-              <input type="text" name="pay_amount" id="pay_amount"  value="<?php echo number_format($total,2);?>" required="required"/></td>
+              <input type="text" name="pay_amount" id="pay_amount"  value="<?php echo $total;?>" required="required"/></td>
             </tr>
             <tr>
               <td align="center">&nbsp;</td>

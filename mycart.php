@@ -48,7 +48,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
 <?php include('datatable.php'); ?>
 <h3 align="center">รายการสั่งซื้อทั้งหมด</h3><br>
 <h4 align="left" style="color: red;" >*รายการสั่งซื้อจะถูกยกเลิก ถ้าหากไม่ชำระเงินภายใน 3 วัน</h4>
-<table id="example" class="display" cellspacing="0" border="0" >
+<table id="example" class="display" cellspacing="1" border="0" >
 	<thead>
 		<tr >
 			<th>รหัสสั่งซื้อ</th>
@@ -58,9 +58,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
 			<th>วันที่ทำรายการ</th>
 		</tr>
 	</thead>
-	<?php if ($totalRows_mycart > 0) {
-		
-		?>
+	<?php if ($totalRows_mycart > 0) { ?>
 		<?php do { ?>
 			<tr align="center">
 				<td>
@@ -91,11 +89,12 @@ $totalRows_mycart = mysql_num_rows($mycart);
 				</td>
 			</tr>
 
-		<?php } while ($row_mycart = mysql_fetch_assoc($mycart)); ?> 
+		<?php } while ($row_mycart = mysql_fetch_assoc($mycart)); } ?> 
 	</table>
 
 	<?php
-	mysql_free_result($mycart);
-	mysql_free_result($mm);
-}
+
+mysql_free_result($mycart);
+mysql_free_result($mm);
+
 ?>

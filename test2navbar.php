@@ -421,7 +421,8 @@ if (isset($_SESSION['shopping_cart'])) {
 						</div>
 					</form>
 				</li>
-				<li><a href="" class="[ animate glyphicon glyphicon-shopping-cart ]" data-target="#product_view" data-toggle="modal" ><span class="badge"> <?php echo $meQty; ?></span></a></li>
+				<li><a href="" data-target="#product_view" data-toggle="modal" ><img src="img/cart.png" class="cart" width="25" /><span class="badge"> <?php echo $meQty; ?></span></a> </li>
+				
 				<li>
 					<a href="" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">หมวดหมู่ <span class="[ caret ]"></span></a>
 					<ul class="[ dropdown-menu ]" role="menu">

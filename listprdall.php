@@ -44,8 +44,10 @@ $totalRows_prd = mysql_num_rows($prd);
 <?php if ($row_prd['promo'] != 0) {
   echo "<p class='tag'></p>";
 } ?>
-
-  <img src="pimg/<?php echo $row_prd['p_img1'];?>" width="80%" />
+<div class="items">
+  <div class="img">
+  <img src="pimg/<?php echo $row_prd['p_img1'];?>" width="80%"  />
+  </div>
   <p align="center">
     <b><?php echo $row_prd['p_name']; ?> </b>
 <br /><hr class="line">
@@ -66,9 +68,23 @@ $totalRows_prd = mysql_num_rows($prd);
       </p>
       </span>
     </div>
-
+</div>
 
   <?php } while ($row_prd = mysql_fetch_assoc($prd)); ?>
 <?php
 mysql_free_result($prd);
 ?>
+<!-- <script src="js/flyto.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript">
+  
+  $('.items').flyto({
+    item      : '.img',
+    target    : '.cart',
+    button    : '.bb',
+    shake     : true
+
+  });
+</script> -->

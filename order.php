@@ -115,13 +115,8 @@ if($_SESSION['MM_Username']!=''){
           echo "</tr>";
           ?>
         </table>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-5" style="background-color:#f4f4f4">
+     
+ 
         <h3 align="center" style="color:green">
           <span class="glyphicon glyphicon-shopping-cart"> </span>
         ที่อยู่ในการจัดส่งสินค้า  </h3>
@@ -147,10 +142,11 @@ if($_SESSION['MM_Username']!=''){
             <input type="email"  name="email" class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" />
           </div>
         </div>
+        <br>
         <div class="form-group">
           <div class="col-sm-12" align="center">
             <input name="mem_id" type="hidden" id="mem_id" value="<?php echo $row_buyer['mem_id']; ?>">
-
+<br>
             <button type="submit" class="btn btn-primary" id="btn">
             ยืนยันสั่งซื้อ </button>
           </div>
@@ -159,6 +155,7 @@ if($_SESSION['MM_Username']!=''){
     </div>
   </div>
 </div>
+
 <?php
 }
 } else{  

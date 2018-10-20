@@ -4,34 +4,34 @@ session_start();
 
 
 if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
+  function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
+  {
+    if (PHP_VERSION < 6) {
+      $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+    }
 
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+    $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
 
-  switch ($theType) {
-    case "text":
+    switch ($theType) {
+      case "text":
       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
       break;
-    case "long":
-    case "int":
+      case "long":
+      case "int":
       $theValue = ($theValue != "") ? intval($theValue) : "NULL";
       break;
-    case "double":
+      case "double":
       $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
       break;
-    case "date":
+      case "date":
       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
       break;
-    case "defined":
+      case "defined":
       $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
       break;
+    }
+    return $theValue;
   }
-  return $theValue;
-}
 }
 
 $colname_pf = "-1";
@@ -47,65 +47,66 @@ $totalRows_pf = mysql_num_rows($pf);
 
 <!DOCTYPE html>
 <html lang="en" >
-  <head>
-    <meta charset="utf-8">
-    <?php include('h.php'); ?>
-    <?php include('datatable.php'); ?>
-    <title></title>
-  </head>
-  <body>
-    <div>
-      
-      <?php include('test2navbar.php') ?>
-    </div>
-<div class="container">
-  <div class="row">
+<head>
+  <meta charset="utf-8">
+  <?php include('h.php'); ?>
+  <?php include('datatable.php'); ?>
+  <title></title>
+</head>
+<body>
+  <div>
     
-
-<!-- start show prd -->
-  <div class="col-md-3" id="hp">
-    
-    <?php include('category2.php') ?>
+    <?php include('test2navbar.php') ?>
   </div>
-    <!-- content -->
-    
-   <!--  <div class="col-md-8" > -->
-    <?php
-    $page = $_GET['page'];
-    $mem_id = $_GET['mem_id'];
-  
-
-    if ($page == 'mycart') {
-       echo "<div class='col-md-8' >";
-     include('mycart.php');
-      echo "</div>";
-    }elseif ($mem_id != '') {
-    echo "<div class='col-md-8' >";
-     include('edit_profile.php');
-      echo "</div>";
-    } else  {
-      echo "<div class='col-md-8' >";
-      include('detail_order_afer_cartdone.php');
-      echo "</div>";
-    } 
+  <div class="container">
+    <div class="row">
       
 
- 
+      <!-- start show prd -->
+      <div class="col-md-3" id="hp">
+        
+        <?php include('category2.php') ?>
+      </div>
+      <!-- content -->
+      
+      <div class="col-md-9" >
+        <?php
+        $page = $_GET['page'];
+        $mem_id = $_GET['mem_id'];
+        
 
-     ?>
-    <!--  </div> -->
-   
+        if ($page == 'mycart') {
+         
+         include('mycart.php');
+         
+       }elseif ($mem_id != '') {
+         
+         include('edit_profile.php');
+         
+       } else  {
+         
+        include('detail_order_afer_cartdone.php');
+        
+      } 
+      
+
+
+
+      ?>
+    </div>
+    <div class="col-md-12" >
+      <?php  include 'f.php'; ?>
+    </div>
+  </div>
+
 </div>
-
-</div>
- <!-- end show prd -->
+<!-- end show prd -->
 
 
-  </body>
+</body>
+
 </html>
-<?php
 
-include ('f.php');
- ?>
 
- 
+
+

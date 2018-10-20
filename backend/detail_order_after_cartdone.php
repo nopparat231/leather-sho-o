@@ -166,7 +166,7 @@ if ($row_cartdone['postcode'] == 0 && $row_cartdone['order_status'] != 3  ) {?>
       $sumems +=$ems;
       ?>
       <tr>
-        <td align="center"><?php echo $row_cartdone['order_id'];?></td>
+        <td align="center">JN<?php echo str_pad($row_cartdone['order_id'], 6, "0", STR_PAD_LEFT);?></td>
         <td><?php echo $row_cartdone['p_name'];?></td>
         <td align="center"><?php echo $row_cartdone['p_size'];?></td>
         <td align="center"><?php echo number_format($row_cartdone['p_price'],2);?></td>
