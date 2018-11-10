@@ -7,16 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include('h.php');?>
   <?php include('datatable.php');?>
-</head>
+</head> <?php include('navbar.php');?>
 <body>
-  <div class="container">
-    <?php include('navbar.php');?>
-    <div class="row">
-    	<div class="col-md-2">
 
-        <?php include('menu.php');?>        	 
-      </div>
-      <div class="col-md-10">
+    <?php //include('menu.php');?> 
+  <div class="container">
+
+    <div class="row">
+    	
+      <div class="col-md-3">
+  
+</div>
+    <div class="col-md-9">
         <h3 align="center">  เพิ่ม  Admin </h3>
 <div class="table-responsive">
         <form  name="register" action="add_admin_db.php" method="POST" id="register" class="form-horizontal">
@@ -72,12 +74,18 @@
           <div class="col-sm-2" align="right"> เลือกสถานะ : </div>
           <div class="col-sm-7" align="left">
 
-            <select name="status">
+           <select name="admin_status">
+              <?php if (isset($_GET['admin'])): ?>
+                 <option value="admin">admin</option>
+              <?php endif ?>
+                <?php if (isset($_GET['staff'])): ?>
              <option value="staff">staff</option>
-             <option value="admin">admin</option>
+             <?php endif ?>
+             <?php if (isset($_GET['superadmin'])): ?>
              <option value="superadmin">superadmin</option>
+             <?php endif ?>
 
-           </select>
+          </select>
          </div>
        </div>
 

@@ -47,7 +47,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
 ?>
 
 <h3 align="center">ส่งของแล้ว</h3>
-<table id="example" class="display" cellspacing="0" border="1">
+<table id="example" class="display" cellspacing="0" border="0">
 	<thead>
 		<tr>
 			<th>รหัสสั่งซื้อ</th>

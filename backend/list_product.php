@@ -50,19 +50,20 @@ $totalRows_prd = mysql_num_rows($prd);
 	<?php include('h.php');?>
     <?php include('datatable.php');?>
 
-  </head>
-  <body>
-    <?php include('navbar.php');?>
+  </head>    <?php include('navbar.php');?>
+  <body> <?php //include('menu.php');?>
+
   <div class="container">
   
          
   
     <div class="row">
-    	<div class="col-md-2">
+    
        
-        <?php include('menu.php');?>
-      </div>
-      <div class="col-md-10">
+<div class="col-md-3">
+  
+</div>
+    <div class="col-md-9">
         <h3 align="center"> รายการสินค้า <a href="add_product.php" class="btn btn-primary"> เพิ่มสินค้า </a> </h3>
         <div class="table-responsive">
            <table width="100%" border="1" cellspacing="0" class="display" id="example">

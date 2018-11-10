@@ -46,47 +46,40 @@ $totalRows_ptype = mysql_num_rows($ptype);
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('h.php');?>
     <?php include('datatable.php');?>
-  </head> <?php include('navbar.php');?>
-  <body><?php //include('menu.php');?>
-  
+  </head><?php //include('menu.php');?>  <?php include('navbar.php');?>
+  <body>  
   <div class="container">
   
-         
-  
-    <div class="row">
+  	<div class="row">
     
-       <div class="col-md-3">
+<div class="col-md-3">
   
 </div>
     <div class="col-md-9">
-        <h3 align="center"> ประเภทสินค้า <a href="add_product_type.php" class="btn btn-primary"> เพิ่มประเภท </a> </h3>
-        <table id="example" class="display" cellspacing="0" border="1">
-		  <thead>
+        <h3 align="center"> ประเภทสินค้า </h3>
+        <table id="example1" class="display" cellspacing="0" border="0">
+		<thead>
           <tr>
-            <th width="5%">รหัส</th>
-            <th width="50%">ชื่อย่อ</th>
-            <th width="50%">ประเภท</th>
-            <th width="5%"> <center> แก้ไข </center></th>
-            <th width="5%"> <center> ลบ </center></th>
+             <th>ลำดับที่</th>
+            <th >ชื่อประเภท</th>
+            
           </tr>
         </thead>
+        <tbody>
         <?php if($totalRows_ptype>0){?>
-
           <?php 
-$i =1;  
+$i = 1;
           do { ?>
-           <tr>
-              <td align="center"><?php echo $i; ?></td>
-              <td align="center"><?php echo $row_ptype['t_type']; ?></td>
-              <td align="center"><?php echo $row_ptype['t_name']; ?></td>
-              <td><center> <a href="edit_product_type.php?t_id=<?php echo $row_ptype['t_id'];?>" class="btn btn-warning btn-xs"> แก้ไข </a> </center></td>
-              <td><center>
-                <a href="del_product_type.php?t_id=<?php echo $row_ptype['t_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการลบ');">
-                ลบ </a></center></td>
-              </tr>
-              <?php $i +=1; ?>
-            <?php } while ($row_ptype = mysql_fetch_assoc($ptype)); ?>
+            <tr>
+               <td align="center" valign="top"><?php echo $i; ?></td>
+              
+              <td  align="center" valign="top"><?php echo $row_ptype['t_name']; ?></td>
+            </tr>
+            <?php 
+  $i += 1;
+          } while ($row_ptype = mysql_fetch_assoc($ptype)); ?>
         <?php } ?>
+        </tbody>
         </table>
       </div>
     </div>

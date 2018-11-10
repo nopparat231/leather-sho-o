@@ -50,18 +50,20 @@ $totalRows_editadmin = mysql_num_rows($editadmin);
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('h.php');?>
     <?php include('datatable.php');?>
-  </head>
+  </head> <?php include('navbar.php');?>
   <body>
-  <div class="container">
-  <div class="row">
-         <?php include('navbar.php');?>
-   </div>
-  	<div class="row">
-    	<div class="col-md-2">
+
       
-        <?php include('menu.php');?>
-      </div>
-        <div class="col-md-10">
+        <?php //include('menu.php');?>
+    
+      <div class="container">
+
+  	<div class="row">
+    	
+    <div class="col-md-3">
+  
+</div>
+    <div class="col-md-9">
         <h3 align="center">  แก้ไข  Admin  <?php include('edit-ok.php');?> </h3>
 <div class="table-responsive">
     <form  name="register" action="edit_admin_db.php" method="POST" id="register" class="form-horizontal">

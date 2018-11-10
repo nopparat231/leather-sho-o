@@ -50,18 +50,19 @@ $totalRows_editbank = mysql_num_rows($editbank);
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('h.php');?>
     <?php include('datatable.php');?>
-  </head>
-  <body>
+  </head> <?php include('navbar.php');?>
+  <body><?php //include('menu.php');?>
   <div class="container">
-  <div class="row">
-         <?php include('navbar.php');?>
-   </div>
+
   	<div class="row">
-    	<div class="col-md-2">
+    	
       
-        <?php include('menu.php');?>
-      </div>
-        <div class="col-md-10">
+        
+
+       <div class="col-md-3">
+  
+</div>
+    <div class="col-md-9">
         <h3 align="center">  แก้ไข  Admin  <?php include('edit-ok.php');?> </h3>
 <div class="table-responsive">
    <form action="edit_bank_db.php?bank_id=<?php echo $row_editbank['b_id']; ?> "  method="post" enctype="multipart/form-data" name="Add_Product" id="Add_Product" >

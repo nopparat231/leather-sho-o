@@ -8,29 +8,36 @@
   <?php include('h.php');?>
   <?php include('datatable.php');?>
 
-</head>
+</head> <?php include('navbar.php'); ?>
 <body>
-  <?php include('navbar.php');?>
+  <?php // include('menu.php');  ?>
   <div class="container">
 
 
 
   	<div class="row">
-     <div class="col-md-2">
+     <div class="col-md-3">
 
       <span id="hp">
-        <?php include('menu.php');
+        <?php 
         include 'report_db.php';     
         ?>
       </span>
 
     </div>
-    <div class="col-md-10 " >
+    <div class="col-md-9" >
       <br />
-      <a href="index.php?act=show-new" class="btn btn-danger" id="hp">รอชำระเงิน <span class="badge"><?php echo $totalRows_ptype1; ?></span></a>
+<p><h4> ยินดีต้อนรับ</h4></p>
+      <?php 
+      if ($row_mm['status'] == 'staff') 
+       { ?>
+          <a href="index.php?act=show-new" class="btn btn-danger" id="hp">รอชำระเงิน <span class="badge"><?php echo $totalRows_ptype1; ?></span></a>
       <a href="index.php?act=show-payed" class="btn btn-success" id="hp">ชำระเงินแล้ว <span class="badge"><?php echo $totalRows_ptype2; ?></span></a>
       <a href="index.php?act=show-post" class="btn btn-info" id="hp">ส่งของแล้ว <span class="badge"><?php echo $totalRows_ptype3; ?></span></a>
       <a href="index.php?act=show-cancel" class="btn btn-danger" id="hp">ยกเลิกคำสั่งซื้อ <span class="badge"><?php echo $totalRows_ptype4; ?></span></a>
+       <?php } ?>
+
+     
       <br />
       <br />
       <?php

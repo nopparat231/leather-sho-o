@@ -61,7 +61,7 @@ if($qty <= 0){ ?>
         ?>
 <!-- <button class="bb" type="button" >add</button> -->
 
-         <a href="index.php?p_id=<?php echo $row_prd['p_id'];?>&act=add" class="button btn1 bb" >
+         <a href="index.php?p_id=<?php echo $row_prd['p_id'];?>&act=add" class="button btn1 bb"  onclick="return confirm('คุณต้องการลบสินค้านี้หรือไม่?');" >
         <font color="#FFFFE0" > <span class="glyphicon glyphicon-shopping-cart" ></span>สั่งซื้อ</font></a>
 <div class="dissable"></div>
     

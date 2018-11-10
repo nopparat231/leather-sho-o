@@ -69,18 +69,19 @@ $totalRows_prd = mysql_num_rows($prd);
   <!-- ckeditor-->
   <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 
-</head>
-<body>
+</head> <?php include('navbar.php');?>
+<body>   <?php //include('menu.php');?>
   <div class="container">
-    <div class="row">
-     <?php include('navbar.php');?>
-   </div>
-   <div class="row">
-     <div class="col-md-2">
 
-      <?php include('menu.php');?>
-    </div>
-    <div class="col-md-10">
+   <div class="row">
+  
+
+   
+ 
+   <div class="col-md-3">
+  
+</div>
+    <div class="col-md-9">
       <h3 align="center"> แก้ไขข้อมูลสินค้า
        <?php include('edit-ok.php');?>
      </h3>

@@ -46,19 +46,20 @@ $totalRows_lbk = mysql_num_rows($lbk);
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include('h.php');?>
     <?php include('datatable.php');?>
-  </head>
+  </head>  <?php include('navbar.php');?>
   <body>
-  <?php include('navbar.php');?>
+
+  <?php //include('menu.php');?>
   <div class="container">
   
          
   
     <div class="row">
-      <div class="col-md-2">
-       
-        <?php include('menu.php');?>
-      </div>
-        <div class="col-md-10">
+     
+      <div class="col-md-3">
+  
+</div>
+    <div class="col-md-9">
         <h3 align="center"> รายการ Bank  <a href="add_bank.php" class="btn btn-primary"> + เพิ่ม </a> </h3>
         <div class="table-responsive">
           <table id="example" class="display" cellspacing="0" border="1">
