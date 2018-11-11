@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2018 at 07:12 PM
+-- Generation Time: Nov 11, 2018 at 04:04 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -136,7 +136,7 @@ CREATE TABLE `tbl_order` (
   `pay_date` date DEFAULT NULL,
   `pay_amount` float(10,2) DEFAULT NULL,
   `postcode` varchar(30) DEFAULT NULL,
-  `order_date` datetime NOT NULL
+  `order_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -144,9 +144,9 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`order_id`, `mem_id`, `name`, `address`, `email`, `phone`, `order_status`, `pay_slip`, `b_name`, `b_number`, `pay_date`, `pay_amount`, `postcode`, `order_date`) VALUES
-(000006, 17, 'ddd', 'ddd', '23.noop@gmail.com', '3333333333', 2, '50476915920181020_143424.jpg', 'กสิกรไทย', '543-1534-54634-212', '2018-10-20', 9014.30, '', '2018-10-20 14:33:58'),
-(000007, 17, 'ddd', 'ddd', '23.noop@gmail.com', '3333333333', 4, '', '', '', '0000-00-00', 0.00, '', '2018-10-20 14:52:58'),
-(000008, 17, 'ddd', 'ddd', '23.noop@gmail.com', '3333333333', 4, '', '', '', '0000-00-00', 0.00, '', '2018-10-20 15:14:15');
+(000006, 17, 'ddd', 'ddd', '23.noop@gmail.com', '3333333333', 2, '50476915920181020_143424.jpg', 'กสิกรไทย', '543-1534-54634-212', '2018-10-20', 9014.30, '', '2018-10-20'),
+(000007, 17, 'ddd', 'ddd', '23.noop@gmail.com', '3333333333', 4, '', '', '', '0000-00-00', 0.00, '', '2018-10-20'),
+(000008, 17, 'ddd', 'ddd', '23.noop@gmail.com', '3333333333', 4, '', '', '', '0000-00-00', 0.00, '', '2018-10-20');
 
 -- --------------------------------------------------------
 

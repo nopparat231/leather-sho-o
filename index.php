@@ -56,11 +56,7 @@ include('h.php');?>
         <hr>
         <?php include('listprd_by_view.php');?>
 <h4 align="center">ยอดเข้าชมเว็บไซร์<br>
-<a href="http://www.rapidcounter.com/signup.php" target="_top"><img border="0" alt="Counter" src="http://counter.rapidcounter.com/counter/1540005700/a"; ALIGN="middle" HSPACE="4" VSPACE="2"></a><script src=http://counter.rapidcounter.com/script/1540005700></script></h4>
-<script type="text/javascript" src="//counter.websiteout.net/js/7/6/0/0">
-</script> <br>
-<script type="text/javascript" src="//counter.websiteout.net/js/7/6/0/1">
-</script>
+<a href="http://www.rapidcounter.com/signup.php" target="_top"><img border="0" alt="Counter" src="http://counter.rapidcounter.com/counter/1540005700/a"; ALIGN="middle" HSPACE="4" VSPACE="2"></a>
       </div>
 
 
