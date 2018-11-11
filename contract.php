@@ -8,32 +8,32 @@
                   <div class="table-responsive">
                 <table border="0" align="center" class="table table-hover">
                   <tr>
-                          <td><img src="https://dg.lnwfile.com/_/dg/_resize/200/200/vl/mg/38.png" alt="payment method paypal"></td>
-                          <td><b>ชื่อร้านค้า </b>
-                  Visa Autoshop ประดับยนต์ <br><br>
+                            <td><img src="img/logo.jpg" alt="payment method paypal"width="100%"></td>
+                            <td><b>ชื่อร้านค้า </b>
+                    ร้านจันผา <br><br>
 
-                <b>  รายละเอียดร้านค้า </b>
-                  ผู้นำด้านประดับยนต์ ออกแบบ คิดค้น ผลิต ส่งออกทั่วโลก ขายส่งราคาถูก Car accessories ตัวนูนติดรถยนต์ 3D emblem ไฟท้ายเต็มดวง ไฟส่องประตู ไฟLED
-                   อัพเกรดสีภายใน LED scuff plate ไฟตัวหนังสือด้านท้าย ควบคุมโดยทีมงานวิศวกรมืออาชีพ<br>
-                  <b>Facebook</b>
-                  <a href="facebook.com/visaautoshop">facebook.com/visaautoshop</a><br>
-                  <b>Google+</b>
-                  <a href="google.com/visa.autoshop">google.com/visa.autoshop</a><br>
-                  <b>WhatsApp</b>
-                  +66817764280<br>
-                  <b>Line</b>
-                  @visa-autoshop<br>
-<img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Flnwgo.com%2Fqr%2Fs%2F328549%3Fs%3D280ef90c&chs=132x132" >
+                  <b>  รายละเอียดร้านค้า </b>
+                   ผลิตจากหนังคุณภาพ คัดเกรดพรีเมี่ยม มาตัดเย็บโดยเฉพาะ มีช่างทีมีประสพการณ์ในการตัดเย็บเครื่องหนังมากกว่า 10 ปี
+                   หลายท่าน ความเชี่ยวชาญเหล่านี้ทำให้เกิดผลิตภัณฑ์ที่สวยงาม มีดีไซน์ล้ำสมัย ดูเท่ห์ มีเสน่ห์ ที่สำคัญ ทนทาน ใช้ได้นาน <br>
+                    <b>Facebook</b>
+                    <a href="facebook.com/visaautoshop">facebook.com/visaautoshop</a><br>
+                    <b>Google+</b>
+                    <a href="google.com/visa.autoshop">google.com/visa.autoshop</a><br>
+                    <b>WhatsApp</b>
+                    +66817764280<br>
+                    <b>Line</b>
+                    @visa-autoshop<br>
+  <img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Flnwgo.com%2Fqr%2Fs%2F328549%3Fs%3D280ef90c&chs=132x132" >
+                    <br>
+                    </td>
+
+                    </tr>
+
+                  </table>
+  <img src="img/map.png" width="100%" >
+          </div><p align="right" >
+  <button type="button" class="btn btn-default" data-dismiss="modal"  >ปิด</button>
                   <br>
-                  </td>
-
-                  </tr>
-
-                </table>
-<img src="https://dg.lnwfile.com/_/dg/_raw/y5/dm/4e.jpg" width="100%" >
-        </div><p align="right" >
-<button type="button" class="btn btn-default" data-dismiss="modal"  >ปิด</button>
-                <br>
 
 </p>
       </div>

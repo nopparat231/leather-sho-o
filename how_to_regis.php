@@ -8,10 +8,22 @@
                  <div class="table-responsive">
                <table border="0" align="center" class="table table-hover">
 
-                 <h1>วิธีสมัครเฟส (Facebook) สามารถทำได้ตามน</h1><br>
-                 1. เริ่มต้นเข้าไปที่ https://www.facebook.com จะพบหน้าตามรูปด้านล่าง<br>
-                 <img src="http://share.olanlab.com/userfiles/olan/images/facebook/signup/facebook-signup-01.jpg" alt="" width="100%">
+                 <h1>วิธีสมัครร้านจันผาสามารถทำได้ตามนี้</h1><br>
+
+                 <img src="img/howtoregis.png" width="100%">
+                <br>
                  <br>
+                 1.ชื่อผู้ใช้ : ชื่อสำหรับเข้าสู่ระบบ   <br>
+
+                 2.รหัสผ่าน : รหัสผ่านที่จะใช้เข้าสู่ระบบ  <br>
+
+                 3.ชื่อ-สกุล : ชื่อจริงนามสกุลของคุณ <br>
+
+                 4.ที่อยู่ : ที่อยู่ปัจจุบันข้อมูลที่อยู่ของคุณจะถูกใช้ในกาจัดส่ง     <br>
+
+                 5.เบอร์โทร : ใช้ในการติดต่อเท่านั้น  <br>
+
+                 6.อีเมล :  อีเมลสำหรับรับข้อมูลทั้งหมดยื่นยัน     <br>
 
                </table>
 

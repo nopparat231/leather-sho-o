@@ -1,5 +1,5 @@
 <?php 
-$condb = mysqli_connect("localhost", "root", "", "bike-shop");
+$condb = mysqli_connect("localhost", "root", "", "leather-shop");
 $columns = array('order_id', 'name', 'order_status' , 'order_date', 'pay_amount');
 //$columns = array('order_id', 'name', 'address', 'pay_amount', 'order_date');
 

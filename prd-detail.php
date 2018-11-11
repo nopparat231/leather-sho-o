@@ -66,15 +66,15 @@ mysql_query($sql , $condb);
     <?php if ($row_prdt['p_img2'] != "") {?>
       <img src="pimg/<?php echo $row_prdt['p_img2'];?>" class="img img-responsive">
       <br>
-    <?php } if ($row_prdt['p_img3'] != "") { ?>
+    <?php } if ($row_prdt['p_img3'] != "") {?>
       <img src="pimg/<?php echo $row_prdt['p_img3'];?>" class="img img-responsive">
       <br>
-     <?php} if ($row_prdt['p_img4'] != "") {?>
+     <?php } if ($row_prdt['p_img4'] != "") {?>
       <img src="pimg/<?php echo $row_prdt['p_img4'];?>" class="img img-responsive">
       <br>
     <?php } if ($row_prdt['p_img5'] != "") {?>
       <img src="pimg/<?php echo $row_prdt['p_img5'];?>" class="img img-responsive">
-      <br>   
+      <br>
 
        <?php } ?>
 
@@ -85,7 +85,7 @@ mysql_query($sql , $condb);
    <h4>  ชื่อสินค้า :  <?php echo $row_prdt['p_name']; ?> </h4>
    รายละเอียด : <?php echo $row_prdt['p_detial']; ?>
    <font color="#B22222">
-    <h3> ราคา 
+    <h3> ราคา
       <?php if ($row_prdt['promo'] != 0) {
         echo " <font color='#8B0000'><strike>".number_format($row_prdt['promo'])."</strike></font>";
       } ?>

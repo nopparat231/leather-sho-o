@@ -1,6 +1,6 @@
 
 <style type="text/css">
-	
+
 .button {
     background-color:   #DC143C;
     border: none;
@@ -49,20 +49,20 @@
 </style>
 
 
-<?php 
+<?php
 $qty = $row_prd['p_qty'];
 if($qty <= 0){ ?>
 
  <p dissable class="button btn2" >
         <font color="#CC7E6D" > <span class="glyphicon glyphicon-shopping-cart" ></span>สินค้าหมด</font></p>
 
-   
+
    <?php }else{
         ?>
 <!-- <button class="bb" type="button" >add</button> -->
 
-         <a href="index.php?p_id=<?php echo $row_prd['p_id'];?>&act=add" class="button btn1 bb"  onclick="return confirm('คุณต้องการลบสินค้านี้หรือไม่?');" >
+         <a href="index.php?p_id=<?php echo $row_prd['p_id'];?>&act=add" onclick="return confirm('คุณต้องกาสั่งสินค้านี้หรือไม่?');" class="button btn1 bb" >
         <font color="#FFFFE0" > <span class="glyphicon glyphicon-shopping-cart" ></span>สั่งซื้อ</font></a>
 <div class="dissable"></div>
-    
+
 <?php } ?>
