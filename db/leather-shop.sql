@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2018 at 05:02 AM
+-- Generation Time: Nov 12, 2018 at 05:16 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -226,6 +226,30 @@ INSERT INTO `tbl_product` (`p_id`, `t_id`, `p_name`, `p_detial`, `p_price`, `p_u
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_sell`
+--
+
+CREATE TABLE `tbl_sell` (
+  `s_id` int(11) NOT NULL,
+  `s_number` varchar(50) NOT NULL,
+  `sn_number` varchar(50) NOT NULL,
+  `s_price` varchar(50) NOT NULL,
+  `s_date` date NOT NULL,
+  `sn_date` date NOT NULL,
+  `s_bill` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_sell`
+--
+
+INSERT INTO `tbl_sell` (`s_id`, `s_number`, `sn_number`, `s_price`, `s_date`, `sn_date`, `s_bill`) VALUES
+(1, 'MS985', '544', '285', '2018-11-12', '2018-11-13', 'imgbill58378312320181112_230838.jpg'),
+(2, 'SM213', '646', '793', '2018-11-01', '2018-11-18', 'imgbill98764383120181112_231235.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_type`
 --
 
@@ -297,6 +321,12 @@ ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`p_id`);
 
 --
+-- Indexes for table `tbl_sell`
+--
+ALTER TABLE `tbl_sell`
+  ADD PRIMARY KEY (`s_id`);
+
+--
 -- Indexes for table `tbl_type`
 --
 ALTER TABLE `tbl_type`
@@ -347,6 +377,12 @@ ALTER TABLE `tbl_order_detail`
 --
 ALTER TABLE `tbl_product`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `tbl_sell`
+--
+ALTER TABLE `tbl_sell`
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_type`
