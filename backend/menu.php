@@ -21,7 +21,6 @@
 		<li><a href="report_all_prd.php" class="list-group-item">รายงานข้อมูลสินค้า</a></li>
 		<li><a href="report_order.php" class="list-group-item">รายงานการสั่งซื้อ</a></li>
 		<li><a href="report_all_type.php" class="list-group-item">รายงานประเภทสินค้า</a></li>
-		<li><a href="report_all_sell.php" class="list-group-item">รายงานตรวจรับสินค้า</a></li>
 		<li><a href="report_all_bank.php" class="list-group-item">รายงานข้อมูลธนาคาร</a></li>
 		<li><a href="../logout_admin.php" class="list-group-item list-group-item-danger" >-ออกจากระบบ</a></li>
 
@@ -29,7 +28,6 @@
 	 { ?>
 	 	<li><a href="list_product_type.php" class="list-group-item">-จัดการประเภทสินค้า</a></li>
 	 	<li><a href="list_product.php" class="list-group-item">-จัดการสินค้า</a></li>
-	 	<li><a href="list_bank.php" class="list-group-item">-จัดการข้อมูลธนาคาร</a></li>
 	 	<li><a href="list_bank.php" class="list-group-item">-จัดการข้อมูลธนาคาร</a></li>
 		<li><a href="../logout_admin.php" class="list-group-item list-group-item-danger">-ออกจากระบบ</a></li>
 <?php } ?>

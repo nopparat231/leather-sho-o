@@ -16,14 +16,12 @@
                    ผลิตจากหนังคุณภาพ คัดเกรดพรีเมี่ยม มาตัดเย็บโดยเฉพาะ มีช่างทีมีประสพการณ์ในการตัดเย็บเครื่องหนังมากกว่า 10 ปี
                    หลายท่าน ความเชี่ยวชาญเหล่านี้ทำให้เกิดผลิตภัณฑ์ที่สวยงาม มีดีไซน์ล้ำสมัย ดูเท่ห์ มีเสน่ห์ ที่สำคัญ ทนทาน ใช้ได้นาน <br>
                     <b>Facebook</b>
-                    <a href="facebook.com/visaautoshop">facebook.com/visaautoshop</a><br>
+                    <a href="facebook.com/visaautoshop">www.facebook.com</a><br>
                     <b>Google+</b>
-                    <a href="google.com/visa.autoshop">google.com/visa.autoshop</a><br>
-                    <b>WhatsApp</b>
-                    +66817764280<br>
+                    <a href="google.com/visa.autoshop">www.google.com</a><br>
                     <b>Line</b>
-                    @visa-autoshop<br>
-  <img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Flnwgo.com%2Fqr%2Fs%2F328549%3Fs%3D280ef90c&chs=132x132" >
+                    @<br>
+  <img src="img/QR.png" width="30%" >
                     <br>
                     </td>
 
