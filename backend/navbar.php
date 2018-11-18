@@ -31,6 +31,7 @@
 
 						<li><a href="list_product_type.php">-จัดการประเภทสินค้า</a></li>
 						<li><a href="list_product.php">-จัดการสินค้า</a></li>
+						<li><a href="list_sell.php">-จัดการตรวจรับสินค้า</a></li>
 						<li><a href="list_bank.php">-จัดการข้อมูลธนาคาร</a></li>
 						<li><a href="../logout_admin.php">-ออกจากระบบ</a></li>
 					<?php } elseif ($row_mm['status'] == 'superadmin') { ?>
@@ -38,8 +39,9 @@
 						<li><a href="list_admin.php">รายงานผู้ดูแลระบบ</a></li>
 						<li><a href="list_member.php">รายงานข้อมูลสมาชิค</a></li>
 						<li><a href="report_all_prd.php">รายงานข้อมูลสินค้า</a></li>
-						<li><a href="report_order.php">รายงานการสั่งซื้อ</a></li>
-						<li><a href="report_all_type.php">รายงานประเภทสินค้า</a></li>
+						<li><a href="report_order.php">รายงานข้อมูลการสั่งซื้อ</a></li>
+						<li><a href="report_all_type.php">รายงานข้อมูลประเภทสินค้า</a></li>
+						<li><a href="report_all_sell.php">รายงานตรวจรับสินค้า</a></li>
 						<li><a href="report_all_bank.php">รายงานข้อมูลธนาคาร</a></li>
 						<li><a href="../logout_admin.php">-ออกจากระบบ</a></li>
 					<?php } ?>

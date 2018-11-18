@@ -41,7 +41,9 @@
     </tr>
     <tr>
       <td align="right" valign="middle">เลขบัญชี :</td>
-      <td colspan="2"><input name="b_number" type="text" required id="b_number" size="60"/></td>
+      <td colspan="2"><input name="b_number"id="input-num" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type="tel"
+                      maxlength = "10" onkeyup="num();" size="60"/></td>
     </tr>
     <tr>
       <td align="right" valign="top">&nbsp;</td>
@@ -73,7 +75,7 @@
     </tr>
 
     <tr>
-      <td align="right" valign="middle">Logo</td>
+      <td align="right" valign="middle">Logo : </td>
       <td colspan="2"><label for="b_logo"></label>
         <input type="file" name="b_logo" id="b_logo" required></td>
     </tr>
@@ -96,3 +98,16 @@
 </html>
 
 <?php include('f.php');?>
+
+<script type="text/javascript">
+  
+  function validate() {
+  var element = document.getElementById('input-field');
+  element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+};
+
+function num() {
+  var element = document.getElementById('input-num');
+  element.value = element.value.replace(/[^0-9]+/, '');
+};
+</script>

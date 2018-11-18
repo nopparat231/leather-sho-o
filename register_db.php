@@ -15,14 +15,24 @@ $user = "user";
 $session_id = session_id();
 $no = "no";
 mysql_select_db($database_condb);
-$check = "SELECT * FROM tbl_member WHERE mem_username = '$mem_username'";
+$check = "SELECT * FROM tbl_member WHERE mem_username = '$mem_username' ";
 $result = mysql_query($check,$condb);
 $num = mysql_num_rows($result);
 
+$checkemail = "SELECT * FROM tbl_member WHERE mem_email = '$mem_email' ";
+$resultemail = mysql_query($checkemail,$condb);
+$numemail = mysql_num_rows($resultemail);
 
 if ($num > 0 ){
 	echo"<script>";
 	echo"alert('ชื่อผู้ใช้ นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง');";
+	echo"window.location = 'index.php';";
+	echo"</script>";
+
+
+}elseif ($numemail > 0 ){
+	echo"<script>";
+	echo"alert('Email นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง');";
 	echo"window.location = 'index.php';";
 	echo"</script>";
 

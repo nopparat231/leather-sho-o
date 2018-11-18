@@ -41,7 +41,7 @@
       <div class="form-group">
         <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
         <div class="col-sm-10" align="left">
-          <input  name="mem_name" type="text" required class="form-control" id="mem_name" placeholder="ชื่อ-สกุล" />
+          <input  name="mem_name" type="text" pattern="^[a-zA-Z]+$" required class="form-control" id="input-field" placeholder="ชื่อ-สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" />
         </div>
       </div>
 
@@ -53,9 +53,11 @@
       </div>
 
       <div class="form-group">
-        <div class="col-sm-2" align="right"> เบอร์โทร : </div>
+        <div class="col-sm-2" align="right">เบอร์โทร: </div>
         <div class="col-sm-10" align="left">
-          <input  name="mem_tel" type="text" required class="form-control" id="mem_tel" placeholder="0912345678" pattern="[0-9]{10}" minlength="2" maxlength="10" title="เบอร์โทร 0-9"/>
+          <input  name="mem_tel" required class="form-control" id="input-num" placeholder="0912345678" pattern="[0-9]{10}" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="tel"
+          maxlength = "10" onkeyup="num();"/>
         </div>
       </div>
 
@@ -65,17 +67,17 @@
           <input  name="mem_email" type="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required class="form-control" id="mem_email" placeholder="อีเมล" title="กรุณากรอก อีเมล ให้ถูกต้อง" minlength="2"/>
         </div>
       </div>
- <div class="modal-footer">
-      <div class="form-group">
-        <!-- สมัครสมาชิก -->
+      <div class="modal-footer">
+        <div class="form-group">
+          <!-- สมัครสมาชิก -->
 
 
           <button type="button" class="btn btn-default pull-left" id="btn" data-target="#how_to_regis" data-toggle="modal">วิธีสมัครสมาชิก</button>
 
 
-          <button type="button" class="btn btn-primary" id="btn"> สมัครสมาชิก  </button>
+          <button type="submit" class="btn btn-primary"> สมัครสมาชิก  </button>
 
-        <button type="button" class="btn btn-default" id="btn" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-default" id="btn2" data-dismiss="modal">ยกเลิก</button>
 
         </div>
       </div>
@@ -86,3 +88,16 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+
+  function validate() {
+    var element = document.getElementById('input-field');
+    element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+  };
+
+  function num() {
+    var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+</script>

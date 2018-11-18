@@ -52,12 +52,8 @@
         include('show_cancel_cart.php');
       }elseif ($act == 'show-new'){
         include('show_new_cart.php');
-      }elseif ($row_mm['status'] == 'superadmin') {
-        include 'tbl_order.php';
-        include 'mm.php';
-
-        include 'report.php';
       }
+      
 
 
 
