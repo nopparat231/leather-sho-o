@@ -45,7 +45,7 @@
         <div class="form-group">
           <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
           <div class="col-sm-5" align="left">
-            <input  name="admin_name" type="text" required class="form-control" id="admin_name" placeholder="ชื่อ-สกุล" />
+            <input  name="admin_name" type="text" required class="form-control" onkeyup="validate();" id="input-field" placeholder="ชื่อ-สกุล" />
           </div>
         </div>
 
@@ -59,7 +59,9 @@
       <div class="form-group">
         <div class="col-sm-2" align="right"> เบอร์โทร : </div>
         <div class="col-sm-5" align="left">
-          <input  name="admin_tel" type="text" required class="form-control" id="admin_tel" placeholder="0912345678" pattern="[0-9]{10}" minlength="2" title="เบอร์โทร 0-9" minlength="2"/>
+          <input  name="admin_tel" type="text" required class="form-control"  id="input-num" placeholder="0912345678" pattern="[0-9]{10}" minlength="2" title="เบอร์โทร 0-9"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="tel"
+          maxlength = "10" onkeyup="num();"/>
         </div>
       </div>
 
@@ -109,3 +111,16 @@
 </body>
 </html>
 <?php  include('f.php');?>
+
+<script type="text/javascript">
+
+  function validate() {
+    var element = document.getElementById('input-field');
+    element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+  };
+
+  function num() {
+    var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+</script>

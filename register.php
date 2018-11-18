@@ -41,7 +41,7 @@
       <div class="form-group">
         <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
         <div class="col-sm-10" align="left">
-          <input  name="mem_name" type="text" pattern="^[a-zA-Z]+$" required class="form-control" id="input-field" placeholder="ชื่อ-สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" />
+          <input  name="mem_name" type="text" pattern="^[a-zA-Zก-๙]+$" required class="form-control" id="input-field" placeholder="ชื่อ-สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" />
         </div>
       </div>
 

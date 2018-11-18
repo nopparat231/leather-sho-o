@@ -62,7 +62,7 @@ $totalRows_editmem = mysql_num_rows($editmem);
   
 </div>
     <div class="col-md-9">
-        <h3 align="center">  แก้ไข  MEMBER  <?php include('edit-ok.php');?> </h3>
+        <h3 align="center">  แก้ไข  ข้อมูลผู้ใช้  <?php include('edit-ok.php');?> </h3>
 <div class="table-responsive">
     <form  name="register" action="edit_mem_db.php" method="POST" id="register" class="form-horizontal">
        <div class="form-group">
@@ -87,7 +87,7 @@ $totalRows_editmem = mysql_num_rows($editmem);
         <div class="form-group">
         <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
           <div class="col-sm-5" align="left">
-            <input  name="mem_name" type="text" required class="form-control" id="mem_name" placeholder="ชื่อ-สกุล" value="<?php echo $row_editmem['mem_name']; ?>"  value="<?php echo $row_editmem['mem_pass']; ?>" minlength="2"/>
+            <input  name="mem_name" type="text" required class="form-control" id="input-field" placeholder="ชื่อ-สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" value="<?php echo $row_editmem['mem_name']; ?>"  value="<?php echo $row_editmem['mem_pass']; ?>" minlength="2"/>
           </div>
         </div>
 
@@ -103,7 +103,9 @@ $totalRows_editmem = mysql_num_rows($editmem);
         <div class="form-group">
         <div class="col-sm-2" align="right"> เบอร์โทร : </div>
           <div class="col-sm-5" align="left">
-            <input  name="mem_tel" type="text" required class="form-control" id="mem_tel" placeholder="0912345678" pattern="[0-9]{10}" minlength="2" title="เบอร์โทร 0-9"  value="<?php echo $row_editmem['mem_tel']; ?>" minlength="2"/>
+            <input  name="mem_tel" required class="form-control" id="mem_tel" placeholder="0912345678" pattern="[0-9]{10}" title="เบอร์โทร 0-9"  value="<?php echo $row_editmem['mem_tel']; ?>"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="tel"
+          maxlength = "10" onkeyup="num();"/>
           </div>
         </div>
 
@@ -137,3 +139,15 @@ $totalRows_editmem = mysql_num_rows($editmem);
 mysql_free_result($editmem);
 
 // include('f.php');?>
+<script type="text/javascript">
+
+  function validate() {
+    var element = document.getElementById('input-field');
+    element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+  };
+
+  function num() {
+    var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+</script>

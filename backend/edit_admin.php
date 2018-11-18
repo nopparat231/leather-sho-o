@@ -89,7 +89,7 @@ $totalRows_editadmin = mysql_num_rows($editadmin);
         <div class="form-group">
         <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
           <div class="col-sm-7" align="left">
-            <input  name="admin_name" type="text" required class="form-control" id="admin_name" placeholder="ชื่อ-สกุล" value="<?php echo $row_editadmin['admin_name']; ?>" />
+            <input  name="admin_name" type="text" required class="form-control"  onkeyup="validate();" id="input-field" placeholder="ชื่อ-สกุล" value="<?php echo $row_editadmin['admin_name']; ?>" />
           </div>
         </div>
 
@@ -104,7 +104,9 @@ $totalRows_editadmin = mysql_num_rows($editadmin);
         <div class="form-group">
         <div class="col-sm-2" align="right"> เบอร์โทร : </div>
           <div class="col-sm-5" align="left">
-            <input  name="admin_tel" type="text" required class="form-control" id="admin_tel" placeholder="0912345678" pattern="[0-9]{10}" minlength="2" title="เบอร์โทร 0-9"  value="<?php echo $row_editadmin['admin_tel']; ?>" minlength="2"/>
+            <input  name="admin_tel" type="text" required class="form-control"  id="input-num" placeholder="0912345678" pattern="[0-9]{10}" minlength="2" title="เบอร์โทร 0-9"  value="<?php echo $row_editadmin['admin_tel']; ?>"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="tel"
+          maxlength = "10" onkeyup="num();"/>
           </div>
         </div>
 

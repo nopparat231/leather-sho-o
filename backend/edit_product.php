@@ -105,7 +105,9 @@ $totalRows_prd = mysql_num_rows($prd);
             <tr>
               <td width="129" align="right" valign="middle">จำนวนสินค้า :</td>
               <td colspan="2"><label for="p_qty"></label>
-                <input name="p_qty" type="number" required id="p_qty" value="<?php echo $row_eprd['p_qty']; ?>" size="5"/></td>
+                <input name="p_qty" value="<?php echo $row_eprd['p_qty']; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "4" required  size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" />/></td>
               </tr>
               <tr>
                 <td align="right" valign="middle">&nbsp;</td>
@@ -114,7 +116,9 @@ $totalRows_prd = mysql_num_rows($prd);
               <tr>
                 <td align="right" valign="middle">ราคาก่อนลด :</td>
                 <td width="2"><label for="promo"></label>
-                 <input name="promo" type="number" required id="promo" value="<?php echo $row_eprd['promo']; ?>" size="5"/></td>
+                 <input name="promo" value="<?php echo $row_eprd['promo']; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "5" required id="promo" onkeydown="javascript: return event.keyCode == 69 ? false : true"/></td>
                </tr>
 
                <tr>
@@ -124,7 +128,9 @@ $totalRows_prd = mysql_num_rows($prd);
               <tr>
                 <td align="right" valign="middle">ราคาหลังลด :</td>
                 <td width="2"><label for="p_price"></label>
-                 <input name="p_price" type="number" required id="p_price" value="<?php echo $row_eprd['p_price']; ?>" size="5"/></td>
+                 <input name="p_price" value="<?php echo $row_eprd['p_price']; ?>"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                       type = "number"
+                       maxlength = "5" required id="p_price" value="" size="5" onkeydown="javascript: return event.keyCode == 69 ? false : true"/></td>
                </tr>
 
                <tr>
@@ -134,7 +140,9 @@ $totalRows_prd = mysql_num_rows($prd);
               <tr>
                 <td width="129" align="right" valign="middle">ไซส์ :</td>
                 <td colspan="2"><label for="p_size"></label>
-                  <input name="p_size" type="text" required id="p_size" value="<?php echo $row_eprd['p_size']; ?>" size="5"/></td>
+                  <input name="p_size" value="<?php echo $row_eprd['p_size']; ?>"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "text"
+                      maxlength = "3"  required id="p_size" /></td>
                 </tr>
                 <tr>
                   <td align="right" valign="middle">&nbsp;</td>
@@ -143,7 +151,9 @@ $totalRows_prd = mysql_num_rows($prd);
                 <tr>
                   <td width="129" align="right" valign="middle">ค่าจัดส่ง :</td>
                   <td colspan="2"><label for="p_ems"></label>
-                    <input name="p_ems" type="number" required id="p_ems" value="<?php echo $row_eprd['p_ems']; ?>" size="5"/></td>
+                    <input name="p_ems" value="<?php echo $row_eprd['p_ems']; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          type = "number"
+                          maxlength = "3" required id="p_ems" size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true"/></td>
                   </tr>
                   <tr>
                     <td align="right" valign="middle">&nbsp;</td>
