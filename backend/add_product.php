@@ -92,7 +92,7 @@ $totalRows_prd = mysql_num_rows($prd);
                     <td colspan="2"><label for="p_qty"></label>
                       <input name="p_qty" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                       type = "number"
-                      maxlength = "4" required id="p_qty" size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" /></td>
+                      maxlength = "8" required id="p_qty" size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" /></td>
                     </tr>
                     <tr>
                      <td align="right" valign="middle">&nbsp;</td>
@@ -103,7 +103,7 @@ $totalRows_prd = mysql_num_rows($prd);
                     <td width="2"><label for="promo"></label>
                       <input name="promo" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                       type = "number"
-                      maxlength = "5" required id="promo" value="0"  onkeydown="javascript: return event.keyCode == 69 ? false : true" /></td>
+                      maxlength = "8" required id="promo" value="0"  onkeydown="javascript: return event.keyCode == 69 ? false : true" /></td>
 
                     </tr>
 
@@ -116,7 +116,7 @@ $totalRows_prd = mysql_num_rows($prd);
                       <td width="2"><label for="p_price"></label>
                        <input name="p_price" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                        type = "number"
-                       maxlength = "5" required id="p_price" value="" size="5" onkeydown="javascript: return event.keyCode == 69 ? false : true"/></td>
+                       maxlength = "8" required id="p_price" value="" size="5" onkeydown="javascript: return event.keyCode == 69 ? false : true"/></td>
                      </tr>
                      <tr>
                       <td align="right" valign="middle">&nbsp;</td>
@@ -273,7 +273,7 @@ $totalRows_prd = mysql_num_rows($prd);
   
   function validate() {
   var element = document.getElementById('input-field');
-  element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+  element.value = element.value.replace(/[^a-zA-Zก-๙. @]+/, '');
 };
 
 function num() {

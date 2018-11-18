@@ -147,3 +147,16 @@ $totalRows_editbank = mysql_num_rows($editbank);
 mysql_free_result($editbank);
 
 include('f.php');?>
+
+<script type="text/javascript">
+  
+  function validate() {
+  var element = document.getElementById('input-field');
+  element.value = element.value.replace(/[^a-zA-Zก-๙. @]+/, '');
+};
+
+function num() {
+  var element = document.getElementById('input-num');
+  element.value = element.value.replace(/[^0-9]+/, '');
+};
+</script>

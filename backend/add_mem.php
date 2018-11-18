@@ -96,7 +96,7 @@
 
   function validate() {
     var element = document.getElementById('input-field');
-    element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
   };
 
   function num() {

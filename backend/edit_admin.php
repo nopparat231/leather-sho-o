@@ -122,7 +122,7 @@ $totalRows_editadmin = mysql_num_rows($editadmin);
           <div class="col-sm-7" align="left">
 
             <select name="status">
-             <option value="<?php echo $row_editadmin['status']; ?> "><?php echo $row_editadmin['status']; ?></option>
+             <option>เลือกสถานะ</option>
              <option value="admin">admin</option>
              <option value="staff">staff</option>
              <option value="superadmin">superadmin</option>
@@ -157,3 +157,17 @@ $totalRows_editadmin = mysql_num_rows($editadmin);
 mysql_free_result($editadmin);
 
 // include('f.php');?>
+
+<script type="text/javascript">
+
+  function validate() {
+    var element = document.getElementById('input-field');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  };
+
+  function num() {
+    var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+</script>
+

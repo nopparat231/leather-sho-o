@@ -113,6 +113,7 @@ $(document).ready(function(){
   var dataTable = $('#order_data').DataTable({
    "processing" : true,
    "serverSide" : true,
+   
     dom: 'Bfrtip',
          buttons: [
          {

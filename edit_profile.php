@@ -102,7 +102,7 @@ $totalRows_editmem = mysql_num_rows($editmem);
         <div class="form-group">
         <div class="col-sm-2" align="right"> เบอร์โทร : </div>
           <div class="col-sm-5" align="left">
-            <input  name="mem_tel" required class="form-control" id="mem_tel" placeholder="0912345678" pattern="[0-9]{10}" title="เบอร์โทร 0-9"  value="<?php echo $row_editmem['mem_tel']; ?>"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            <input  name="mem_tel" required class="form-control" id="input-num" placeholder="0912345678" pattern="[0-9]{10}" title="เบอร์โทร 0-9"  value="<?php echo $row_editmem['mem_tel']; ?>"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
           type="tel"
           maxlength = "10" onkeyup="num();"/>
           </div>
@@ -146,7 +146,7 @@ mysql_free_result($editmem);
 
   function validate() {
     var element = document.getElementById('input-field');
-    element.value = element.value.replace(/[^a-zA-Zก-๙@]+/, '');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
   };
 
   function num() {

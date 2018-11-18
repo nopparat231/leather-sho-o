@@ -75,7 +75,7 @@ $totalRows_editbank = mysql_num_rows($editbank);
     <tr>
       <td width="129" align="right" valign="middle">รหัสสินค้า:</td>
       <td width="471" colspan="2"><label for="b_type"></label>
-        <input name="s_number" type="text" required id="pro_name2" size="60" value="<?php echo $row_editbank['s_number']; ?>" /></td>
+        <input name="s_number" type="text" required id="pro_name2" size="20" value="<?php echo $row_editbank['s_number']; ?>" /></td>
     </tr>
     <tr>
       <td align="right" valign="middle">&nbsp;</td>
@@ -83,7 +83,12 @@ $totalRows_editbank = mysql_num_rows($editbank);
     </tr>
     <tr>
       <td align="right" valign="middle">จำนวน :</td>
-      <td colspan="2"><input name="sn_number" type="text" required id="sn_number" size="60" value="<?php echo $row_editbank['sn_number']; ?>"/></td>
+      <td colspan="2">
+<input name="sn_number"  value="<?php echo $row_editbank['sn_number']; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "8" required  size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" />
+
+      </td>
     </tr>
     <tr>
       <td align="right" valign="top">&nbsp;</td>
@@ -91,7 +96,12 @@ $totalRows_editbank = mysql_num_rows($editbank);
     </tr>
     <tr>
       <td align="right" valign="middle">ราคา :</td>
-      <td colspan="2"><input name="s_price" type="text" required id="p_price" size="40" value="<?php echo $row_editbank['s_price']; ?>"/></td>
+      <td colspan="2">
+<input name="s_price" value="<?php echo $row_editbank['s_price']; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "8" required  size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" />
+
+      </td>
     </tr>
     <tr>
       <td align="right" valign="middle">&nbsp;</td>

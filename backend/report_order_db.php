@@ -1,3 +1,5 @@
+
+
 <?php 
 $condb = mysqli_connect("localhost", "root", "", "leather-shop");
 $columns = array('order_id', 'name', 'order_status' , 'order_date', 'pay_amount');
@@ -93,6 +95,7 @@ $output = array(
 	"recordsTotal"  =>  get_all_data($condb),
 	"recordsFiltered" => $number_filter_row,
 	"data"    => $data
+
 );
 
 echo json_encode($output);

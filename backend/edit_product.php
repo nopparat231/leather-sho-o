@@ -107,7 +107,7 @@ $totalRows_prd = mysql_num_rows($prd);
               <td colspan="2"><label for="p_qty"></label>
                 <input name="p_qty" value="<?php echo $row_eprd['p_qty']; ?>" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                       type = "number"
-                      maxlength = "4" required  size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" />/></td>
+                      maxlength = "4" required  size="5"  onkeydown="javascript: return event.keyCode == 69 ? false : true" /></td>
               </tr>
               <tr>
                 <td align="right" valign="middle">&nbsp;</td>

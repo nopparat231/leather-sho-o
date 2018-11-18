@@ -10,7 +10,7 @@
 
                  <h1>วิธีสมัครร้านจันผาสามารถทำได้ตามนี้</h1><br>
 
-                 <img src="img/howtoregis.png" width="100%">
+                 <p align="center"><img src="img/howtoregis.png" width="50%" ></p>
                 <br>
                  <br>
                  1.ชื่อผู้ใช้ : ชื่อสำหรับเข้าสู่ระบบ   <br>
