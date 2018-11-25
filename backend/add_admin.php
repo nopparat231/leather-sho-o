@@ -10,16 +10,16 @@
 </head> <?php include('navbar.php');?>
 <body>
 
-    <?php //include('menu.php');?> 
+    <?php //include('menu.php');?>
   <div class="container">
 
     <div class="row">
-    	
+
       <div class="col-md-3">
-  
+
 </div>
     <div class="col-md-9">
-        <h3 align="center">  เพิ่ม  Admin </h3>
+        <h3 align="center">  เพิ่ม  ผู้ดูแลระบบ </h3>
 <div class="table-responsive">
         <form  name="register" action="add_admin_db.php" method="POST" id="register" class="form-horizontal">
          <div class="form-group">
@@ -29,16 +29,16 @@
            </div>
          </div>
          <div class="form-group">
-          <div class="col-sm-2" align="right"> Username : </div>
+          <div class="col-sm-2" align="right"> ชื่อผู้ใช้ : </div>
           <div class="col-sm-5" align="left">
-            <input  name="admin_user" type="text" required class="form-control" id="admin_user" placeholder="username" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="2"  />
+            <input  name="admin_user" type="text" required class="form-control" id="admin_user" placeholder="ชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="2"  />
           </div>
         </div>
-        
+
         <div class="form-group">
-          <div class="col-sm-2" align="right"> Password : </div>
+          <div class="col-sm-2" align="right"> รหัสผ่าน : </div>
           <div class="col-sm-5" align="left">
-            <input  name="admin_pass" type="password" required class="form-control" id="admin_pass" placeholder="password" pattern="^[a-zA-Z0-9]+$" minlength="2" />
+            <input  name="admin_pass" type="password" required class="form-control" id="admin_pass" placeholder="รหัสผ่าน" pattern="^[a-zA-Z0-9]+$" minlength="2" />
           </div>
         </div>
 
@@ -52,7 +52,7 @@
          <div class="form-group">
         <div class="col-sm-2" align="right"> ที่อยู่ : </div>
         <div class="col-sm-5" align="left">
-          <textarea name="admin_address" type="textarea" required class="form-control" id="admin_address" placeholder="ที่อยู่" ></textarea> 
+          <textarea name="admin_address" type="textarea" required class="form-control" id="admin_address" placeholder="ที่อยู่" ></textarea>
         </div>
       </div>
 
@@ -66,9 +66,9 @@
       </div>
 
       <div class="form-group">
-        <div class="col-sm-2" align="right"> E-mail : </div>
+        <div class="col-sm-2" align="right"> อีเมล : </div>
         <div class="col-sm-5" align="left">
-          <input  name="admin_email" type="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required class="form-control" id="admin_email" placeholder="E-mail" title="กรุณากรอก Email ให้ถูกต้อง" minlength="2"/>
+          <input  name="admin_email" type="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required class="form-control" id="admin_email" placeholder="อีเมล" title="กรุณากรอก Email ให้ถูกต้อง" minlength="2"/>
         </div>
       </div>
 
@@ -76,15 +76,15 @@
           <div class="col-sm-2" align="right"> เลือกสถานะ : </div>
           <div class="col-sm-7" align="left">
 
-           <select name="admin_status">
+           <select name="status">
               <?php if (isset($_GET['admin'])): ?>
-                 <option value="admin">admin</option>
+                 <option value="admin">ผู้ดูแลระบบ</option>
               <?php endif ?>
                 <?php if (isset($_GET['staff'])): ?>
-             <option value="staff">staff</option>
+             <option value="staff">พนักงาน</option>
              <?php endif ?>
              <?php if (isset($_GET['superadmin'])): ?>
-             <option value="superadmin">superadmin</option>
+             <option value="superadmin">ผู้จัดการ</option>
              <?php endif ?>
 
           </select>
@@ -107,7 +107,7 @@
 </div>
 </div>
 </div>
-</div> 
+</div>
 </body>
 </html>
 <?php  include('f.php');?>

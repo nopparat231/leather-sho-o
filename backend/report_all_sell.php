@@ -31,8 +31,23 @@ if (!function_exists("GetSQLValueString")) {
   }
 }
 
+
+$start_date = $_POST['start_date'];
+$end_date = $_POST['end_date'];
+if ($start_date != '') {
+  $start_date = $_POST['start_date'];
+  $end_date = $_POST['end_date'];
+}elseif ($start_date == '') {
+  $start_date = '2012-01-01';
+  $end_date = date('Y/m/d');
+}else {
+  $start_date = '2012-01-01';
+  $end_date = date('Y/m/d');
+}
+
+
 mysql_select_db($database_condb);
-$query_lbk = "SELECT * FROM tbl_sell ";
+$query_lbk = "SELECT * FROM tbl_sell where s_date >= '$start_date' and sn_date <= '$end_date'";
 $lbk = mysql_query($query_lbk, $condb) or die(mysql_error());
 $row_lbk = mysql_fetch_assoc($lbk);
 $totalRows_lbk = mysql_num_rows($lbk);
@@ -60,48 +75,72 @@ $totalRows_lbk = mysql_num_rows($lbk);
 
         </div>
         <div class="col-md-9">
-          <h3 align="center"> รายการจรวจรับสินค้า  </h3>
-          <div class="table-responsive">
-            <table id="example" class="display" cellspacing="0" border="0">
-              <thead>
-                <tr align="center">
-                  <th>ลำดับ</th>
-                  <th>รหัสสินค้า</th>
-                  <th>จำนวน</th>
-                  <th>ราคา</th>
-                  <th>วันที่สั่งซื้อสินค้า</th>
-                  <th>วันที่รับสินค้า</th>
-                  <th>ใบเสร็จ</th>
-                  
+          <h3 align="center"> รายการตรวจรับสินค้า  </h3>
 
-                </tr>
-              </thead>
-              <?php 
-              $i = 1;
-              do { ?>
-               <tr align="center">
-
-                <td><?php echo $i; ?></td>
-                <td><?php echo $row_lbk['s_number']; ?></td>
-                <td><?php echo $row_lbk['sn_number']; ?></td>
-                <td><?php echo $row_lbk['s_price']; ?></td>
-                <td><?php echo $row_lbk['s_date']; ?></td>
-                <td><?php echo $row_lbk['sn_date']; ?></td>
-
-                <td><center><a href="../bimg/<?php echo $row_lbk['s_bill'];?>" target="_blank"><img src="../bimg/<?php echo $row_lbk['s_bill'];?>" height="50px" ></a></center>
-                </td>
-
-
-               
-              </tr>
-              <?php 
-              $i += 1;
-            }while ($row_lbk = mysql_fetch_assoc($lbk)); ?>
-          </table>
+          <form action="report_all_sell.php" method="post">
+           <div class="row">
+             <div class="input-daterange">
+               <div class="col-md-1">
+                <label><font size="2">จากวัน</font></label> 
+              </div>
+              <div class="col-md-4">
+                <input type="text" name="start_date" id="start_date" class="form-control" />
+              </div>
+              <div class="col-md-1">
+                <label><font size="2">ถึงวันที่</font></label>  
+              </div>
+              <div class="col-md-4">
+               <input type="text"  name="end_date" id="end_date" class="form-control" />
+             </div>      
+           </div>
+           <div class="col-md-2">
+            <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+          </div>
         </div>
-      </div>
+      </form>
+      <br />
+
+      <div class="table-responsive">
+        <table id="example" class="display" cellspacing="0" border="0">
+          <thead>
+            <tr align="center">
+              <th>ลำดับ</th>
+              <th>รหัสสินค้า</th>
+              <th>จำนวน</th>
+              <th>ราคา</th>
+              <th>วันที่สั่งซื้อสินค้า</th>
+              <th>วันที่รับสินค้า</th>
+              <th>ใบเสร็จ</th>
+
+
+            </tr>
+          </thead>
+          <?php 
+          $i = 1;
+          do { ?>
+           <tr align="center">
+
+            <td><?php echo $i; ?></td>
+            <td><?php echo $row_lbk['s_number']; ?></td>
+            <td><?php echo $row_lbk['sn_number']; ?></td>
+            <td><?php echo $row_lbk['s_price']; ?></td>
+            <td><?php echo $row_lbk['s_date']; ?></td>
+            <td><?php echo $row_lbk['sn_date']; ?></td>
+
+            <td><center><a href="../bimg/<?php echo $row_lbk['s_bill'];?>" target="_blank"><img src="../bimg/<?php echo $row_lbk['s_bill'];?>" height="50px" ></a></center>
+            </td>
+
+
+
+          </tr>
+          <?php 
+          $i += 1;
+        }while ($row_lbk = mysql_fetch_assoc($lbk)); ?>
+      </table>
     </div>
   </div>
+</div>
+</div>
 </body>
 </html>
 <?php

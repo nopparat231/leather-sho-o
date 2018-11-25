@@ -49,16 +49,16 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
   </head><?php include('navbar.php');?>
   <body>  <?php //include('menu.php');?>
   <div class="container">
-    
+
   	<div class="row">
-     
+
       <div class="col-md-3">
-        
+
       </div>
       <div class="col-md-9">
         <h3 align="center"> รายการ ผู้ดูแลระบบ   </h3>
         <div class="table-responsive">
-          <table id="example" class="display" cellspacing="0" border="0">
+          <table id="example6" class="display" cellspacing="0" border="0">
             <thead>
               <tr align="center">
                 <th width="5%">ลำดับที่</th>
@@ -68,7 +68,7 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
                 <th width="5%">สถานะ</th>
                 <th width="5%">วันที่สมัคร</th>
                 <?php if ($row_mm['status'] == 'superadmin') { ?>
-                  
+
                 <?php }else{ ?>
                   <th width="5%">แก้ไข </th>
                   <th width="5%">ลบ</th>
@@ -76,11 +76,21 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
               </tr>
             </thead>
             <?php 
+
             $i = 1;
             do { ?>
               <tr>
                 <td align="center" valign="top"><?php echo $i; ?></td>
-                <td align="center">ADM<?php echo $row_listadmin['admin_id']; ?></td>
+                <td align="center"><?php 
+                if ($row_listadmin['status'] == 'staff') {
+                  $ida = 'ST';
+                }elseif ($row_listadmin['status'] == 'admin') {
+                  $ida = 'AD';
+                }elseif ($row_listadmin['status'] == 'superadmin') {
+                  $ida = 'MA';
+                }
+
+                echo $ida; ?><?php echo $row_listadmin['admin_id']; ?></td>
                 <td><?php echo "ชื่อ : ",$row_listadmin['admin_name']; ?><br />
                   <?php echo "User : ",$row_listadmin['admin_user']; ?><br />
                   <?php echo "Pass : ",'**********'; ?></td>
@@ -88,11 +98,20 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
                     <?php echo "เบอร์โทร : " ,$row_listadmin['admin_tel']; ?><br />
                     <?php echo "E-mail : " ,$row_listadmin['admin_email']; ?>
                   </td>
-                  <td align="center"><?php echo $row_listadmin['status']; ?><br />
+                  <td align="center"><?php 
+                if ($row_listadmin['status'] == 'staff') {
+                  $stu = 'พนักงาน';
+                }elseif ($row_listadmin['status'] == 'admin') {
+                  $stu = 'ผู้ดูแลระบบ';
+                }elseif ($row_listadmin['status'] == 'superadmin') {
+                  $stu = 'ผู้จัดการ';
+                }
+
+                echo $stu; ?><br />
                     <td align="center"><?php echo $row_listadmin['date_save']; ?></td>
                     
                     <?php if ($row_mm['status'] == 'superadmin') { ?>
-                      
+
                     <?php }else{ ?>
                       <td><center> <a href="edit_admin.php?admin_id=<?php echo $row_listadmin['admin_id'];?>" class="btn btn-warning btn-xs"> แก้ไข </a> </center> </td>
                       <td><center> <a href="del_admin.php?admin_id=<?php echo $row_listadmin['admin_id'];?>" onClick="return confirm('ยืนยันการลบ');" class="btn btn-danger btn-xs"> ลบ </a> </center> </td>

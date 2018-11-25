@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 $p_id = $_GET['p_id'];
@@ -21,7 +21,7 @@ if($act == 'add' && !empty($p_id))
     }else{
         $_SESSION['shopping_cart'][$p_id]=1;
     }
-    
+
 }
 
 
@@ -45,11 +45,11 @@ $q = $p_qty;
 <form id="frmcart" name="frmcart" method="post" action="?act=update&oct=after" >
     <table width="100%" border="0" aligh="center" class="table table-hover">
         <tr>
-            <td height="40" colspan="7" align="center" bgcolor="#FFE4E1"><strong><b>ตระกล้าสินค้า</b></strong></td>
+            <td height="40" colspan="7" align="center" bgcolor="#FFE4E1"><strong><b>ตระกร้าสินค้า</b></strong></td>
         </tr>
         <tr >
             <td><center>สินค้า</center></td>
-            <td><center>ไซร์</center></td>
+            <td><center>ไซส์</center></td>
             <td><center>ราคา</center></td>
             <td><center>จำนวน</center></td>
             <td><center>ค่าจัดส่ง</center></td>
@@ -63,7 +63,7 @@ $q = $p_qty;
 
         if(!empty($_SESSION['shopping_cart']))
         {
-            require_once('Connections/condb.php'); 
+            require_once('Connections/condb.php');
             foreach($_SESSION['shopping_cart'] as $p_id=>$p_qty)
             {
                 $sql = "select * from tbl_product where p_id=$p_id";
@@ -84,7 +84,7 @@ $q = $p_qty;
                 echo "<td width='15%' align='center'>" .number_format($row["p_price"],2) . "</td>";
 
 
-                echo "<td width='15%' align='center'>"; 
+                echo "<td width='15%' align='center'>";
 
                 echo "<input type='number' value='$p_qty' size='1' name='amount[$p_id]' /></td>";
 
@@ -110,7 +110,7 @@ $q = $p_qty;
             echo "</tr>";
 
             echo "<tr>";
-            echo "<td  align='left' colspan='5'><b>ภาษี 7%</b></td>";
+            echo "<td  align='left' colspan='5'><b>ภาษี 9%</b></td>";
             echo "<td align='center'>"."<b>".number_format($tax,2)."</b>"."</td>";
             echo "<td ></>";
             echo "</tr>";

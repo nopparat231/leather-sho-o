@@ -31,8 +31,21 @@ if (!function_exists("GetSQLValueString")) {
   }
 }
 
+$start_date = $_POST['start_date'];
+$end_date = $_POST['end_date'];
+if ($start_date != '') {
+  $start_date = $_POST['start_date'];
+  $end_date = $_POST['end_date'];
+}elseif ($start_date == '') {
+  $start_date = '2012-01-01';
+  $end_date = date('Y/m/d');
+}else {
+  $start_date = '2012-01-01';
+  $end_date = date('Y/m/d');
+}
+
 mysql_select_db($database_condb);
-$query_mem = "SELECT * FROM tbl_member ORDER BY mem_id ASC";
+$query_mem = "SELECT * FROM tbl_member where dateinsert >= '$start_date' and dateinsert <= '$end_date' ORDER BY mem_id ASC";
 $mem = mysql_query($query_mem, $condb) or die(mysql_error());
 $row_mem = mysql_fetch_assoc($mem);
 $totalRows_mem = mysql_num_rows($mem);
@@ -59,7 +72,28 @@ $totalRows_mem = mysql_num_rows($mem);
       </div>
       <div class="col-md-9">
         <h3 align="center"> รายการ ข้อมูลสมาชิค </h3>
-        <table id="example" class="display" cellspacing="0" border="0">
+         <form action="list_member.php" method="post">
+       <div class="row">
+         <div class="input-daterange">
+           <div class="col-md-1">
+            <label><font size="2">จากวัน</font></label> 
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="start_date" id="start_date" class="form-control" />
+          </div>
+          <div class="col-md-1">
+            <label><font size="2">ถึงวันที่</font></label>  
+          </div>
+          <div class="col-md-4">
+           <input type="text"  name="end_date" id="end_date" class="form-control" />
+         </div>      
+       </div>
+       <div class="col-md-2">
+        <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+      </div>
+    </div>
+  </form><br>
+        <table id="example5" class="display" cellspacing="0" border="0">
           <thead>
             <tr align="center">
               <th width="5%">ลำดับที่</th>

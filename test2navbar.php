@@ -465,7 +465,7 @@ if (isset($_SESSION['shopping_cart'])) {
 			<div class="[ container ]">
 				<form action="index.php" method="GET" role="search">
 					<div class="[ input-group ]">
-						<input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets and hit enter">
+						<input type="text" class="[ form-control ]" name="q" placeholder="ค้นหาสินค้า และ กด Enter">
 						<span class="[ input-group-btn ]">
 							<button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
 						</span>

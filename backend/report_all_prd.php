@@ -34,8 +34,7 @@ if (!function_exists("GetSQLValueString")) {
 mysql_select_db($database_condb);
 $query_prd = "
 SELECT * FROM tbl_product as p, tbl_type as t
-WHERE p.t_id = t.t_id
-ORDER BY p.p_id ASC";
+WHERE p.t_id = t.t_id ORDER BY p.p_id ASC";
 $prd = mysql_query($query_prd, $condb) or die(mysql_error());
 $row_prd = mysql_fetch_assoc($prd);
 $totalRows_prd = mysql_num_rows($prd);
@@ -50,16 +49,16 @@ $totalRows_prd = mysql_num_rows($prd);
   <?php include('h.php');?>
   <?php include('datatable.php');?>
 
-</head>  <?php include('navbar.php');?>
-<body>  <?php //include('menu.php');?>
+  </head>  <?php include('navbar.php');?>
+  <body>  <?php //include('menu.php');?>
   <div class="container">
- 
+
    <div class="row">
-  
-    
-<div class="col-md-3">
-  
-</div>
+
+
+    <div class="col-md-3">
+
+    </div>
     <div class="col-md-9">
 
       <?php
@@ -72,77 +71,79 @@ $totalRows_prd = mysql_num_rows($prd);
 
       ?>
 
-<style type="text/css">
-    
-th { white-space: nowrap; }
-</style>
-      <h3 align="center"> รายการสินค้า  </h3>
-      <table width="100%" border="0" cellspacing="0" class="display" id="example3">
-        
-        <thead>
-          <tr>
-            
-            <th width="5%">ลำดับที่</th>
-            <th width="15%">ประเภท</th>
-            <th width="25%">ชื่อสินค้า</th>
-           
-            <th width="7%">จำนวน</th>
-            <th width="5%">ไซส์</th>
-            <th width="5%">ค่าจัดส่ง</th>
-            <th width="5%">การเข้าชม</th>
-             <th width="7%">ราคา</th>
+      <style type="text/css">
 
-          </tr>
-        </thead>
-        <tbody>
-        <?php if($totalRows_prd>0){?>
+      th { white-space: nowrap; }
+    </style>
 
-          <?php 
-          $i = 1;
+    <h3 align="center"> รายการสินค้า  </h3>
+   
+<table width="100%" border="0" cellspacing="0" class="display" id="example3">
+  <?php $r = '<h3 align="center">รายการสินค้า</h3>' ?>
+  <thead>
+    <tr>
 
-          do { ?>
-            <tr>
-              <td align="center" valign="top"><?php echo $i; ?></td>
-              <td valign="top"><?php echo $row_prd['t_name']; ?></td>
-              <td valign="top"><b> <?php echo $row_prd['p_name']; ?></b>
-              </td>
-              
-              <td align="center" valign="top">
-               <?php echo $row_prd['p_qty']; ?>
+      <th width="5%">ลำดับที่</th>
+      <th width="15%">ประเภท</th>
+      <th width="25%">ชื่อสินค้า</th>
 
-               <?php echo $row_prd['p_unit'];?>
-             </td>
-             <td align="center" valign="top">
-              <?php echo $row_prd['p_size'];?>
-            </td>
-            <td align="center" valign="top">
-              <?php echo $row_prd['p_ems'];?>
-            </td>
-            <td align="center" valign="top">
-              <?php echo $row_prd['p_view'];?>
-            </td>
-            <td align="right" valign="top"><?php echo number_format($row_prd['p_price'],2); ?></td>
-           </tr>
-            <?php
-            $i += 1;
-          } while ($row_prd = mysql_fetch_assoc($prd)); ?>
-        <?php } ?>
-        </tbody>
-        <tfoot>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th style="text-align:right">Total:</th>
-                <th></th>
-            </tr>
-        </tfoot>
-      </table>
-    </div>
-  </div>
+      <th width="7%">จำนวน</th>
+      <th width="5%">ไซส์</th>
+      <th width="5%">ค่าจัดส่ง</th>
+      <th width="5%">การเข้าชม</th>
+      <th width="7%">ราคา</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <?php if($totalRows_prd>0){?>
+
+      <?php 
+      $i = 1;
+
+      do { ?>
+        <tr>
+          <td align="center" valign="top"><?php echo $i; ?></td>
+          <td valign="top"><?php echo $row_prd['t_name']; ?></td>
+          <td valign="top"><b> <?php echo $row_prd['p_name']; ?></b>
+          </td>
+
+          <td align="center" valign="top">
+           <?php echo $row_prd['p_qty']; ?>
+
+           <?php echo $row_prd['p_unit'];?>
+         </td>
+         <td align="center" valign="top">
+          <?php echo $row_prd['p_size'];?>
+        </td>
+        <td align="center" valign="top">
+          <?php echo $row_prd['p_ems'];?>
+        </td>
+        <td align="center" valign="top">
+          <?php echo $row_prd['p_view'];?>
+        </td>
+        <td align="right" valign="top"><?php echo number_format($row_prd['p_price'],2); ?></td>
+      </tr>
+      <?php
+      $i += 1;
+    } while ($row_prd = mysql_fetch_assoc($prd)); ?>
+  <?php } ?>
+</tbody>
+<tfoot>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th style="text-align:right">Total:</th>
+    <th></th>
+  </tr>
+</tfoot>
+</table>
+</div>
+</div>
 </div>
 </body>
 </html>

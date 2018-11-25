@@ -16,6 +16,7 @@
 
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
 
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 <!-- -----css-- -->
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -31,21 +32,16 @@
                 format: "yyyy-mm-dd",
                 autoclose: true
           });
-
+<?php $t = '<h3 align="center">รายการตรวจรับสินค้า</h3>' ?>
            $('#example').DataTable( {
 
 
                dom: 'Bfrtip',
                buttons: [
-               {
-                    extend: 'excelHtml5',
-                    title: 'Data export',
-                    footer: true
-              },
-              {
-                extend: 'pageLength',
-                title: 'Data export'
-          }
+            {
+                extend: 'print',
+                messageTop: '<?php echo $t; ?>'
+            }
           ],
 
           lengthMenu: [
@@ -87,21 +83,223 @@
 
 	});
 
+           <?php $m = '<h3 align="center">รายการ ข้อมูลสมาชิค</h3>' ?>
+           $('#example5').DataTable( {
 
+
+               dom: 'Bfrtip',
+               buttons: [
+            {
+                extend: 'print',
+                messageTop: '<?php echo $m; ?>'
+            }
+          ],
+
+          lengthMenu: [
+          [ 10, 25, 50, -1 ],
+          [ '10 แถว', '25 แถว', '50 แถว', 'แสดงทั้งหมด' ],
+          ],
+   
+
+          "aaSorting" :[[0,'asc']],
+
+          "language": {
+             "lengthMenu": "Display _MENU_ records",
+              "sEmptyTable":     "ไม่มีข้อมูลในตาราง",
+              "sInfo":           "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
+              "sInfoEmpty":      "แสดง 0 ถึง 0 จาก 0 แถว",
+              "sInfoFiltered":   "(กรองข้อมูล _MAX_ ทุกแถว)",
+              "sInfoPostFix":    "",
+              "sInfoThousands":  ",",
+              "sLengthMenu":     "แสดง _MENU_ แถว",
+              "sLoadingRecords": "กำลังโหลดข้อมูล...",
+              "sProcessing":     "กำลังดำเนินการ...",
+              "sSearch":         "ค้นหา: ",
+              "sZeroRecords":    "ไม่พบข้อมูล",
+              "oPaginate": {
+                "sFirst":    "หน้าแรก",
+                "sPrevious": "ก่อนหน้า",
+                "sNext":     "ถัดไป",
+                "sLast":     "หน้าสุดท้าย"
+          },
+          "oAria": {
+                "sSortAscending":  ": เปิดใช้งานการเรียงข้อมูลจากน้อยไปมาก",
+                "sSortDescending": ": เปิดใช้งานการเรียงข้อมูลจากมากไปน้อย"
+          }
+    }
+
+
+
+    //"lengthMenu":[[20,50, 100, -1], [20,50, 100,"All"]]
+
+  });
+
+            <?php $a = '<h3 align="center">รายการ ผู้ดูแลระบบ</h3>' ?>
+           $('#example6').DataTable( {
+
+
+               dom: 'Bfrtip',
+               buttons: [
+            {
+                extend: 'print',
+                messageTop: '<?php echo $a; ?>'
+            }
+          ],
+
+          lengthMenu: [
+          [ 10, 25, 50, -1 ],
+          [ '10 แถว', '25 แถว', '50 แถว', 'แสดงทั้งหมด' ],
+          ],
+   
+
+          "aaSorting" :[[0,'asc']],
+
+          "language": {
+             "lengthMenu": "Display _MENU_ records",
+              "sEmptyTable":     "ไม่มีข้อมูลในตาราง",
+              "sInfo":           "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
+              "sInfoEmpty":      "แสดง 0 ถึง 0 จาก 0 แถว",
+              "sInfoFiltered":   "(กรองข้อมูล _MAX_ ทุกแถว)",
+              "sInfoPostFix":    "",
+              "sInfoThousands":  ",",
+              "sLengthMenu":     "แสดง _MENU_ แถว",
+              "sLoadingRecords": "กำลังโหลดข้อมูล...",
+              "sProcessing":     "กำลังดำเนินการ...",
+              "sSearch":         "ค้นหา: ",
+              "sZeroRecords":    "ไม่พบข้อมูล",
+              "oPaginate": {
+                "sFirst":    "หน้าแรก",
+                "sPrevious": "ก่อนหน้า",
+                "sNext":     "ถัดไป",
+                "sLast":     "หน้าสุดท้าย"
+          },
+          "oAria": {
+                "sSortAscending":  ": เปิดใช้งานการเรียงข้อมูลจากน้อยไปมาก",
+                "sSortDescending": ": เปิดใช้งานการเรียงข้อมูลจากมากไปน้อย"
+          }
+    }
+
+
+
+    //"lengthMenu":[[20,50, 100, -1], [20,50, 100,"All"]]
+
+  });
+
+      <?php $a = '<h3 align="center">รายสั่งซื้อ</h3>' ?>
+           $('#example7').DataTable( {
+
+
+               dom: 'Bfrtip',
+               buttons: [
+            {
+                extend: 'print',
+                messageTop: '<?php echo $a; ?>'
+            }
+          ],
+
+          lengthMenu: [
+          [ 10, 25, 50, -1 ],
+          [ '10 แถว', '25 แถว', '50 แถว', 'แสดงทั้งหมด' ],
+          ],
+   
+
+          "aaSorting" :[[0,'asc']],
+
+          "language": {
+             "lengthMenu": "Display _MENU_ records",
+              "sEmptyTable":     "ไม่มีข้อมูลในตาราง",
+              "sInfo":           "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
+              "sInfoEmpty":      "แสดง 0 ถึง 0 จาก 0 แถว",
+              "sInfoFiltered":   "(กรองข้อมูล _MAX_ ทุกแถว)",
+              "sInfoPostFix":    "",
+              "sInfoThousands":  ",",
+              "sLengthMenu":     "แสดง _MENU_ แถว",
+              "sLoadingRecords": "กำลังโหลดข้อมูล...",
+              "sProcessing":     "กำลังดำเนินการ...",
+              "sSearch":         "ค้นหา: ",
+              "sZeroRecords":    "ไม่พบข้อมูล",
+              "oPaginate": {
+                "sFirst":    "หน้าแรก",
+                "sPrevious": "ก่อนหน้า",
+                "sNext":     "ถัดไป",
+                "sLast":     "หน้าสุดท้าย"
+          },
+          "oAria": {
+                "sSortAscending":  ": เปิดใช้งานการเรียงข้อมูลจากน้อยไปมาก",
+                "sSortDescending": ": เปิดใช้งานการเรียงข้อมูลจากมากไปน้อย"
+          }
+    }
+
+
+
+    //"lengthMenu":[[20,50, 100, -1], [20,50, 100,"All"]]
+
+  });
+
+
+
+ <?php $b = '<h3 align="center">รายการ ธนาคาร</h3>' ?>
+           $('#example4').DataTable( {
+
+
+               dom: 'Bfrtip',
+               buttons: [
+            {
+                extend: 'print',
+                messageTop: '<?php echo $b; ?>'
+            }
+          ],
+
+          lengthMenu: [
+          [ 10, 25, 50, -1 ],
+          [ '10 แถว', '25 แถว', '50 แถว', 'แสดงทั้งหมด' ],
+          ],
+   
+
+          "aaSorting" :[[0,'asc']],
+
+          "language": {
+             "lengthMenu": "Display _MENU_ records",
+              "sEmptyTable":     "ไม่มีข้อมูลในตาราง",
+              "sInfo":           "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
+              "sInfoEmpty":      "แสดง 0 ถึง 0 จาก 0 แถว",
+              "sInfoFiltered":   "(กรองข้อมูล _MAX_ ทุกแถว)",
+              "sInfoPostFix":    "",
+              "sInfoThousands":  ",",
+              "sLengthMenu":     "แสดง _MENU_ แถว",
+              "sLoadingRecords": "กำลังโหลดข้อมูล...",
+              "sProcessing":     "กำลังดำเนินการ...",
+              "sSearch":         "ค้นหา: ",
+              "sZeroRecords":    "ไม่พบข้อมูล",
+              "oPaginate": {
+                "sFirst":    "หน้าแรก",
+                "sPrevious": "ก่อนหน้า",
+                "sNext":     "ถัดไป",
+                "sLast":     "หน้าสุดท้าย"
+          },
+          "oAria": {
+                "sSortAscending":  ": เปิดใช้งานการเรียงข้อมูลจากน้อยไปมาก",
+                "sSortDescending": ": เปิดใช้งานการเรียงข้อมูลจากมากไปน้อย"
+          }
+    }
+
+
+
+    //"lengthMenu":[[20,50, 100, -1], [20,50, 100,"All"]]
+
+  });
+
+
+<?php $r = '<h3 align="center">รายการสินค้า</h3>' ?>
            $('#example3').DataTable( {
 
 
                dom: 'Bfrtip',
                buttons: [
-               {
-                    extend: 'excelHtml5',
-                    title: 'Data export',
-                    footer: true
-              },
               {
-                extend: 'pageLength',
-                title: 'Data export'
-          }
+                extend: 'print',
+                messageTop: '<?php echo $r; ?>'
+            }
           ],
 
           lengthMenu: [
@@ -177,20 +375,15 @@
 	  //"lengthMenu":[[20,50, 100, -1], [20,50, 100,"All"]]
 
 	});
-
+<?php $d = '<h3 align="center">ประเภทสินค้า</h3>' ?>
            $('#example1').DataTable( {
 
 
             dom: 'Bfrtip',
             buttons: [
-            {
-                  extend: 'excelHtml5',
-                  title: 'Data export',
-                  footer: true
-            },
-            {
-                  extend: 'pageLength',
-                  title: 'Data export'
+           {
+                extend: 'print',
+                messageTop: '<?php echo $d; ?>'
             }
             ],
 
@@ -273,14 +466,9 @@
 
             dom: 'Bfrtip',
             buttons: [
-            {
-                  extend: 'excelHtml5',
-                  title: 'Data export',
-                  footer: true
-            },
-            {
-                  extend: 'pageLength',
-                  title: 'Data export'
+           {
+                extend: 'print',
+                messageTop: '<?php echo $r; ?>'
             }
             ],
 

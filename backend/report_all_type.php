@@ -60,8 +60,9 @@ $totalRows_ptype = mysql_num_rows($ptype);
         <table id="example1" class="display" cellspacing="0" border="0">
 		<thead>
           <tr>
-             <th>ลำดับที่</th>
-            <th >ชื่อประเภท</th>
+             <th align="center">ลำดับที่</th>
+             <th align="center">รหัสประเภท</th>
+            <th align="center">ชื่อประเภท</th>
             
           </tr>
         </thead>
@@ -72,7 +73,7 @@ $i = 1;
           do { ?>
             <tr>
                <td align="center" valign="top"><?php echo $i; ?></td>
-              
+               <td  align="center" valign="top"><?php echo $row_ptype['t_type']; ?></td>
               <td  align="center" valign="top"><?php echo $row_ptype['t_name']; ?></td>
             </tr>
             <?php 

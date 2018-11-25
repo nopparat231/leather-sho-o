@@ -187,7 +187,7 @@ if ($row_cartdone['postcode'] == 0 && $row_cartdone['order_status'] != 3  ) {?>
     echo "</tr>";
 
     echo "<tr>";
-    echo "<td  align='left' colspan='6'><b>ภาษี 7%</b></td>";
+    echo "<td  align='left' colspan='6'><b>ภาษี 9%</b></td>";
     echo "<td align='center'>"."<b>".number_format($tax,2)."</b>"."</td>";
     echo "</tr>";
 

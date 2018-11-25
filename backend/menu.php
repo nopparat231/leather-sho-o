@@ -19,7 +19,7 @@
 		<li><a href="list_admin.php" class="list-group-item">รายงานผู้ดูแลระบบ</a></li>
 		<li><a href="list_member.php" class="list-group-item">รายงานข้อมูลสมาชิค</a></li>
 		<li><a href="report_all_prd.php" class="list-group-item">รายงานข้อมูลสินค้า</a></li>
-		<li><a href="report_order.php" class="list-group-item">รายงานการสั่งซื้อ</a></li>
+		<li><a href="report_all_order.php" class="list-group-item">รายงานการสั่งซื้อ</a></li>
 		<li><a href="report_all_type.php" class="list-group-item">รายงานประเภทสินค้า</a></li>
 		<li><a href="report_all_sell.php" class="list-group-item">รายงานตรวจรับสินค้า</a></li>
 		<li><a href="report_all_bank.php" class="list-group-item">รายงานข้อมูลธนาคาร</a></li>
