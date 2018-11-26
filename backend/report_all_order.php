@@ -67,6 +67,8 @@ $row_mycart = mysql_fetch_assoc($mycart);
 $totalRows_mycart = mysql_num_rows($mycart);
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,6 +77,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include('h.php');?>
   <?php include('datatable.php');?>
+  <?php include 'date.php'; ?>
 
   </head> <?php include('navbar.php');?>
   <body> <?php //include('menu.php');?>
@@ -89,36 +92,42 @@ $totalRows_mycart = mysql_num_rows($mycart);
 
       </div>
       <div class="col-md-9">
+
+
         <style type="text/css">
 
         th { white-space: nowrap; }
       </style>
 
+
+
+
       <h3 align="center">รายสั่งซื้อ</h3>
+
 
       <form action="report_all_order.php" method="post">
        <div class="row">
-         <div class="input-daterange">
-           <div class="col-md-1">
-            <label><font size="2">จากวัน</font></label> 
-          </div>
-          <div class="col-md-4">
-            <input type="text" name="start_date" id="start_date" class="form-control" />
-          </div>
-          <div class="col-md-1">
-            <label><font size="2">ถึงวันที่</font></label>  
-          </div>
-          <div class="col-md-4">
-           <input type="text"  name="end_date" id="end_date" class="form-control" />
-         </div>      
-       </div>
+
+         <div class="col-md-1">
+          <label><font size="2">จากวัน</font></label> 
+        </div>
+        <div class="col-md-4">
+          <input id="inputdatepicker" class="datepicker" name="start_date" type="text"  autocomplete="off"  />
+        </div>
+        <div class="col-md-1">
+          <label><font size="2">ถึงวันที่</font></label>  
+        </div>
+        <div class="col-md-4">
+         <input  id="inputdatepicker" class="datepicker" name="end_date" type="text"  autocomplete="off"  />
+       </div>      
+       
        <div class="col-md-2">
         <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
       </div>
     </div>
   </form>
   <br />
-  <table id="example7" class="display"  border="0">
+  <table id="example7" class="display"  border="1">
     <thead>
       <tr>
         <th>ลำดับที่</th>
@@ -158,7 +167,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
               </font>
             </td>
 
-            <td align="center"> <?php echo $row_mycart['order_date'];?></td>
+            <td align="center"> <?php echo date("d-m-Y",strtotime($row_mycart['order_date']));?></td>
             <td align="center">
               <?php echo number_format($row_mycart['ctotal'],2);?>
             </td>
@@ -174,6 +183,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
           <th></th>
           <th></th>
           <th></th>
+
 
           <th style="text-align:right">Total:</th>
           <th></th>

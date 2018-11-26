@@ -78,7 +78,7 @@ $totalRows_prd = mysql_num_rows($prd);
 
     <h3 align="center"> รายการสินค้า  </h3>
    
-<table width="100%" border="0" cellspacing="0" class="display" id="example3">
+<table width="100%" border="1" cellspacing="0" class="display" id="example3">
   <?php $r = '<h3 align="center">รายการสินค้า</h3>' ?>
   <thead>
     <tr>

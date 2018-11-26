@@ -57,7 +57,7 @@ $totalRows_lbk = mysql_num_rows($lbk);
 </div>
     <div class="col-md-9">
       <h3 align="center"> รายการ ธนาคาร   </h3>
-      <table id="example4" class="display" cellspacing="0" border="0">
+      <table id="example4" class="display" cellspacing="0" border="1">
         <thead>
           <tr align="center">
             <th>ลำดับที่</th>

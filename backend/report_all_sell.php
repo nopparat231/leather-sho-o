@@ -47,7 +47,7 @@ if ($start_date != '') {
 
 
 mysql_select_db($database_condb);
-$query_lbk = "SELECT * FROM tbl_sell where s_date >= '$start_date' and sn_date <= '$end_date'";
+$query_lbk = "SELECT * FROM tbl_sell where s_date >= '$start_date' and s_date <= '$end_date'";
 $lbk = mysql_query($query_lbk, $condb) or die(mysql_error());
 $row_lbk = mysql_fetch_assoc($lbk);
 $totalRows_lbk = mysql_num_rows($lbk);
@@ -61,6 +61,7 @@ $totalRows_lbk = mysql_num_rows($lbk);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include('h.php');?>
   <?php include('datatable.php');?>
+  <?php include 'date.php'; ?>
   </head>  <?php include('navbar.php');?>
   <body>
 
@@ -78,30 +79,30 @@ $totalRows_lbk = mysql_num_rows($lbk);
           <h3 align="center"> รายการตรวจรับสินค้า  </h3>
 
           <form action="report_all_sell.php" method="post">
-           <div class="row">
-             <div class="input-daterange">
-               <div class="col-md-1">
-                <label><font size="2">จากวัน</font></label> 
-              </div>
-              <div class="col-md-4">
-                <input type="text" name="start_date" id="start_date" class="form-control" />
-              </div>
-              <div class="col-md-1">
-                <label><font size="2">ถึงวันที่</font></label>  
-              </div>
-              <div class="col-md-4">
-               <input type="text"  name="end_date" id="end_date" class="form-control" />
-             </div>      
-           </div>
-           <div class="col-md-2">
-            <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+       <div class="row">
+        
+           <div class="col-md-1">
+            <label><font size="2">จากวัน</font></label> 
           </div>
-        </div>
-      </form>
+          <div class="col-md-4">
+            <input id="inputdatepicker" class="datepicker" name="start_date" type="text"  autocomplete="off"  />
+          </div>
+          <div class="col-md-1">
+            <label><font size="2">ถึงวันที่</font></label>  
+          </div>
+          <div class="col-md-4">
+           <input  id="inputdatepicker" class="datepicker" name="end_date" type="text"  autocomplete="off"  />
+         </div>      
+       
+       <div class="col-md-2">
+        <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+      </div>
+    </div>
+  </form>
       <br />
 
       <div class="table-responsive">
-        <table id="example" class="display" cellspacing="0" border="0">
+        <table id="example" class="display" cellspacing="0" border="1">
           <thead>
             <tr align="center">
               <th>ลำดับ</th>

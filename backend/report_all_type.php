@@ -57,7 +57,7 @@ $totalRows_ptype = mysql_num_rows($ptype);
 </div>
     <div class="col-md-9">
         <h3 align="center"> ประเภทสินค้า </h3>
-        <table id="example1" class="display" cellspacing="0" border="0">
+        <table id="example1" class="display" cellspacing="0" border="1">
 		<thead>
           <tr>
              <th align="center">ลำดับที่</th>

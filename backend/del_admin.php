@@ -5,10 +5,10 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 error_reporting( error_reporting() & ~E_NOTICE );
 
 $admin_id = $_GET['admin_id'];
+$admin_status = 'ex';
 
 
-
-$sql ="DELETE FROM tbl_admin WHERE admin_id=$admin_id";
+$sql ="UPDATE tbl_admin SET status='$admin_status' WHERE admin_id='$admin_id'";
 
 		$result = mysql_query( $sql,$condb) or die("Error in query : $sql" .mysql_error());
 

@@ -104,7 +104,7 @@ $totalRows_prd = mysql_num_rows($prd);
   </div>
 </form>
 <br />
-<table width="100%" border="0" cellspacing="0" class="display" id="example3">
+<table width="100%" border="1" cellspacing="0" class="display" id="example3">
 
   <thead>
     <tr>
