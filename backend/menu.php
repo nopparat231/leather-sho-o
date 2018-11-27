@@ -4,7 +4,7 @@
 <br>
 
 <?php include('mm.php');?> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="glyphicon glyphicon-user"> </b>&nbsp;<b>ADMIN : <?php echo $row_mm['admin_name'];?></b> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="glyphicon glyphicon-user"> </b>&nbsp;<b>ผู้ใช้งาน : <?php echo $row_mm['admin_name'];?></b> 
 <br>  
 <nav class="navbar navbar-inverse sidebar">
 	<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">

@@ -46,7 +46,7 @@ if ($start_date != '') {
 }
 
 mysql_select_db($database_condb);
-$query_listadmin = "SELECT * FROM tbl_admin where date_save >= '$start_date' and date_save <= '$end_date' ORDER BY admin_id ASC";
+$query_listadmin = "SELECT * FROM tbl_admin where date(date_save) >= '$start_date' and date(date_save) <= '$end_date' ORDER BY admin_id ASC";
 $listadmin = mysql_query($query_listadmin, $condb) or die(mysql_error());
 $row_listadmin = mysql_fetch_assoc($listadmin);
 $totalRows_listadmin = mysql_num_rows($listadmin);
@@ -99,17 +99,17 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
       <table id="example6" class="display" cellspacing="0" border="1">
         <thead>
           <tr align="center">
-            <th width="5%">ลำดับที่</th>
-            <th width="5%">รหัส</th>
-            <th width="10%">ข้อมูล</th>
-            <th width="15%">ที่อยู่</th>
-            <th width="5%">สถานะ</th>
-            <th width="5%">วันที่สมัคร</th>
+            <th>ลำดับที่</th>
+            <th>รหัส</th>
+            <th>ข้อมูล</th>
+            <th>ที่อยู่</th>
+            <th>สถานะ</th>
+            <th>วันที่สมัคร</th>
             <?php if ($row_mm['status'] == 'superadmin') { ?>
 
             <?php }else{ ?>
-              <th width="5%">แก้ไข </th>
-              <th width="5%">ลบ</th>
+              <th>แก้ไข </th>
+              <th>ลบ</th>
             <?php  } ?>
           </tr>
         </thead>
@@ -144,7 +144,7 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
               }elseif ($row_listadmin['status'] == 'superadmin') {
                 $stu = 'ผู้จัดการ';
               }elseif ($row_listadmin['status'] == 'ex') {
-                $stu = 'ยกเลิกบัญชี';
+                 $stu = "<font color='red'>ยกเลิกบัญชี</font>";
               }
 
                 echo $stu; ?><br />
@@ -172,6 +172,6 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
 <?php
 mysql_free_result($listadmin);
 ?>
-<?php // include('f.php');?>
+<?php  include('f.php');?>
 
 

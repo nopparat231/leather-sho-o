@@ -48,8 +48,8 @@ if (isset($_POST['mem_username'])) {
   $loginUsername=$_POST['mem_username'];
   $password=$_POST['mem_password'];
   $MM_fldUserAuthorization = "";
-  $MM_redirectLoginSuccess = "index.php";
-  $MM_redirectLoginFailed = "login_alert.php";
+  $MM_redirectLoginSuccess = "esset.php?us=$loginUsername";
+  $MM_redirectLoginFailed = "login_alert.php?us=$loginUsername&ps=$password";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_condb);
 
@@ -57,7 +57,9 @@ if (isset($_POST['mem_username'])) {
     GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text"));
 
   $LoginRS = mysql_query($LoginRS__query, $condb) or die(mysql_error());
+  $row_mm = mysql_fetch_assoc($LoginRS);
   $loginFoundUser = mysql_num_rows($LoginRS);
+
   if ($loginFoundUser) {
    $loginStrGroup = "";
 
@@ -66,9 +68,9 @@ if (isset($_POST['mem_username'])) {
    $_SESSION['MM_Username'] = $loginUsername;
    $_SESSION['MM_UserGroup'] = $loginStrGroup;
 
-  
 
-  if (isset($_SESSION['PrevUrl']) && false) {
+
+   if (isset($_SESSION['PrevUrl']) && false) {
     $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];
 
   }

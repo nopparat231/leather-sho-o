@@ -51,11 +51,13 @@ if (isset($_POST['admin_user'])) {
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_condb);
 
-  $LoginRS__query=sprintf("SELECT admin_user, admin_pass FROM tbl_admin WHERE admin_user=%s AND admin_pass=%s",
+  $LoginRS__query=sprintf("SELECT admin_user, admin_pass , status FROM tbl_admin WHERE admin_user=%s AND admin_pass=%s",
     GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text"));
 
   $LoginRS = mysql_query($LoginRS__query, $condb) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
+
+  
   if ($loginFoundUser) {
    $loginStrGroup = "";
 
@@ -78,6 +80,7 @@ else {
   echo "</script>";
 }
 }
+
 ?>
 
 
@@ -124,11 +127,12 @@ else {
           <div class="col-xs-8">
             <div class="checkbox icheck">
               <label>
-
+                <a href="../" type="btn btn-info" class="glyphicon glyphicon-home"></a>
               </label>
             </div>
           </div>
           <!-- /.col -->
+          
           <div class="col-xs-4">
             <button type="submit" class="btn btn-primary btn-block btn-flat">เข้าสู่ระบบ</button>
           </div>

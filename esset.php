@@ -31,7 +31,7 @@ if (!function_exists("GetSQLValueString")) {
   }
 }
 $colname_mm = $_GET['us'];
-$ps = $_GET['ps'];
+
 mysql_select_db($database_condb);
 $query_mm = sprintf("SELECT * FROM tbl_member where mem_username ='$colname_mm'");
 $mm = mysql_query($query_mm, $condb) or die(mysql_error());
@@ -40,26 +40,15 @@ $totalRows_mm = mysql_num_rows($mm);
 ?>
 <?php
 
-if ($row_mm['mem_username'] <> $colname_mm) {
+if ($row_mm['status'] <> 'user') {
 
   echo "<script>";
-  echo "alert('ชื่อผู้ใช้ผิด !');";
-  echo "window.location ='index.php'; ";
+  echo "alert('ชื่อผู้ใช้นี้ถูกยกเลิกแล้ว !');";
+  echo "window.location ='logout.php'; ";
   echo "</script>";
-}elseif ($row_mm['mem_password'] <> $ps) {
-
-  echo "<script>";
-  echo "alert('รหัสผ่านผิด !');";
-  echo "window.location ='index.php'; ";
-  echo "</script>";
-}elseif (($row_mm['mem_username'] <> $colname_mm) && ($row_mm['mem_password'] <> $ps)) {
-	echo "<script>";
-  echo "alert('ไม่มีผู้ใช้งานนี้ กรุณาสมัครสมาชิก !');";
-  echo "window.location ='index.php'; ";
-  echo "</script>";
+}else{
+ header("Location: index.php");
 }
-
-  
 
 ?>
 
@@ -67,12 +56,3 @@ if ($row_mm['mem_username'] <> $colname_mm) {
 mysql_free_result($mm);
 ?>
 
-
-
-
-<?php
-echo "<script>";
-			echo "alert('ชื่อผู้ใช้ หรือ รหัสผ่าน ผิด กรุณาเข้าสู่ระบบอีกครั้ง !');";
-			echo "window.location ='index.php'; ";
-echo "</script>";
-?>

@@ -37,15 +37,15 @@ if ($start_date != '') {
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
 }elseif ($start_date == '') {
-  $start_date = '2012-01-01';
+    $start_date = date('2012-01-01');
   $end_date = date('Y/m/d');
 }else {
-  $start_date = '2012-01-01';
+  $start_date = date('2012-01-01');
   $end_date = date('Y/m/d');
 }
 
 mysql_select_db($database_condb);
-$query_mem = "SELECT * FROM tbl_member where dateinsert >= '$start_date' and dateinsert <= '$end_date' ORDER BY mem_id ASC";
+$query_mem = "SELECT * FROM tbl_member where date(dateinsert) >= '$start_date' and date(dateinsert) <= '$end_date' ORDER BY mem_id ASC";
 $mem = mysql_query($query_mem, $condb) or die(mysql_error());
 $row_mem = mysql_fetch_assoc($mem);
 $totalRows_mem = mysql_num_rows($mem);
@@ -97,17 +97,17 @@ $totalRows_mem = mysql_num_rows($mem);
     <table id="example5" class="display" cellspacing="0" border="1">
       <thead>
         <tr align="center">
-          <th width="5%">ลำดับที่</th>
-          <th width="5%">รหัส</th>
-          <th width="10%">ข้อมูล</th>
-          <th width="15%">ที่อยู่</th>
-          <th width="5%">สถานะ</th>
-          <th width="5%">วันที่สมัคร</th>
+          <th>ลำดับที่</th>
+          <th>รหัส</th>
+          <th>ข้อมูล</th>
+          <th>ที่อยู่</th>
+          <th>สถานะ</th>
+          <th>วันที่สมัคร</th>
           <?php if ($row_mm['status'] == 'superadmin') { ?>
 
           <?php }else{ ?>
-            <th width="5%">แก้ไข </th>
-            <th width="5%">ลบ</th>
+            <th>แก้ไข </th>
+            <th>ลบ</th>
           <?php  } ?>
         </tr>
       </thead>
@@ -126,10 +126,14 @@ $totalRows_mem = mysql_num_rows($mem);
           </td>
           <td align="center">
 
-            <?php if ($row_mem['status'] = 'user'){ 
+            <?php 
+
+
+            if ($row_mem['status'] == 'user'){ 
               $ida = 'สมาชิก';
-            }elseif ($row_mem['status'] = 'ex') {
-             $ida = 'ยกเลิกบัญชี';
+            }elseif ($row_mem['status'] == 'ex') {
+             $ida = "<font color='red'>ยกเลิกบัญชี</font>";
+            
            } ?>
            <?php echo $ida; ?></td>
            <td><?php echo date("d-m-Y",strtotime($row_mem['dateinsert'])); ?></td>
@@ -156,4 +160,4 @@ $totalRows_mem = mysql_num_rows($mem);
 <?php
 mysql_free_result($mem);
 ?>
-<?php // include('f.php');?>
+<?php include('f.php');?>
