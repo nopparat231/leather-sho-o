@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2018 at 03:55 PM
+-- Generation Time: Nov 28, 2018 at 05:22 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -37,7 +37,7 @@ CREATE TABLE `tbl_admin` (
   `admin_tel` varchar(10) NOT NULL,
   `admin_email` varchar(100) NOT NULL,
   `status` varchar(10) NOT NULL,
-  `date_save` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `date_save` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `tbl_member` (
   `status` varchar(5) NOT NULL,
   `sid` varchar(32) NOT NULL,
   `active` varchar(3) NOT NULL,
-  `dateinsert` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `dateinsert` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `tbl_order` (
   `pay_date` date DEFAULT NULL,
   `pay_amount` float(10,2) DEFAULT NULL,
   `postcode` varchar(30) DEFAULT NULL,
-  `order_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
