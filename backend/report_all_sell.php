@@ -124,9 +124,9 @@ $totalRows_lbk = mysql_num_rows($lbk);
             <td><?php echo $i; ?></td>
             <td><?php echo $row_lbk['s_number']; ?></td>
             <td><?php echo $row_lbk['sn_number']; ?></td>
-            <td><?php echo $row_lbk['s_price']; ?></td>
-            <td><?php echo $row_lbk['s_date']; ?></td>
-            <td><?php echo $row_lbk['sn_date']; ?></td>
+            <td><?php echo number_format($row_lbk['s_price'],2); ?></td>
+            <td><?php echo date("d-m-Y",strtotime($row_lbk['s_date'])); ?></td>
+            <td><?php echo date("d-m-Y",strtotime($row_lbk['sn_date'])); ?></td>
 
             <td><center><a href="../bimg/<?php echo $row_lbk['s_bill'];?>" target="_blank"><img src="../bimg/<?php echo $row_lbk['s_bill'];?>" height="50px" ></a></center>
             </td>

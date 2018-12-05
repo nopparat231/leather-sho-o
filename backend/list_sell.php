@@ -62,7 +62,7 @@ $totalRows_lbk = mysql_num_rows($lbk);
         <div class="col-md-9">
           <h3 align="center"> รายการตรวจรับสินค้า  <a href="add_sell.php" class="btn btn-primary"> + เพิ่ม </a> </h3>
           <div class="table-responsive">
-            <table id="example" class="display" cellspacing="0" border="0">
+            <table id="example" class="display" cellspacing="0" border="1">
               <thead>
                 <tr align="center">
                   <th>ลำดับ</th>
