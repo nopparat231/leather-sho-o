@@ -37,7 +37,7 @@ if ($start_date != '') {
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
 }elseif ($start_date == '') {
-    $start_date = date('2012-01-01');
+  $start_date = date('2012-01-01');
   $end_date = date('Y/m/d');
 }else {
   $start_date = date('2012-01-01');
@@ -74,87 +74,89 @@ $totalRows_mem = mysql_num_rows($mem);
       <div class="col-md-9">
         <h3 align="center"> รายการ ข้อมูลสมาชิค </h3>
         <form action="list_member.php" method="post">
-         <div class="row">
+          <?php include 'thaidate.php'; ?>
+          <div class="row">
 
            <div class="col-md-1">
             <label><font size="2">จากวัน</font></label> 
           </div>
           <div class="col-md-4">
-            <input id="inputdatepicker" class="datepicker" name="start_date" type="text"  autocomplete="off"  />
+            <input id="from" name="start_date" type="text"  autocomplete="off"  />
           </div>
           <div class="col-md-1">
             <label><font size="2">ถึงวันที่</font></label>  
           </div>
           <div class="col-md-4">
-           <input  id="inputdatepicker" class="datepicker" name="end_date" type="text"  autocomplete="off"  />
-         </div>      
+            <input  id="to" name="end_date" type="text"  autocomplete="off"  />
+          </div>      
 
-         <div class="col-md-2">
-          <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+          <div class="col-md-2">
+            <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+          </div>
         </div>
-      </div>
-    </form><br>
-    <table id="example5" class="display" cellspacing="0" border="1">
-      <thead>
-        <tr align="center">
-          <th>ลำดับที่</th>
-          <th>รหัส</th>
-          <th>ข้อมูล</th>
-          <th>ที่อยู่</th>
-          <th>สถานะ</th>
-          <th>วันที่สมัคร</th>
-          <?php if ($row_mm['status'] == 'superadmin') { ?>
+      </form>
+      <br>
+      <table id="example5" class="display" cellspacing="0" border="1">
+        <thead>
+          <tr align="center">
+            <th>ลำดับที่</th>
+            <th>รหัส</th>
+            <th>ข้อมูล</th>
+            <th>ที่อยู่</th>
+            <th>สถานะ</th>
+            <th>วันที่สมัคร</th>
+            <?php if ($row_mm['status'] == 'superadmin') { ?>
 
-          <?php }else{ ?>
-            <th>แก้ไข </th>
-            <th>ลบ</th>
-          <?php  } ?>
-        </tr>
-      </thead>
-      <?php 
-      $i = 1;
-      do { ?>
-        <tr>
-         <td align="center" ><?php echo $i; ?></td>
-         <td align="center">US<?php echo $row_mem['mem_id']; ?></td>
-         <td><?php echo "ชื่อ : ",$row_mem['mem_name']; ?><br />
-          <?php echo "User : ",$row_mem['mem_username']; ?><br />
-          <?php echo "Pass : ",'**********' ?></td>
-          <td><?php echo "ที่อยู่ : " ,$row_mem['mem_address']; ?><br />
-            <?php echo "เบอร์โทร : " ,$row_mem['mem_tel']; ?><br />
-            <?php echo "E-mail : " ,$row_mem['mem_email']; ?>
-          </td>
-          <td align="center">
+            <?php }else{ ?>
+              <th>แก้ไข </th>
+              <th>ลบ</th>
+            <?php  } ?>
+          </tr>
+        </thead>
+        <?php 
+        $i = 1;
+        do { ?>
+          <tr>
+           <td align="center" ><?php echo $i; ?></td>
+           <td align="center">US<?php echo $row_mem['mem_id']; ?></td>
+           <td><?php echo "ชื่อ : ",$row_mem['mem_name']; ?><br />
+            <?php echo "User : ",$row_mem['mem_username']; ?><br />
+            <?php echo "Pass : ",'**********' ?></td>
+            <td><?php echo "ที่อยู่ : " ,$row_mem['mem_address']; ?><br />
+              <?php echo "เบอร์โทร : " ,$row_mem['mem_tel']; ?><br />
+              <?php echo "E-mail : " ,$row_mem['mem_email']; ?>
+            </td>
+            <td align="center">
 
-            <?php 
-
-
-            if ($row_mem['status'] == 'user'){ 
-              $ida = 'สมาชิก';
-            }elseif ($row_mem['status'] == 'ex') {
-             $ida = "<font color='red'>ยกเลิกบัญชี</font>";
-            
-           } ?>
-           <?php echo $ida; ?></td>
-           <td><?php echo date("d-m-Y",strtotime($row_mem['dateinsert'])); ?></td>
+              <?php 
 
 
-           <?php if ($row_mm['status'] == 'superadmin') { ?>
+              if ($row_mem['status'] == 'user'){ 
+                $ida = 'สมาชิก';
+              }elseif ($row_mem['status'] == 'ex') {
+               $ida = "<font color='red'>ยกเลิกบัญชี</font>";
+               
+             } ?>
+             <?php echo $ida; ?></td>
+             <td><?php echo date("d-m-Y",strtotime($row_mem['dateinsert'])); ?></td>
 
-           <?php }else{ ?>
-             <td><center> <a href="edit_mem.php?mem_id=<?php echo $row_mem['mem_id'];?>" class="btn btn-warning btn-xs"> แก้ไข </a> </center> </td>
-             <td><center> <a href="del_mem.php?mem_id=<?php echo $row_mem['mem_id'];?>" onClick="return confirm('ยืนยันการลบ');" class="btn btn-danger btn-xs"> ลบ </a> </center> </td>
-           <?php  } ?>
+
+             <?php if ($row_mm['status'] == 'superadmin') { ?>
+
+             <?php }else{ ?>
+               <td><center> <a href="edit_mem.php?mem_id=<?php echo $row_mem['mem_id'];?>" class="btn btn-warning btn-xs"> แก้ไข </a> </center> </td>
+               <td><center> <a href="del_mem.php?mem_id=<?php echo $row_mem['mem_id'];?>" onClick="return confirm('ยืนยันการลบ');" class="btn btn-danger btn-xs"> ลบ </a> </center> </td>
+             <?php  } ?>
 
 
-         </tr>
-         <?php 
-         $i += 1;
-       } while ($row_mem = mysql_fetch_assoc($mem)); ?>
-     </table>
+           </tr>
+           <?php 
+           $i += 1;
+         } while ($row_mem = mysql_fetch_assoc($mem)); ?>
+       </table>
+     </div>
    </div>
  </div>
-</div>
 </body>
 </html>
 <?php

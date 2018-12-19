@@ -82,81 +82,82 @@ $totalRows_prd = mysql_num_rows($prd);
     </style>
 
     <h3 align="center"> รายการสินค้า  </h3>
-    <form action="report_all_order.php" method="post">
-     <div class="row">
-       <div class="input-daterange">
-         <div class="col-md-1">
-          <label><font size="2">จากวัน</font></label> 
-        </div>
-        <div class="col-md-4">
-          <input type="text" name="start_date" id="start_date" class="form-control" />
-        </div>
-        <div class="col-md-1">
-          <label><font size="2">ถึงวันที่</font></label>  
-        </div>
-        <div class="col-md-4">
-         <input type="text"  name="end_date" id="end_date" class="form-control" />
-       </div>      
-     </div>
-     <div class="col-md-2">
-      <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+    <form action="report_order.php" method="post">
+      <?php include 'thaidate.php'; ?>
+      <div class="row">
+
+       <div class="col-md-1">
+        <label><font size="2">จากวัน</font></label> 
+      </div>
+      <div class="col-md-4">
+        <input id="from" name="start_date" type="text"  autocomplete="off"  />
+      </div>
+      <div class="col-md-1">
+        <label><font size="2">ถึงวันที่</font></label>  
+      </div>
+      <div class="col-md-4">
+        <input  id="to" name="end_date" type="text"  autocomplete="off"  />
+      </div>      
+
+      <div class="col-md-2">
+        <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+      </div>
     </div>
-  </div>
-</form>
-<br />
-<table width="100%" border="1" cellspacing="0" class="display" id="example3">
+  </form>
+  <br />
+  <table width="100%" border="1" cellspacing="0" class="display" id="example3">
 
-  <thead>
-    <tr>
+    <thead>
+      <tr>
 
-      <th >ลำดับที่</th>
-      <th>รหัสสั่งซื้อ</th>
-      <th >ชื่อผู้ใช้</th>
+        <th >ลำดับที่</th>
+        <th>รหัสสั่งซื้อ</th>
+        <th >ชื่อผู้ใช้</th>
 
-      <th >สินค้า</th>
-      <th >จำนวน</th>
-      <th >สถานะ</th>
-      <th >วันที่</th>
-      <th >ราคา</th>
+        <th >สินค้า</th>
+        <th >จำนวน</th>
+        <th >สถานะ</th>
+        <th >วันที่</th>
+        <th >ราคา</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <?php if($totalRows_prd>0){?>
-
-      <?php 
-      $i = 1;
-
-      do { ?>
-        <tr>
-          <td align="center" valign="top"><?php echo $i; ?></td>
-          <td valign="top"><?php echo $row_prd['o.order_id']; ?></td>
-          <td valign="top"> <?php echo $row_prd['o.name']; ?></td>
-          <td valign="top"> <?php echo $row_prd['d.p_name']; ?></td>
-          <td valign="top"> <?php echo $row_prd['d.p_c_qty']; ?></td>
-          <td valign="top"> <?php echo $row_prd['o.order_status']; ?></td>
-          <td valign="top"> <?php echo $row_prd['o.order_date']; ?></td>
-          
-        <td align="right" valign="top"><?php echo number_format($row_prd['d.total'],2); ?></td>
       </tr>
-      <?php
-      $i += 1;
-    } while ($row_prd = mysql_fetch_assoc($prd)); ?>
-  <?php } ?>
-</tbody>
-<tfoot>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th style="text-align:right">Total:</th>
-    <th></th>
-  </tr>
-</tfoot>
-</table>
+    </thead>
+    <tbody>
+      <?php if($totalRows_prd>0){?>
+
+        <?php 
+        $i = 1;
+
+        do { ?>
+          <tr>
+            <td align="center" valign="top"><?php echo $i; ?></td>
+            <td valign="top"><?php echo $row_prd['o.order_id']; ?></td>
+            <td valign="top"> <?php echo $row_prd['o.name']; ?></td>
+            <td valign="top"> <?php echo $row_prd['d.p_name']; ?></td>
+            <td valign="top"> <?php echo $row_prd['d.p_c_qty']; ?></td>
+            <td valign="top"> <?php echo $row_prd['o.order_status']; ?></td>
+            <td valign="top"> <?php echo $row_prd['o.order_date']; ?></td>
+
+            <td align="right" valign="top"><?php echo number_format($row_prd['d.total'],2); ?></td>
+          </tr>
+          <?php
+          $i += 1;
+        } while ($row_prd = mysql_fetch_assoc($prd)); ?>
+      <?php } ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th style="text-align:right">Total:</th>
+        <th></th>
+      </tr>
+    </tfoot>
+  </table>
 </div>
 </div>
 </div>

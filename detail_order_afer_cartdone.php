@@ -232,7 +232,9 @@ input[type='radio']:checked:before {
         <tr>
           <td align="center">วันที่ชำระเงิน</td>
           <td colspan="5" align="left"><label for="pay_date"></label>
-            <input type="date" name="pay_date" id="pay_date" value="<?php echo date('Y-m-d');?>"/></td>
+           <?php include 'thaidate.php'; ?>
+           <input type="text" name="start" id="from" autocomplete="off" >
+          </td>
           </tr>
           <tr>
             <td align="center">&nbsp;</td>

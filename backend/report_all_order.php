@@ -100,25 +100,26 @@ $totalRows_mycart = mysql_num_rows($mycart);
       </style>
 
 
-
+      
 
       <h3 align="center">รายสั่งซื้อ</h3>
 
 
       <form action="report_all_order.php" method="post">
+        <?php include 'thaidate.php'; ?>
        <div class="row">
 
          <div class="col-md-1">
           <label><font size="2">จากวัน</font></label> 
         </div>
         <div class="col-md-4">
-          <input id="inputdatepicker" class="datepicker" name="start_date" type="text"  autocomplete="off"  />
+          <input id="from" name="start_date" type="text"  autocomplete="off"  />
         </div>
         <div class="col-md-1">
           <label><font size="2">ถึงวันที่</font></label>  
         </div>
         <div class="col-md-4">
-         <input  id="inputdatepicker" class="datepicker" name="end_date" type="text"  autocomplete="off"  />
+          <input  id="to" name="end_date" type="text"  autocomplete="off"  />
        </div>      
        
        <div class="col-md-2">

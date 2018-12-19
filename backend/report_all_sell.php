@@ -79,68 +79,69 @@ $totalRows_lbk = mysql_num_rows($lbk);
           <h3 align="center"> รายการตรวจรับสินค้า  </h3>
 
           <form action="report_all_sell.php" method="post">
-       <div class="row">
-        
-           <div class="col-md-1">
-            <label><font size="2">จากวัน</font></label> 
-          </div>
-          <div class="col-md-4">
-            <input id="inputdatepicker" class="datepicker" name="start_date" type="text"  autocomplete="off"  />
-          </div>
-          <div class="col-md-1">
-            <label><font size="2">ถึงวันที่</font></label>  
-          </div>
-          <div class="col-md-4">
-           <input  id="inputdatepicker" class="datepicker" name="end_date" type="text"  autocomplete="off"  />
-         </div>      
-       
-       <div class="col-md-2">
-        <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
-      </div>
-    </div>
-  </form>
-      <br />
+            <?php include 'thaidate.php'; ?>
+            <div class="row">
 
-      <div class="table-responsive">
-        <table id="example" class="display" cellspacing="0" border="1">
-          <thead>
-            <tr align="center">
-              <th>ลำดับ</th>
-              <th>รหัสสินค้า</th>
-              <th>จำนวน</th>
-              <th>ราคา</th>
-              <th>วันที่สั่งซื้อสินค้า</th>
-              <th>วันที่รับสินค้า</th>
-              <th>ใบเสร็จ</th>
+             <div class="col-md-1">
+              <label><font size="2">จากวัน</font></label> 
+            </div>
+            <div class="col-md-4">
+              <input id="from" name="start_date" type="text"  autocomplete="off"  />
+            </div>
+            <div class="col-md-1">
+              <label><font size="2">ถึงวันที่</font></label>  
+            </div>
+            <div class="col-md-4">
+              <input  id="to" name="end_date" type="text"  autocomplete="off"  />
+            </div>      
+
+            <div class="col-md-2">
+              <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
+            </div>
+          </div>
+        </form>
+        <br />
+
+        <div class="table">
+          <table id="example" class="display" cellspacing="0" border="1">
+            <thead>
+              <tr align="center">
+                <th>ลำดับ</th>
+                <th>รหัสสินค้า</th>
+                <th>จำนวน</th>
+                <th>ราคา</th>
+                <th>วันที่สั่งซื้อสินค้า</th>
+                <th>วันที่รับสินค้า</th>
+                <th>ใบเสร็จ</th>
+
+
+              </tr>
+            </thead>
+            <?php 
+            $i = 1;
+            do { ?>
+             <tr align="center">
+
+              <td><?php echo $i; ?></td>
+              <td><?php echo $row_lbk['s_number']; ?></td>
+              <td><?php echo $row_lbk['sn_number']; ?></td>
+              <td><?php echo number_format($row_lbk['s_price'],2); ?></td>
+              <td><?php echo date("d-m-Y",strtotime($row_lbk['s_date'])); ?></td>
+              <td><?php echo date("d-m-Y",strtotime($row_lbk['sn_date'])); ?></td>
+
+              <td><center><a href="../bimg/<?php echo $row_lbk['s_bill'];?>" target="_blank"><img src="../bimg/<?php echo $row_lbk['s_bill'];?>" height="50px" ></a></center>
+              </td>
+
 
 
             </tr>
-          </thead>
-          <?php 
-          $i = 1;
-          do { ?>
-           <tr align="center">
-
-            <td><?php echo $i; ?></td>
-            <td><?php echo $row_lbk['s_number']; ?></td>
-            <td><?php echo $row_lbk['sn_number']; ?></td>
-            <td><?php echo number_format($row_lbk['s_price'],2); ?></td>
-            <td><?php echo date("d-m-Y",strtotime($row_lbk['s_date'])); ?></td>
-            <td><?php echo date("d-m-Y",strtotime($row_lbk['sn_date'])); ?></td>
-
-            <td><center><a href="../bimg/<?php echo $row_lbk['s_bill'];?>" target="_blank"><img src="../bimg/<?php echo $row_lbk['s_bill'];?>" height="50px" ></a></center>
-            </td>
-
-
-
-          </tr>
-          <?php 
-          $i += 1;
-        }while ($row_lbk = mysql_fetch_assoc($lbk)); ?>
-      </table>
+            <?php 
+            $i += 1;
+          }while ($row_lbk = mysql_fetch_assoc($lbk)); ?>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 </div>
 </body>
 </html>
