@@ -6,7 +6,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
-<?php // Include('h.php'); ?>
+<?php //error_reporting(0); ?>
 <script type="text/javascript">
 
 	$(function() {
@@ -366,7 +366,7 @@ $colname_mlogin = "-1";
 if (isset($_SESSION['MM_Username'])) {
 	$colname_mlogin = $_SESSION['MM_Username'];
 }
-mysql_select_db($database_condb);
+
 $query_mlogin = sprintf("SELECT * FROM tbl_member WHERE mem_username = %s", GetSQLValueString($colname_mlogin, "text"));
 $mlogin = mysql_query( $query_mlogin,$condb) or die(mysql_error());
 $row_mlogin = mysql_fetch_assoc($mlogin);

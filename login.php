@@ -1,6 +1,7 @@
 
 <?php require_once('Connections/condb.php'); ?>
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 if (!function_exists("GetSQLValueString")) {
   function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
   {
