@@ -1,12 +1,12 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+<?php session_start(); ?>
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 <!------ Include the above in your HEAD tag ---------->
 
-<?php //error_reporting(0); ?>
+<?php error_reporting(0);
+error_reporting(E_ERROR | E_PARSE); ?>
 <script type="text/javascript">
 
 	$(function() {
@@ -331,43 +331,14 @@
 
 <?php require_once('Connections/condb.php'); ?>
 <?php
-if (!function_exists("GetSQLValueString")) {
-	function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
-	{
-		if (PHP_VERSION < 6) {
-			$theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-		}
 
-		$theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-		switch ($theType) {
-			case "text":
-			$theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-			break;
-			case "long":
-			case "int":
-			$theValue = ($theValue != "") ? intval($theValue) : "NULL";
-			break;
-			case "double":
-			$theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-			break;
-			case "date":
-			$theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-			break;
-			case "defined":
-			$theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-			break;
-		}
-		return $theValue;
-	}
-}
 
 $colname_mlogin = "-1";
 if (isset($_SESSION['MM_Username'])) {
 	$colname_mlogin = $_SESSION['MM_Username'];
 }
 
-$query_mlogin = sprintf("SELECT * FROM tbl_member WHERE mem_username = %s", GetSQLValueString($colname_mlogin, "text"));
+$query_mlogin = sprintf("SELECT * FROM tbl_member WHERE mem_username = %s",($colname_mlogin));
 $mlogin = mysql_query( $query_mlogin,$condb) or die(mysql_error());
 $row_mlogin = mysql_fetch_assoc($mlogin);
 $totalRows_mlogin = mysql_num_rows($mlogin);

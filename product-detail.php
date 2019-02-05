@@ -10,7 +10,11 @@
   </head>
   <body>
   <br>
- <?php include('test2navbar.php');?>
+ <?php
+ error_reporting(0);
+error_reporting(E_ERROR | E_PARSE);
+ 
+ include('test2navbar.php');?>
  <!--start show  product-->
  <div class="container">
  	<div class="row">
