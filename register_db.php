@@ -1,7 +1,7 @@
 
 <meta charset="UTF-8" />
 <?php
-session_start();
+
 include('Connections/condb.php');
 
 
@@ -42,30 +42,22 @@ $sql ="INSERT INTO tbl_member (mem_username , mem_password , mem_name , mem_emai
 
 $result1 = mysql_query($sql,$condb) or die ("Error in query : $sql" .mysql_error());
 
-require_once('./sentmailer/class.phpmailer.php');
+
 		$mem_id = mysql_insert_id($condb);
-$massage = "http://junpha456.tk/activate.php?sid=".$session_id."&mem_id=".$mem_id."<br>";
-$mail = new PHPMailer();
-			$mail->CharSet = "UTF-8";
 
-			$mail->IsHTML(true);
-			$mail->IsSMTP();
-                    $mail->SMTPAuth = true; // enable SMTP authentication
-                    $mail->SMTPSecure = ""; // sets the prefix to the servier
-                    $mail->Host = "free.mboxhosting.com"; // sets GMAIL as the SMTP server
-                    $mail->Port = 25; // set the SMTP port for the GMAIL server
-                    $mail->Username = "service@junpha456.tk"; // GMAIL username
-                    $mail->Password = 'YJ7xpXShzd9bsig'; // GMAIL password
-                    $mail->From = "service@junpha456.tk"; // "name@yourdomain.com";
-                    //$mail->AddReplyTo = "support@thaicreate.com"; // Reply
-                    $mail->FromName = "junpha456.tk";  // set from Name
-                    $mail->Subject = "ยืนยันการสมัครสมาชิก junpha456.tk"; 
-                    $mail->Body = $massage;
-                    
-                    $mail->AddAddress($email); // to Address
+		$strTo = $mem_email;
+		$strSubject = "ยืนยันการสมัครสมาชิก junpha456.tk";
+		$strHeader = "Content-type: text/html; charset=UTF-8\n"; // or UTF-8 //
+		$strHeader .= "From: junpha456.tk";
+		$strMessage = "";
+		$strMessage .= "Welcome : ".$mem_name."<br>";
+		$strMessage .= "=================================<br>";
+		$strMessage .= "ยืนยันการสมัครสมาชิก กรุณาคลิกลิ้งค์<br>";
+		$strMessage .= "http://junpha456.tk/activate.php?sid=".$session_id."&mem_id=".$mem_id."<br>";
+		$strMessage .= "=================================<br>";
+		$strMessage .= "<br>";
 
-                        if($mail->send()){
-
+		$flgSend = mail($strTo,$strSubject,$strMessage,$strHeader);
 
 }
 
