@@ -35,7 +35,7 @@ mysql_select_db($database_condb);
 $query_prd = "
 SELECT * FROM tbl_product as p, tbl_type as t
 WHERE p.t_id = t.t_id
-ORDER BY p.p_id ASC";
+ORDER BY p.p_id desc";
 $prd = mysql_query($query_prd, $condb) or die(mysql_error());
 $row_prd = mysql_fetch_assoc($prd);
 $totalRows_prd = mysql_num_rows($prd);

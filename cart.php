@@ -1,7 +1,10 @@
+
 <?php
-error_reporting(E_ALL ^ E_DEPRECATED);
-error_reporting( error_reporting() & ~E_NOTICE );
-@session_start();
+if (!isset($_SESSION)) {
+  session_start();
+
+}
+
 $p_id = $_GET['p_id'];
 $act = $_GET['act'];
 if($act == 'add' && !empty($p_id))
@@ -47,12 +50,14 @@ if($act == 'update')
             <td><center>รวม</center></td>
         </tr>
         <?php
+
         $total=0;
         if(!empty($_SESSION['shopping_cart']))
         {
             require_once('Connections/condb.php');
             foreach($_SESSION['shopping_cart'] as $p_id=>$p_qty)
             {
+                mysql_select_db($database_condb);
                 $sql = "select * from tbl_product where p_id=$p_id";
                 $query = mysql_query($sql, $condb );
                 $row = mysql_fetch_array($query);

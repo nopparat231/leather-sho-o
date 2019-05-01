@@ -1,6 +1,9 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
+if (!isset($_SESSION)) {
+  session_start();
 
-session_start();
+}
 $p_id = $_GET['p_id'];
 $act = $_GET['act'];
 
@@ -66,6 +69,7 @@ $q = $p_qty;
             require_once('Connections/condb.php');
             foreach($_SESSION['shopping_cart'] as $p_id=>$p_qty)
             {
+                mysql_select_db($database_condb);
                 $sql = "select * from tbl_product where p_id=$p_id";
                 $query = mysql_query($sql, $condb );
                 $row = mysql_fetch_array($query);

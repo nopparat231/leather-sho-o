@@ -122,7 +122,7 @@ input[type='radio']:checked:before {
                 เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br />
 
                 จำนวน <?php echo  number_format($row_cartdone['pay_amount'],2);?> บาท<br />
-                วันที่ชำระ <?php echo date('d/m/Y',strtotime($row_cartdone['pay_date']));?></font><br />
+                วันที่ชำระ <?php echo date($row_cartdone['pay_date']);?></font><br />
                 <h4 style="color:blue">
                   เลขพัสดุ :  <?php echo $row_cartdone['postcode'];?>
                 </h4>
@@ -233,7 +233,7 @@ input[type='radio']:checked:before {
           <td align="center">วันที่ชำระเงิน</td>
           <td colspan="5" align="left"><label for="pay_date"></label>
            <?php include 'thaidate.php'; ?>
-           <input type="text" name="start" id="from" autocomplete="off" >
+           <input type="text" name="pay_date" id="from" autocomplete="off" >
           </td>
           </tr>
           <tr>

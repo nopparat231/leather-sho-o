@@ -2,8 +2,7 @@
 
 <?php
 include('Connections/condb.php');
-error_reporting(E_ALL ^ E_DEPRECATED);
-error_reporting( error_reporting());
+
 session_start(); 
   date_default_timezone_set('Asia/Bangkok');
   $date1 = date("Ymd_His");

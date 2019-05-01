@@ -15,7 +15,7 @@ $sid = $_POST['sid'];
 $active = $_POST['active'];
 
 
-
+mysql_select_db($database_condb);
 $check ="SELECT * FROM tbl_member  WHERE mem_username='$mem_username'";
 $result1=mysql_query($check, $condb);
 $num=mysql_num_rows($result1);

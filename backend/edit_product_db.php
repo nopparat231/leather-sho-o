@@ -148,7 +148,7 @@ if($upload5 <> '') {
 // $discount = $p_price*$promo/100;
 
 // $p_price = $discount - $p_price;
-
+mysql_select_db($database_condb);
 $sql ="UPDATE tbl_product SET
 p_name='$p_name',
 t_id='$t_id',

@@ -37,7 +37,7 @@ $upload=$_FILES['s_bill'];
 
 	}else{}
 
-
+mysql_select_db($database_condb);
 $sql ="UPDATE tbl_sell SET
 			s_number='$s_number',
 		  	sn_number='$sn_number',

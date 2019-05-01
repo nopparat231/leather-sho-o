@@ -45,7 +45,7 @@ if ($start_date != '') {
 }
 
 mysql_select_db($database_condb);
-$query_mem = "SELECT * FROM tbl_member where date(dateinsert) >= '$start_date' and date(dateinsert) <= '$end_date' ORDER BY mem_id ASC";
+$query_mem = "SELECT * FROM tbl_member where date(dateinsert) >= '$start_date' and date(dateinsert) <= '$end_date' ORDER BY mem_id desc";
 $mem = mysql_query($query_mem, $condb) or die(mysql_error());
 $row_mem = mysql_fetch_assoc($mem);
 $totalRows_mem = mysql_num_rows($mem);

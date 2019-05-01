@@ -7,7 +7,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
 $member_id = $_GET['mem_id'];
 $member_status = 'ex';
 
-
+mysql_select_db($database_condb);
 $sql ="UPDATE tbl_member SET status='ex' WHERE mem_id = '$member_id'";
 
 		$result = mysql_query( $sql,$condb) or die("Error in query : $sql" .mysql_error());

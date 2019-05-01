@@ -6,7 +6,7 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
-if (isset($_POST['mem_username'])) {
+if (isset($_POST['resetpassword'])) {
   $loginUsername=$_POST['mem_username'];
   $email=$_POST['mem_email'];
   $MM_fldUserAuthorization = "";
@@ -14,12 +14,11 @@ if (isset($_POST['mem_username'])) {
   $MM_redirectLoginFailed = "index.php";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_condb);
-  
-  $LoginRS__query=sprintf("SELECT mem_username,mem_password ,mem_email FROM tbl_member WHERE mem_username=%s AND mem_email=%s  AND active='yes'",
-    GetSQLValueString($loginUsername, "text"), GetSQLValueString($email, "text")); 
+
+  $LoginRS__query=sprintf("SELECT mem_username,mem_password ,mem_email FROM tbl_member WHERE mem_username= '$loginUsername' AND mem_email='$email'  AND active='yes'");
 
   $LoginRS = mysql_query($LoginRS__query, $condb) or die(mysql_error());
-  
+
   $objResult = mysql_fetch_array($LoginRS);
   if (!$objResult) {
 
@@ -39,12 +38,12 @@ if (isset($_POST['mem_username'])) {
       $strHeader = "Content-type: text/html; charset=UTF-8\n"; // or UTF-8 //
       $strMessage .= "Username และ Password สำหรับเข้าสู่ระบบ<br>";
       $strMessage .= "=================================<br>";
-      
+
       $strMessage .= "Username : ".$objResult["mem_username"]."<br>";
       $strMessage .= "Password : ".$objResult["mem_password"]."<br>";
       $strMessage .= "=================================<br>";
-      
-      $flgSend = mail($strTo,$strSubject,$strMessage,$strHeader); 
+
+      $flgSend = mail($strTo,$strSubject,$strMessage,$strHeader);
 
 
 }
@@ -60,7 +59,7 @@ if (isset($_POST['mem_username'])) {
     <?php include('h.php');?>
   </head>
   <body>
-    
+
    <div class="row" style="padding-top:100px">
     <div class="col-md-4"></div>
     <div class="col-md-4" style="background-color:#f4f4f4">
@@ -76,6 +75,7 @@ if (isset($_POST['mem_username'])) {
         <div class="form-group">
           <div class="col-sm-12">
             <input name="mem_email" type="email" required class="form-control" id="mem_email" placeholder="email" />
+            <input type="hidden" name="resetpassword">
           </div>
         </div>
         <div class="form-group">
@@ -83,6 +83,7 @@ if (isset($_POST['mem_username'])) {
             <button type="submit" class="btn btn-primary" id="btn" >
               <span class="glyphicon glyphicon-log-in"> </span>
             ลืมรหัสผ่าน </button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
           </div>
         </div>
       </form>

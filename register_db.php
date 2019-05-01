@@ -1,7 +1,7 @@
 
 <meta charset="UTF-8" />
 <?php
-
+session_start();
 include('Connections/condb.php');
 
 
@@ -15,7 +15,7 @@ $user = "user";
 $session_id = session_id();
 $no = "no";
 mysql_select_db($database_condb);
-$check = "SELECT * FROM tbl_member WHERE mem_username = '$mem_username' ";
+$check = "SELECT * FROM tbl_member WHERE mem_username = '$mem_username'";
 $result = mysql_query($check,$condb);
 $num = mysql_num_rows($result);
 
@@ -26,16 +26,13 @@ $numemail = mysql_num_rows($resultemail);
 if ($num > 0 ){
 	echo"<script>";
 	echo"alert('ชื่อผู้ใช้ นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง');";
-	echo"window.location = 'index.php';";
+	echo"window.location = 'adduser_admin.php';";
 	echo"</script>";
-
-
 }elseif ($numemail > 0 ){
 	echo"<script>";
 	echo"alert('Email นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง');";
-	echo"window.location = 'index.php';";
+	echo"window.location = 'adduser_admin.php';";
 	echo"</script>";
-
 }else{
 
 $sql ="INSERT INTO tbl_member (mem_username , mem_password , mem_name , mem_email ,  mem_tel , mem_address , status ,sid , active ) VALUES ('$mem_username' , '$mem_password' ,'$mem_name','$mem_email','$mem_tel','$mem_address' ,'$user' ,'$session_id','$no' )";
@@ -46,14 +43,15 @@ $result1 = mysql_query($sql,$condb) or die ("Error in query : $sql" .mysql_error
 		$mem_id = mysql_insert_id($condb);
 
 		$strTo = $mem_email;
-		$strSubject = "ยืนยันการสมัครสมาชิก junpha456.tk";
-		$strHeader = "Content-type: text/html; charset=UTF-8\n"; // or UTF-8 //
-		$strHeader .= "From: junpha456.tk";
+
+		$strHeader = "Content-type: text/html; charset=utf-8\n"; // or UTF-8 //
+		$strHeader .= "From: webmaster@junpha.com\n";
+		$strSubject = "Activate Member Account\n";
 		$strMessage = "";
-		$strMessage .= "Welcome : ".$mem_name."<br>";
+		$strMessage .= "ยินดีต้อนรับ : ".$mem_name."<br>";
 		$strMessage .= "=================================<br>";
-		$strMessage .= "ยืนยันการสมัครสมาชิก กรุณาคลิกลิ้งค์<br>";
-		$strMessage .= "http://junpha456.tk/activate.php?sid=".$session_id."&mem_id=".$mem_id."<br>";
+		$strMessage .= "คลิกลิงค์ เพื่อยืนยันการสมัครสมาชิก<br>";
+		$strMessage .= "http://localhost/leather-shop/activate.php?sid=".$session_id."&mem_id=".$mem_id."<br>";
 		$strMessage .= "=================================<br>";
 		$strMessage .= "<br>";
 

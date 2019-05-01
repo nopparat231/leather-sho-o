@@ -1,6 +1,6 @@
 <?php require_once('Connections/condb.php'); ?>
 <?php
-//error_reporting( error_reporting() & ~E_NOTICE );
+error_reporting( error_reporting() & ~E_NOTICE );
 session_start();
 // print_r($_SESSION);
 if (!function_exists("GetSQLValueString")) {

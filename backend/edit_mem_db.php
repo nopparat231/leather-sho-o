@@ -11,7 +11,7 @@ $mem_email = $_POST['mem_email'];
 $mem_tel = $_POST['mem_tel'];
 $mem_address = $_POST['mem_address'];
 
-
+mysql_select_db($database_condb);
 $sql ="UPDATE tbl_member SET
 			mem_username='$mem_username',
 		  	mem_password='$mem_password',

@@ -36,7 +36,7 @@ $t_id = $_POST['t_id'];
 $t_name = $_POST['t_name'];
 $t_type = $_POST['t_type'];
 
-
+mysql_select_db($database_condb);
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);

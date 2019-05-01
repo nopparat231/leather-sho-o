@@ -1,12 +1,17 @@
-<?php session_start(); ?>
+<?php
+if (!isset($_SESSION)) {
+  session_start();
+
+}
+
+ ?>
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-<!------ Include the above in your HEAD tag ---------->
 
-<?php error_reporting(0);
-error_reporting(E_ERROR | E_PARSE); ?>
+
+
 <script type="text/javascript">
 
 	$(function() {
@@ -338,7 +343,7 @@ if (isset($_SESSION['MM_Username'])) {
 	$colname_mlogin = $_SESSION['MM_Username'];
 }
 
-$query_mlogin = sprintf("SELECT * FROM tbl_member WHERE mem_username = %s",($colname_mlogin));
+$query_mlogin = sprintf("SELECT * FROM tbl_member WHERE mem_username = '$colname_mlogin'");
 $mlogin = mysql_query( $query_mlogin,$condb) or die(mysql_error());
 $row_mlogin = mysql_fetch_assoc($mlogin);
 $totalRows_mlogin = mysql_num_rows($mlogin);

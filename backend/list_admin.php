@@ -46,7 +46,7 @@ if ($start_date != '') {
 }
 
 mysql_select_db($database_condb);
-$query_listadmin = "SELECT * FROM tbl_admin where date(date_save) >= '$start_date' and date(date_save) <= '$end_date' ORDER BY admin_id ASC";
+$query_listadmin = "SELECT * FROM tbl_admin where date(date_save) >= '$start_date' and date(date_save) <= '$end_date' ORDER BY admin_id desc";
 $listadmin = mysql_query($query_listadmin, $condb) or die(mysql_error());
 $row_listadmin = mysql_fetch_assoc($listadmin);
 $totalRows_listadmin = mysql_num_rows($listadmin);

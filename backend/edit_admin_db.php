@@ -11,7 +11,7 @@ $admin_tel = $_POST['admin_tel'];
 $admin_address = $_POST['admin_address'];
 $status = $_POST['status'];
 
-
+mysql_select_db($database_condb);
 $sql ="UPDATE tbl_admin SET
 			admin_name='$admin_name',
 		  	admin_pass='$admin_pass',

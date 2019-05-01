@@ -35,7 +35,7 @@ $upload=$_FILES['s_bill'];
 	move_uploaded_file($_FILES['s_bill']['tmp_name'],$path_copy);
 
 	}else{}
-
+mysql_select_db($database_condb);
 $sql ="INSERT INTO tbl_sell
 
 		(s_number,  sn_number,s_price, s_date,sn_date, s_bill)

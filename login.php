@@ -1,7 +1,7 @@
 
 <?php require_once('Connections/condb.php'); ?>
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
+//error_reporting(E_ALL & ~E_NOTICE);
 
 ?>
 <?php
@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {
 
 }
 
-$loginFormAction = $_SERVER['PHP_SELF'];
+$loginFormActionUser = $_SERVER['PHP_SELF'];
 if (isset($_GET['accesscheck'])) {
   $_SESSION['PrevUrl'] = $_GET['accesscheck'];
 }
@@ -25,8 +25,7 @@ if (isset($_POST['mem_username'])) {
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_condb);
 
-  $LoginRS__query=sprintf("SELECT mem_username, mem_password FROM tbl_member WHERE mem_username=%s AND mem_password=%s AND active='yes'",
-    GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text"));
+  $LoginRS__query=sprintf("SELECT mem_username, mem_password FROM tbl_member WHERE mem_username='$loginUsername' AND mem_password='$password' AND active='yes'");
 
   $LoginRS = mysql_query($LoginRS__query, $condb) or die(mysql_error());
   $row_mm = mysql_fetch_assoc($LoginRS);
@@ -47,9 +46,8 @@ if (isset($_POST['mem_username'])) {
 
   }
 
-   header("Location: " . $MM_redirectLoginSuccess ); //. $MM_redirectLoginSuccess
- }
- else {
+   header("Location: " . $MM_redirectLoginSuccess); //. $MM_redirectLoginSuccess
+ } else {
   header("Location: " . $MM_redirectLoginFailed ); //. $MM_redirectLoginFailed
 }
 }
@@ -71,7 +69,7 @@ if (isset($_POST['mem_username'])) {
       <h3 align="center">
         <span class="glyphicon glyphicon-lock"> </span>
       กรุณา เข้าสู่ระบบ ก่อนทำรายการ ! </h3>
-      <form  name="formlogin" action="<?php echo $loginFormAction; ?>" method="POST" id="login" class="form-horizontal">
+      <form  name="formlogin" action="<?php echo $loginFormActionUser; ?>" method="POST" id="login" class="form-horizontal">
         <div class="form-group">
           <div class="col-sm-12">
             <input  name="mem_username" type="text" required class="form-control" id="mem_username" placeholder="ชื่อผู้ใช้" />
@@ -89,7 +87,7 @@ if (isset($_POST['mem_username'])) {
                 <span class="glyphicon glyphicon-log-in"> </span>
               เข้าสู่ระบบ </button>&nbsp;&nbsp;
 
-              <a href="index.php" type="button"  data-target='#reset_view' data-toggle='modal'>
+              <a href="index.php" type="button"  data-target='#reset_view' data-toggle='modal' data-dismiss="modal">
                 <span class="glyphicon glyphicon-new-window" >ลืมรหัสผ่าน</a>&nbsp;&nbsp;</span>
 
                 <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>

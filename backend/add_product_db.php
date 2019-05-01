@@ -133,7 +133,7 @@ if($upload5 <> '') {
 	$newname5='';
 }
 
-
+mysql_select_db($database_condb);
 $sql ="INSERT INTO tbl_product
 
 (

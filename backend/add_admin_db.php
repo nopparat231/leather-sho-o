@@ -12,7 +12,7 @@ $admin_address = $_POST['admin_address'];
 $admin_email = $_POST['admin_email'];
 $status = $_POST['status'];
 
-
+mysql_select_db($database_condb);
 $check ="SELECT * FROM tbl_admin  WHERE admin_user='$admin_user'";
 $result1=mysql_query( $check,$condb);
 $num=mysql_num_rows($result1);

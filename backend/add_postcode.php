@@ -13,7 +13,7 @@ $mem_name = $_GET['mem_name'];
 $mem_email = $_GET['mem_email'];
 
 
-
+mysql_select_db($database_condb);
 $sql ="UPDATE tbl_order SET postcode='$postcode', order_status='$status' WHERE order_id=$order_id ";
 
 $result = mysql_query($sql,$condb ) or die("Error in query : $sql" .mysql_error());

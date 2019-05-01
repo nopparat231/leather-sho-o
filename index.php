@@ -1,5 +1,5 @@
 <?php
-ob_start();
+//ob_start();
 include('h.php');?>
 <?php include('datatable.php'); ?>
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ include('h.php');?>
 
 
   <script type="text/javascript" src="//counter.websiteout.net/js/7/6/0/0">
-</script> 
+</script>
 </h4>
 
       </div>
