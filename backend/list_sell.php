@@ -32,10 +32,13 @@ if (!function_exists("GetSQLValueString")) {
 }
 
 mysql_select_db($database_condb);
-$query_lbk = "SELECT * FROM tbl_sell ";
-$lbk = mysql_query($query_lbk, $condb) or die(mysql_error());
-$row_lbk = mysql_fetch_assoc($lbk);
-$totalRows_lbk = mysql_num_rows($lbk);
+$query_prd = "
+SELECT * FROM tbl_product as p, tbl_type as t
+WHERE p.t_id = t.t_id
+ORDER BY p.p_id desc";
+$prd = mysql_query($query_prd, $condb) or die(mysql_error());
+$row_prd = mysql_fetch_assoc($prd);
+$totalRows_prd = mysql_num_rows($prd);
 ?>
 <?php include('access.php');?>
 <!DOCTYPE html>
@@ -46,67 +49,78 @@ $totalRows_lbk = mysql_num_rows($lbk);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include('h.php');?>
   <?php include('datatable.php');?>
-  </head>  <?php include('navbar.php');?>
-  <body>
 
-    <?php //include('menu.php');?>
-    <div class="container">
+  </head>    <?php include('navbar.php');?>
+  <body> <?php //include('menu.php');?>
 
-
-
-      <div class="row">
-
-        <div class="col-md-3">
-
-        </div>
-        <div class="col-md-9">
-          <h3 align="center"> รายการตรวจรับสินค้า  <a href="add_sell.php" class="btn btn-primary"> + เพิ่ม </a> </h3>
-          <div class="table-responsive">
-            <table id="example" class="display" cellspacing="0" border="1">
-              <thead>
-                <tr align="center">
-                  <th>ลำดับ</th>
-                  <th>รหัสสินค้า</th>
-                  <th>จำนวน</th>
-                  <th>ราคา</th>
-                  <th>วันที่สั่งซื้อสินค้า</th>
-                  <th>วันที่รับสินค้า</th>
-                  <th>ใบเสร็จ</th>
-                  <th>แก้ไข</th>
-                  <th>ลบ</th>
-
-                </tr>
-              </thead>
-              <?php 
-              $i = 1;
-              do { ?>
-               <tr align="center">
-
-                <td><?php echo $i; ?></td>
-                <td><?php echo $row_lbk['s_number']; ?></td>
-                <td><?php echo $row_lbk['sn_number']; ?></td>
-                <td><?php echo $row_lbk['s_price']; ?></td>
-                <td><?php echo $row_lbk['s_date']; ?></td>
-                <td><?php echo $row_lbk['sn_date']; ?></td>
-
-                <td><center><a href="../bimg/<?php echo $row_lbk['s_bill'];?>" target="_blank"><img src="../bimg/<?php echo $row_lbk['s_bill'];?>" height="50px" ></a></center>
-                </td>
+  <div class="container">
 
 
-                <td><center> <a href="edit_sell.php?bank_id=<?php echo $row_lbk['s_id'];?>" class="btn btn-warning btn-xs"> แก้ไข </a> </center> </td>
-                <td><center> <a href="del_sell.php?bank_id=<?php echo $row_lbk['s_id'];?>" onClick="return confirm('ยืนยันการลบ');" class="btn btn-danger btn-xs"> ลบ </a> </center> </td>
-              </tr>
-              <?php 
-              $i += 1;
-            }while ($row_lbk = mysql_fetch_assoc($lbk)); ?>
-          </table>
-        </div>
+
+    <div class="row">
+
+
+      <div class="col-md-3">
+
       </div>
-    </div>
-  </div>
+      <div class="col-md-9">
+        <h3 align="center"> รายการตรวจรับสินค้า </h3>
+        <div class="table-responsive">
+         <table width="100%" border="1" cellspacing="0" class="display" id="example">
+          <thead>
+           <tr>
+            <th width="5%">id</th>
+            <th width="10%">ประเภท</th>
+            <th width="40%">รายละเอียด</th>
+            <th width="7%">ราคา</th>
+            <th width="7%">จำนวน</th>
+            <th width="5%">ไซส์</th>
+            <th width="5%">ค่าจัดส่ง</th>
+            <th width="10%">ภาพสินค้า</th>
+            <th>แก้ไข</th>
+            <th>ลบ</th>
+          </tr>
+        </thead>
+        <?php if($totalRows_prd>0){?>
+          <?php do { ?>
+            <tr>
+              <td align="center" valign="top"><?php echo $row_prd['p_id']; ?></td>
+              <td valign="top"><?php echo $row_prd['t_name']; ?></td>
+              <td valign="top"><b> <?php echo $row_prd['p_name']; ?>
+
+              <a href="product_detail.php?p_id=<?php echo $row_prd['p_id'];?>&t_id=<?php echo $row_prd['t_id'];?>&act=edit" class="btn btn-info btn-xs" target="_blank"> รายละเอียด </a>
+            </b>
+            <br>
+            <?php // echo $row_prd['p_detial']; ?>
+          </td>
+          <td align="right" valign="top"><?php echo number_format($row_prd['p_price'],2); ?></td>
+          <td align="center" valign="top">
+            <?php echo $row_prd['p_qty']; ?>
+
+            <?php echo $row_prd['p_unit'];?>
+          </td>
+          <td align="center" valign="top">
+            <?php echo $row_prd['p_size'];?>
+          </td>
+          <td align="center" valign="top">
+            <?php echo $row_prd['p_ems'];?>
+          </td>
+          <td><img src="../pimg/<?php echo $row_prd['p_img1'];?>" width="100px"></td>
+          <td><center>
+            <a href="edit_product.php?p_id=<?php echo $row_prd['p_id'];?>&t_id=<?php echo $row_prd['t_id'];?>&act=edit" class="btn btn-warning btn-xs">
+            แก้ไข </a>
+          </center></td>
+          <td><center> <a href="del_product.php?p_id=<?php echo $row_prd['p_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการลบ');"> ลบ </a> </center></td>
+        </tr>
+      <?php } while ($row_prd = mysql_fetch_assoc($prd)); ?>
+    <?php } ?>
+  </table>
+</div>
+</div>
+</div>
 </body>
 </html>
 <?php
-mysql_free_result($lbk);
+mysql_free_result($prd);
 ?>
-<?php  include('f.php');?>
+<?php include('f.php');?>

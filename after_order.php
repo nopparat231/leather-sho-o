@@ -90,7 +90,7 @@ $q = $p_qty;
 
                 echo "<td width='15%' align='center'>";
 
-                echo "<input type='number' value='$p_qty' size='1' name='amount[$p_id]' /></td>";
+                echo "<input type='number' value='$p_qty' min='0' max='" .$row['p_qty']. "' size='1' name='amount[$p_id]' /></td>";
 
 
                 echo "<td width='10%' align='center'>".number_format($ems,2). "</td>";
