@@ -10,32 +10,32 @@ include('h.php');?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="img/Li.png" />
   <style type="text/css">
-  .hr{
-    color: #f00;
-    background-color: #f00;
-    height: 5px;
-  }
+    .hr{
+      color: #f00;
+      background-color: #f00;
+      height: 5px;
+    }
 
-  input[type=number]{
-    width:40px;
-    text-align:center;
-    color:red;
-    font-weight:600;
-  }
-  div.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0px;
+    input[type=number]{
+      width:40px;
+      text-align:center;
+      color:red;
+      font-weight:600;
+    }
+    div.sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0px;
 
-    padding: 5px;
-    background-color: #cae8ca;
-    border: 2px solid #4CAF50;
-  }
-
-
+      padding: 5px;
+      background-color: #cae8ca;
+      border: 2px solid #4CAF50;
+    }
 
 
-</style>
+
+
+  </style>
 
 
 </head>
@@ -45,7 +45,7 @@ include('h.php');?>
     <?php  include('test2navbar.php');
     include('check_order_date.php');?>
   </div>
-<!--   <div class="sticky">I am sticky!</div> -->
+  <!--   <div class="sticky">I am sticky!</div> -->
   <div class="container">
     <div class="row">
 
@@ -55,12 +55,12 @@ include('h.php');?>
         <h3>สินค้าขายดี</h3>
         <hr>
         <?php include('listprd_by_view.php');?>
-<h4 align="center">ยอดเข้าชมเว็บไซร์<br>
+        <h4 align="center">ยอดเข้าชมเว็บไซร์<br>
 
 
-  <script type="text/javascript" src="//counter.websiteout.net/js/7/6/0/0">
-</script>
-</h4>
+          <script type="text/javascript" src="//counter.websiteout.net/js/7/6/0/0">
+          </script>
+        </h4>
 
       </div>
 
@@ -76,45 +76,45 @@ include('h.php');?>
         <div class="col-md-3" ></div>
         <div class="col-md-9" ><br>
          <font color="#660000"><h3> รายการสินค้า <?php echo $type_name;?></h3></font>
-          <hr size="10" style="background-color: #0099CC; height: 5px;">
+         <hr size="10" style="background-color: #0099CC; height: 5px;">
 
-          <?php  include('listprd_by_type.php'); ?>
-        </div>
+         <?php  include('listprd_by_type.php'); ?>
+       </div>
 
-      <?php }elseif($q!=''){ ?>
-        <div class="col-md-3" ></div>
-        <div class="col-md-9">
-         <br>
-         <font color="#660000"><h3>รายการสินค้า <?php echo $q;?></h3></font>
-          <hr size="10" style="background-color: #000000; height: 5px;">
-
-          <?php include('listprd_by_q.php'); ?>
-        </div>
-
-
-
-
-        <?php
-      }
-      ?>
-
+     <?php }elseif($q!=''){ ?>
       <div class="col-md-3" ></div>
       <div class="col-md-9">
+       <br>
+       <font color="#660000"><h3>รายการสินค้า <?php echo $q;?></h3></font>
+       <hr size="10" style="background-color: #000000; height: 5px;">
 
-       <font color="#660000"><h3> รายการสินค้า ทั้งหมด</h3></font>
-        <hr size="10" style="background-color: #FF9933; height: 5px;">
-
-        <?php include('listprdall.php'); ?>
-      </div>
-
-
+       <?php include('listprd_by_q.php'); ?>
+     </div>
 
 
-    </div>
+
+
+     <?php
+   }
+   ?>
+
+   <div class="col-md-3" ></div>
+   <div class="col-md-9">
+    <?php include 'banner.php'; ?>
+    <font color="#660000"><h3> รายการสินค้า ทั้งหมด</h3></font>
+    <hr size="10" style="background-color: #FF9933; height: 5px;">
+
+    <?php include('listprdall.php'); ?>
   </div>
 
-  <!--end show  product-->
-  <?php  include('f.php');?>
+
+
+
+</div>
+</div>
+
+<!--end show  product-->
+<?php  include('f.php');?>
 </body>
 
 <div>

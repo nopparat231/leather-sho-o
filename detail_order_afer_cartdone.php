@@ -68,39 +68,39 @@ $row_cartdone = mysql_fetch_assoc($cartdone);
 $totalRows_cartdone = mysql_num_rows($cartdone);
 ?>
 <style type="text/css">
-input[type='radio'] {
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 1px solid darkgray;
-  border-radius: 50%;
-  outline: none;
-  box-shadow: 0 0 5px 0px gray inset;
-}
-input[type='radio']:hover {
-  box-shadow: 0 0 5px 0px orange inset;
-}
-input[type='radio']:before {
-  content: '';
-  display: block;
-  width: 60%;
-  height: 60%;
-  margin: 20% auto;
-  border-radius: 50%;
-}
-input[type='radio']:checked:before {
-  background: red;
-}
+  input[type='radio'] {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 5px 0px gray inset;
+  }
+  input[type='radio']:hover {
+    box-shadow: 0 0 5px 0px orange inset;
+  }
+  input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    margin: 20% auto;
+    border-radius: 50%;
+  }
+  input[type='radio']:checked:before {
+    background: red;
+  }
 </style>
 <form action="add_payslip_db.php" method="post" enctype="multipart/form-data" name="formpay" id="formpay">
 
   <p align="center"> <a class="btn btn-danger btn-sm" href="my_order.php?page=mycart" id="hp"> รายการสั่งซื้อทั้งหมด </a></p>
 
 
-<a href="print_report.php?order_id=<?php echo $colname_cartdone;?>" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบเสร็จ </a>
+  <a href="print_report.php?order_id=<?php echo $colname_cartdone;?>" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบเสร็จ </a>
 
 
-  <table width="700" border="0" align="center" class="table">
+  <table width="700" border="1" align="center" class="table">
     <tr><h4 align="left" style="color: red;" >*รายการสั่งซื้อจะถูกยกเลิก ถ้าหากไม่ชำระเงินภายใน 3 วัน</h4>
       <td colspan="7" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ <?php echo $row_cartdone['mem_name'];?> <br />
         <font color="red"> สถานะ :
@@ -196,95 +196,16 @@ input[type='radio']:checked:before {
   <?php
    // $status =  $row_cartdone['order_status'];
   if($status > 1){ }else{?>
+    <?php include 'model_ex.php'; ?>
 
-    <br /><br />
-    <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td height="40" colspan="6" align="left" bgcolor="#FFFFFF">
-          <h4>รายละเอียดการโอนเงิน
-            <br />   <br />
-            <font color="red">
-              *กรุุณาเลือกบัญชีที่โอนเงิน
-            </font>
-          </h4></td>
-        </tr>
-        <?php do { ?>
-          <tr>
-            <td width="10%" align="center">&nbsp;</td>
-            <td width="5%" align="center">
-              <input <?php if (!(strcmp($row_rb['b_name'],"b_bank"))) {echo "checked=\"checked\"";} ?> type="radio" name="bank"  value="<?php echo $row_rb['b_name'].'_'.$row_rb['b_number'];?>" required="required" />
-
-            </td>
-            <td width="5%" align="center"><img src="bimg/<?php echo $row_rb['b_logo']; ?>" width="50" /></td>
-            <td width="15%"><?php echo $row_rb['b_name']; ?></td>
-            <td width="15%"><?php echo $row_rb['b_number']; ?></td>
-            <td width="15%"><strong>สาขา</strong><?php echo $row_rb['bn_name']; ?></td>
-          </tr>
-        <?php } while ($row_rb = mysql_fetch_assoc($rb)); ?>
-        <tr>
-          <td align="center">&nbsp;</td>
-          <td align="center">&nbsp;</td>
-          <td align="center">&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td align="center">วันที่ชำระเงิน</td>
-          <td colspan="5" align="left"><label for="pay_date"></label>
-           <?php include 'thaidate.php'; ?>
-           <input type="text" name="pay_date" id="from" autocomplete="off" >
-          </td>
-          </tr>
-          <tr>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td align="center">จำนวนเงิน</td>
-            <td colspan="5" align="left"><label for="pay_amount"></label>
-              <input type="text" name="pay_amount" id="pay_amount"  value="<?php echo $total;?>" required="required"/></td>
-            </tr>
-            <tr>
-              <td align="center">&nbsp;</td>
-              <td align="center">&nbsp;</td>
-              <td align="center">&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td align="center">หลักฐานการโอน</td>
-              <td colspan="5" align="left"><input name="pay_slip" id="pay_slip" type="file"  required="required" accept="image/jpeg"/>
-              (ไฟล์ .jpg, gif, png, pdf&nbsp;ไม่เกิน 2mb)</td>
-            </tr>
-            <tr>
-              <td align="center">&nbsp;</td>
-              <td align="center">&nbsp;</td>
-              <td align="center">&nbsp;</td>
-              <td><input name="order_id" type="hidden" id="order_id" value="<?php echo $colname_cartdone;?>" /></td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-
-          </table>
-
-
-          <p align="center"><br />
-            <button type="submit" name="add" class="btn btn-success"> บันทึก </button>
-
-          </p>
-
-        </form>
-      <?php } ?>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </div>
-  </div>
+    <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">ชำระสินค้า</button>
+    <br /><br />    <br /><br />
+  </form>
+<?php } ?>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
 </div>
 
 <?php
