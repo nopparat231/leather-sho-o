@@ -1,43 +1,12 @@
 <?php require_once('../Connections/condb.php'); ?>
 <?php
-if (!function_exists("GetSQLValueString")) {
-  function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
-  {
-    if (PHP_VERSION < 6) {
-      $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-    }
-
-    $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-    switch ($theType) {
-      case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-      case "long":
-      case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-      case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-      case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-      case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-    }
-    return $theValue;
-  }
-}
-
 mysql_select_db($database_condb);
 $query_prd = "
 SELECT * FROM tbl_product as p, tbl_type as t
 WHERE p.t_id = t.t_id
 ORDER BY p.p_id desc";
 $prd = mysql_query($query_prd, $condb) or die(mysql_error());
-$row_prd = mysql_fetch_assoc($prd);
+
 $totalRows_prd = mysql_num_rows($prd);
 ?>
 <?php include('access.php');?>
@@ -47,8 +16,11 @@ $totalRows_prd = mysql_num_rows($prd);
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../js/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
   <?php include('h.php');?>
-  <?php include('datatable.php');?>
+
 
   </head>    <?php include('navbar.php');?>
   <body> <?php //include('menu.php');?>
@@ -63,64 +35,137 @@ $totalRows_prd = mysql_num_rows($prd);
       <div class="col-md-3">
 
       </div>
-      <div class="col-md-9">
-        <h3 align="center"> รายการตรวจรับสินค้า </h3>
-        <div class="table-responsive">
-         <table width="100%" border="1" cellspacing="0" class="display" id="example">
-          <thead>
-           <tr>
-            <th width="5%">id</th>
-            <th width="10%">ประเภท</th>
-            <th width="40%">รายละเอียด</th>
-            <th width="7%">ราคา</th>
-            <th width="7%">จำนวน</th>
-            <th width="5%">ไซส์</th>
-            <th width="5%">ค่าจัดส่ง</th>
-            <th width="10%">ภาพสินค้า</th>
-            <th>แก้ไข</th>
-            <th>ลบ</th>
-          </tr>
-        </thead>
-        <?php if($totalRows_prd>0){?>
-          <?php do { ?>
-            <tr>
-              <td align="center" valign="top"><?php echo $row_prd['p_id']; ?></td>
-              <td valign="top"><?php echo $row_prd['t_name']; ?></td>
-              <td valign="top"><b> <?php echo $row_prd['p_name']; ?>
+      <div class="col-md-9" align="center">
+        <h3 align="center"> <a href="add_product.php" class="btn btn-primary"> เพิ่มสินค้า </a> รายการตรวจรับสินค้า </h3>
+        <br>
 
-              <a href="product_detail.php?p_id=<?php echo $row_prd['p_id'];?>&t_id=<?php echo $row_prd['t_id'];?>&act=edit" class="btn btn-info btn-xs" target="_blank"> รายละเอียด </a>
-            </b>
+        <form action="" method="post">
+          <h4 style="width: 360px; text-align: center;">
+
+            <select class="js-example-basic-single form-control" name="state" required="required" id="btn1">
+              <option value="0">กรุณาเลือกสินค้า</option>
+
+              <?php while ( $row_prd = mysql_fetch_assoc($prd)) { ?>
+
+                <option value="<?php echo $row_prd['p_id']; ?>"><?php echo $row_prd['p_name']; ?></option>
+
+              <?php } ?>
+            </select>
             <br>
-            <?php // echo $row_prd['p_detial']; ?>
-          </td>
-          <td align="right" valign="top"><?php echo number_format($row_prd['p_price'],2); ?></td>
-          <td align="center" valign="top">
-            <?php echo $row_prd['p_qty']; ?>
+            <br>
 
-            <?php echo $row_prd['p_unit'];?>
-          </td>
-          <td align="center" valign="top">
-            <?php echo $row_prd['p_size'];?>
-          </td>
-          <td align="center" valign="top">
-            <?php echo $row_prd['p_ems'];?>
-          </td>
-          <td><img src="../pimg/<?php echo $row_prd['p_img1'];?>" width="100px"></td>
-          <td><center>
-            <a href="edit_product.php?p_id=<?php echo $row_prd['p_id'];?>&t_id=<?php echo $row_prd['t_id'];?>&act=edit" class="btn btn-warning btn-xs">
-            แก้ไข </a>
-          </center></td>
-          <td><center> <a href="del_product.php?p_id=<?php echo $row_prd['p_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการลบ');"> ลบ </a> </center></td>
-        </tr>
-      <?php } while ($row_prd = mysql_fetch_assoc($prd)); ?>
-    <?php } ?>
-  </table>
-</div>
-</div>
-</div>
-</body>
-</html>
-<?php
-mysql_free_result($prd);
-?>
-<?php include('f.php');?>
+            <div id="div1"></div>
+
+
+            <br>
+            <br>
+
+          </h4>
+          <button type="button" class="btn btn-success btn-lg" id="button">ยืนยัน</button>
+
+        </form>
+
+      </div>
+    </body>
+    </html>
+
+    <?php //include('f.php');?>
+    <script type="text/javascript">
+      // In your Javascript (external .js resource or <script> tag)
+      $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+      });
+
+      $("[type=file]").on("change", function(){
+  // Name of file and placeholder
+  var file = this.files[0].name;
+  var dflt = $(this).attr("placeholder");
+  if($(this).val()!=""){
+    $(this).next().text(file);
+  } else {
+    $(this).next().text(dflt);
+  }
+});
+
+
+      $(document).ready(function(){
+
+        $("#btn1").on('change', function(){
+
+          $.post("list_sell_aj.php", { 
+            data1: $("#btn1").val()}, 
+            function(result){
+              $("#div1").html(result);
+            }
+            );
+
+        });
+      });
+
+         $(document).ready(function(){
+
+        $("#button").click(function(){
+
+          $.post("list_sell_aj.php", { 
+            data1: $("#btn1").val()}, 
+            function(result){
+              $("#div1").html(result);
+            }
+            );
+
+        });
+      });
+    </script>
+
+
+
+    <style type="text/css">
+     label, input {
+      color: #333;
+      font: 14px/20px Arial;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 1em;
+    }
+    label {
+      display: inline-block;
+      width: 5em;
+      padding: 0 1em;
+      text-align: right;
+    }
+
+/* Hide the file input using
+opacity */
+[type=file] {
+  position: absolute;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+input,
+[type=file] + label {
+  border: 1px solid #CCC;
+  border-radius: 50px;
+  text-align: left;
+  padding: 10px;
+  width: 150px;
+  margin: 0;
+  left: 0;
+  position: relative;
+}
+[type=file] + label {
+  text-align: center;
+  left: 7.35em;
+  top: 0.5em;
+  /* Decorative */
+  background: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+[type=file] + label:hover {
+  background: #3399ff;
+}
+</style>
