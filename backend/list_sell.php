@@ -39,10 +39,10 @@ $totalRows_prd = mysql_num_rows($prd);
         <h3 align="center"> <a href="add_product.php" class="btn btn-primary"> เพิ่มสินค้า </a> รายการตรวจรับสินค้า </h3>
         <br>
 
-        <form action="" method="post">
+        <form action="add_sell_db.php" method="post" enctype="multipart/form-data">
           <h4 style="width: 360px; text-align: center;">
 
-            <select class="js-example-basic-single form-control" name="state" required="required" id="btn1">
+            <select class="js-example-basic-single form-control" name="s_pid" required="required" id="btn1">
               <option value="0">กรุณาเลือกสินค้า</option>
 
               <?php while ( $row_prd = mysql_fetch_assoc($prd)) { ?>
@@ -61,7 +61,7 @@ $totalRows_prd = mysql_num_rows($prd);
             <br>
 
           </h4>
-          <button type="button" class="btn btn-success btn-lg" id="button">ยืนยัน</button>
+          <button type="submit" class="btn btn-success btn-lg" id="button">ยืนยัน</button>
 
         </form>
 
@@ -75,17 +75,6 @@ $totalRows_prd = mysql_num_rows($prd);
       $(document).ready(function() {
         $('.js-example-basic-single').select2();
       });
-
-      $("[type=file]").on("change", function(){
-  // Name of file and placeholder
-  var file = this.files[0].name;
-  var dflt = $(this).attr("placeholder");
-  if($(this).val()!=""){
-    $(this).next().text(file);
-  } else {
-    $(this).next().text(dflt);
-  }
-});
 
 
       $(document).ready(function(){
@@ -102,70 +91,17 @@ $totalRows_prd = mysql_num_rows($prd);
         });
       });
 
-         $(document).ready(function(){
+      // $(document).ready(function(){
 
-        $("#button").click(function(){
+      //   $("#button").click(function(){
 
-          $.post("list_sell_aj.php", { 
-            data1: $("#btn1").val()}, 
-            function(result){
-              $("#div1").html(result);
-            }
-            );
+      //     $.post("add_sell_db.php", { 
+      //       s_pid: $("#btn1").val(),
+      //       s_old: $("#s_old").val(),
+      //       s_add: $("#s_add").val(),
+      //       s_bill: $("#s_bill").val()});
 
-        });
-      });
+      //   });
+      // });
     </script>
 
-
-
-    <style type="text/css">
-     label, input {
-      color: #333;
-      font: 14px/20px Arial;
-    }
-    h2 {
-      font-size: 16px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin: 0 0 1em;
-    }
-    label {
-      display: inline-block;
-      width: 5em;
-      padding: 0 1em;
-      text-align: right;
-    }
-
-/* Hide the file input using
-opacity */
-[type=file] {
-  position: absolute;
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-input,
-[type=file] + label {
-  border: 1px solid #CCC;
-  border-radius: 50px;
-  text-align: left;
-  padding: 10px;
-  width: 150px;
-  margin: 0;
-  left: 0;
-  position: relative;
-}
-[type=file] + label {
-  text-align: center;
-  left: 7.35em;
-  top: 0.5em;
-  /* Decorative */
-  background: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-[type=file] + label:hover {
-  background: #3399ff;
-}
-</style>

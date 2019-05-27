@@ -33,8 +33,8 @@ if (!function_exists("GetSQLValueString")) {
 
 mysql_select_db($database_condb);
 $query_prd = "
-SELECT * FROM tbl_product as p, tbl_type as t
-WHERE p.t_id = t.t_id ORDER BY p.p_id ASC";
+SELECT * FROM tbl_product as p, tbl_type as t,tbl_sell as s
+WHERE p.t_id = t.t_id AND s.s_pid = p.p_id ORDER BY p.p_id ASC";
 $prd = mysql_query($query_prd, $condb) or die(mysql_error());
 $row_prd = mysql_fetch_assoc($prd);
 $totalRows_prd = mysql_num_rows($prd);
@@ -73,76 +73,65 @@ $totalRows_prd = mysql_num_rows($prd);
 
       <style type="text/css">
 
-      th { white-space: nowrap; }
-    </style>
+        th { white-space: nowrap; }
+      </style>
 
-    <h3 align="center"> รายการตรวจรับสินค้า  </h3>
-   
-<table width="100%" border="1" cellspacing="0" class="display" id="example3">
-  <?php $r = '<h3 align="center">รายการสินค้า</h3>' ?>
-  <thead>
-    <tr>
+      <h3 align="center"> รายการตรวจรับสินค้า  </h3>
 
-      <th width="5%">ลำดับที่</th>
-      <th width="15%">ประเภท</th>
-      <th width="25%">ชื่อสินค้า</th>
+      <table width="100%" border="1" cellspacing="0" class="display" id="example">
+        <?php $r = '<h3 align="center">รายการสินค้า</h3>' ?>
+        <thead>
+          <tr>
 
-      <th width="7%">จำนวน</th>
-      <th width="5%">ไซส์</th>
-      <th width="5%">ค่าจัดส่ง</th>
-      <th width="5%">การเข้าชม</th>
-      <th width="7%">ราคา</th>
+            <th width="5%">ลำดับที่</th>
+            <th width="15%">ประเภท</th>
+            <th width="25%">ชื่อสินค้า</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <?php if($totalRows_prd>0){?>
+            <th width="7%">จากเดิม</th>
+            <th width="5%">เพิ่ม</th>
+            <th width="5%">รวม</th>
+            <th width="15%">ใบเสร็จ</th>
 
-      <?php 
-      $i = 1;
+          </tr>
+        </thead>
+        <tbody>
+          <?php if($totalRows_prd>0){?>
 
-      do { ?>
-        <tr>
-          <td align="center" valign="top"><?php echo $i; ?></td>
-          <td valign="top"><?php echo $row_prd['t_name']; ?></td>
-          <td valign="top"><b> <?php echo $row_prd['p_name']; ?></b>
-          </td>
+            <?php 
+            $i = 1;
 
-          <td align="center" valign="top">
-           <?php echo $row_prd['p_qty']; ?>
+            do { ?>
+              <tr>
+                <td align="center" valign="top"><?php echo $i; ?></td>
+                <td valign="top"><?php echo $row_prd['t_name']; ?></td>
+                <td valign="top"><b> <?php echo $row_prd['p_name']; ?></b> </td>
 
-           <?php echo $row_prd['p_unit'];?>
-         </td>
-         <td align="center" valign="top">
-          <?php echo $row_prd['p_size'];?>
-        </td>
-        <td align="center" valign="top">
-          <?php echo $row_prd['p_ems'];?>
-        </td>
-        <td align="center" valign="top">
-          <?php echo $row_prd['p_view'];?>
-        </td>
-        <td align="right" valign="top"><?php echo number_format($row_prd['p_price'],2); ?></td>
-      </tr>
-      <?php
-      $i += 1;
-    } while ($row_prd = mysql_fetch_assoc($prd)); ?>
-  <?php } ?>
-</tbody>
-<tfoot>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th style="text-align:right">Total:</th>
-    <th></th>
-  </tr>
-</tfoot>
-</table>
-</div>
+                <td align="center" valign="top">
+                 <?php echo $row_prd['s_old']; ?>
+
+
+               </td>
+               <td align="center" valign="top">
+
+
+                 <?php echo $row_prd['s_add'];?>
+               </td>
+               <td align="center" valign="top">
+                <?php echo $row_prd['s_old']+$row_prd['s_add'];?>
+              </td>
+              <td align="center" valign="top">
+                <a href="../bimg/<?php echo $row_prd['s_bill'];?>" target="_blank">
+                  <img src='../bimg/<?php echo $row_prd['s_bill'];?>' width='50'></a>
+              </td>
+
+            </tr>
+            <?php
+            $i += 1;
+          } while ($row_prd = mysql_fetch_assoc($prd)); ?>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
 </div>
 </div>
 </body>
