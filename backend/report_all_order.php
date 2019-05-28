@@ -1,7 +1,7 @@
 <?php require_once('../Connections/condb.php'); ?>
 <?php
 
-
+date_default_timezone_set('Asia/Bangkok');
 if (!function_exists("GetSQLValueString")) {
   function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
   {
@@ -34,17 +34,15 @@ if (!function_exists("GetSQLValueString")) {
 }
 
 
-$start_date = $_POST['start_date'];
-$end_date = $_POST['end_date'];
+$start_date = isset($_POST['start_date']);
+$end_date = isset($_POST['end_date']);
 if ($start_date != '') {
   $start_date = $_POST['start_date'];
   $end_date = $_POST['end_date'];
 }elseif ($start_date == '') {
   $start_date = '2012-01-01';
-  $end_date = date('Y/m/d');
-}else {
-  $start_date = '2012-01-01';
-  $end_date = date('Y/m/d');
+  $end_dateo = date('Y/m/d');
+  $end_date = date("Y/m/d", strtotime("+1 day", strtotime($end_dateo)));
 }
 
 $colname_mm = "-1";
@@ -102,7 +100,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
 
       
 
-      <h3 align="center">รายสั่งซื้อ</h3>
+      <h3 align="center">รายสั่งซื้อ<?php echo $strNewDate; ?></h3>
 
 
       <form action="report_all_order.php" method="post">
@@ -150,7 +148,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
           <tr>
             <td align="center" valign="top"><?php echo $i; ?></td>
             <td align="center">
-              <?php echo $row_mycart['oid'];?>
+              JN<?php echo $row_mycart['oid'];?>
             </td>
             <td align="center" >
               <?php echo $row_mycart['name'];?>

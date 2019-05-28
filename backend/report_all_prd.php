@@ -30,7 +30,7 @@ if (!function_exists("GetSQLValueString")) {
     return $theValue;
   }
 }
-
+date_default_timezone_set('Asia/Bangkok');
 mysql_select_db($database_condb);
 $query_prd = "
 SELECT * FROM tbl_product as p, tbl_type as t

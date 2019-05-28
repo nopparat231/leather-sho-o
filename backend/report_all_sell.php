@@ -87,9 +87,10 @@ $totalRows_prd = mysql_num_rows($prd);
             <th width="15%">ประเภท</th>
             <th width="25%">ชื่อสินค้า</th>
 
-            <th width="7%">จากเดิม</th>
+            <th width="5%">จากเดิม</th>
             <th width="5%">เพิ่ม</th>
             <th width="5%">รวม</th>
+            <th width="15%">วันที่</th>
             <th width="15%">ใบเสร็จ</th>
 
           </tr>
@@ -112,13 +113,14 @@ $totalRows_prd = mysql_num_rows($prd);
 
                </td>
                <td align="center" valign="top">
-
-
                  <?php echo $row_prd['s_add'];?>
                </td>
                <td align="center" valign="top">
                 <?php echo $row_prd['s_old']+$row_prd['s_add'];?>
               </td>
+               <td align="center" valign="top">
+                 <?php echo $row_prd['s_time'];?>
+               </td>
               <td align="center" valign="top">
                 <a href="../bimg/<?php echo $row_prd['s_bill'];?>" target="_blank">
                   <img src='../bimg/<?php echo $row_prd['s_bill'];?>' width='50'></a>

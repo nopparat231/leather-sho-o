@@ -3,7 +3,7 @@
 include('Connections/condb.php');
 error_reporting(E_ALL ^ E_DEPRECATED);
 error_reporting( error_reporting() & ~E_NOTICE );
-
+date_default_timezone_set('Asia/Bangkok');
 
 mysql_select_db($database_condb);
 $query_order = "SELECT order_date , order_status FROM tbl_order ";
