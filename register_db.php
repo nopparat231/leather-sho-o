@@ -7,7 +7,10 @@ include('Connections/condb.php');
 
 $mem_username = $_POST['mem_username'];
 $mem_password = $_POST['mem_password'];
-$mem_name = $_POST['mem_name'];
+$mem_fname = $_POST['mem_fname'];
+$mem_lname = $_POST['mem_lname'];
+$numna = $_POST['numna'];
+//$mem_name = $_POST['mem_name'];
 $mem_email = $_POST['mem_email'];
 $mem_tel = $_POST['mem_tel'];
 $mem_address = $_POST['mem_address'];
@@ -35,7 +38,7 @@ if ($num > 0 ){
 	echo"</script>";
 }else{
 
-$sql ="INSERT INTO tbl_member (mem_username , mem_password , mem_name , mem_email ,  mem_tel , mem_address , status ,sid , active ) VALUES ('$mem_username' , '$mem_password' ,'$mem_name','$mem_email','$mem_tel','$mem_address' ,'$user' ,'$session_id','$no' )";
+$sql ="INSERT INTO tbl_member (mem_username , mem_password , mem_fname , mem_lname , numna , mem_email ,  mem_tel , mem_address , status ,sid , active ) VALUES ('$mem_username' , '$mem_password' ,'$mem_fname' ,'$mem_lname' ,'$numna' ,'$mem_email','$mem_tel','$mem_address' ,'$user' ,'$session_id','$no' )";
 
 $result1 = mysql_query($sql,$condb) or die ("Error in query : $sql" .mysql_error());
 
@@ -48,7 +51,7 @@ $result1 = mysql_query($sql,$condb) or die ("Error in query : $sql" .mysql_error
 		$strHeader .= "From: webmaster@junpha.com\n";
 		$strSubject = "Activate Member Account\n";
 		$strMessage = "";
-		$strMessage .= "ยินดีต้อนรับ : ".$mem_name."<br>";
+		$strMessage .= "ยินดีต้อนรับ : ".$mem_fname."<br>";
 		$strMessage .= "=================================<br>";
 		$strMessage .= "คลิกลิงค์ เพื่อยืนยันการสมัครสมาชิก<br>";
 		$strMessage .= "http://localhost/leather-shop/activate.php?sid=".$session_id."&mem_id=".$mem_id."<br>";
