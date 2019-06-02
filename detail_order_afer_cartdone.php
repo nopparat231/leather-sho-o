@@ -110,7 +110,7 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
 
   <table width="700" border="1" align="center" class="table">
     <tr><h4 align="left" style="color: red;" >*รายการสั่งซื้อจะถูกยกเลิก ถ้าหากไม่ชำระเงินภายใน 3 วัน</h4>
-      <td colspan="7" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ <?php echo $row_cartdone['mem_name'];?> <br />
+      <td colspan="7" align="center"><strong>รายการสั่งซื้อล่าสุด คุณ <?php echo $row_cartdone['mem_fname'];?> <br />
         <font color="red"> สถานะ :
           <?php
           $status =  $row_cartdone['order_status'];
