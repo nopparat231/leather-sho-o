@@ -3,10 +3,31 @@ require_once('Connections/condb.php');
 @session_start();
 date_default_timezone_set('Asia/Bangkok');
 $mem_id = $_POST['mem_id'];
-$name = $_POST["name"];
-$address = $_POST["address"];
-$email = $_POST["email"];
-$phone = $_POST["phone"];
+$select = $_POST["select"];
+
+if ($select == 1) {
+	$fname = $_POST["fname"];
+	$lname = $_POST["lname"];
+	$numna = $_POST["numna"];
+	$name = $numna." ".$fname." ".$lname;
+
+	$address = $_POST["address"];
+	$email = $_POST["email"];
+	$phone = $_POST["phone"];
+}elseif ($select == 2) {
+	$fname2 = $_POST["fname2"];
+	$lname2 = $_POST["lname2"];
+	$numna2 = $_POST["numna2"];
+
+	$address2 = $_POST["address2"];
+	$email2 = $_POST["email2"];
+	$phone2 = $_POST["phone2"];
+	$name2 = $numna2." ".$fname2." ".$lname2;
+}
+
+
+
+
 $p_qty = $_POST["p_qty"];
 $p_size = $_POST["p_size"];
 $total = $_POST["total"];
@@ -21,8 +42,24 @@ $p_name = $_POST['p_name'];
 $postcode = '';
 mysql_select_db($database_condb);
 mysql_query("BEGIN" ,$condb );
-$sql1 = "INSERT INTO tbl_order VALUES (NULL,'$mem_id','$name','$address','$email','$phone','$status','$pay_slip','$b_name','$b_number','$pay_date','$pay_amount','$postcode','$order_date')";
-$query1 = mysql_query($sql1,$condb ) or die ("Error in query : sql1 " . mysql_error());
+
+if ($select == 1) {
+	$sql1 = "INSERT INTO tbl_order (mem_id,name,address,email,phone,order_status,pay_slip,b_name,b_number,pay_date,pay_amount,postcode,order_date) VALUES ('$mem_id','$name','$address','$email','$phone','$status','$pay_slip','$b_name','$b_number','$pay_date','$pay_amount','$postcode','$order_date')";
+	$query1 = mysql_query($sql1,$condb ) or die ("Error in query : sql1 " . mysql_error());
+}elseif ($select == 2) {
+	
+	$sql22 = "INSERT INTO tbl_order (mem_id,name,address,email,phone,order_status,pay_slip,b_name,b_number,pay_date,pay_amount,postcode,order_date) VALUES ('$mem_id','$name2','$address2','$email2','$phone2','$status','$pay_slip','$b_name','$b_number','$pay_date','$pay_amount','$postcode','$order_date')";
+	$query22 = mysql_query($sql22,$condb ) or die ("Error in query : sql61 " . mysql_error());
+
+
+	$sql61 = "UPDATE tbl_member SET numna2 = '$numna2',mem_fname2 = '$fname2',mem_lname2 = '$lname2',
+	mem_address2 = '$address2',mem_email2 = '$email2',mem_tel2 = '$phone2' WHERE mem_id='$mem_id'";
+
+	$query61 = mysql_query($sql61,$condb ) or die ("Error in query : sql61 " . mysql_error());
+}
+
+
+
 $sql2 = "SELECT MAX(order_id) AS order_id FROM tbl_order WHERE mem_id='$mem_id'";
 $query2 = mysql_query($sql2,$condb  )or die ("Error in query : sql2 " . mysql_error());
 $row = mysql_fetch_array($query2)or die(mysql_error());
@@ -58,7 +95,18 @@ foreach($_SESSION['shopping_cart'] as $p_id=>$p_qty)
 	
 }
 	//exit
-if($query1 && $query4){
+if($query1 && $query4 ){
+	mysql_query("COMMIT" ,$condb )or die(mysql_error());
+	foreach($_SESSION['shopping_cart'] as $p_id)
+	{
+		
+		unset($_SESSION['shopping_cart']);
+		echo "<script>";
+		echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว');";
+		echo "window.location='my_order.php?order_id=$order_id$act=show-order';";
+		echo "</script>";
+	}
+}elseif($query22){
 	mysql_query("COMMIT" ,$condb )or die(mysql_error());
 	foreach($_SESSION['shopping_cart'] as $p_id)
 	{
