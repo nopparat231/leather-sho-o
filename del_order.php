@@ -22,7 +22,7 @@ $sqlpp ="SELECT * FROM tbl_product WHERE p_id=".$row_oid['p_id'];
 
 $resultpp = mysql_query($sqlpp, $condb) or die("Error in query : $sql" .mysql_error());
 $row_pp = mysql_fetch_assoc($resultpp);
-$sq = $row_pp['p_qty']+$q;
+$sq = $row_pp['p_qty']+$row_oid['p_c_qty'];
 
 $sqlp ="UPDATE tbl_product SET p_qty='$sq' WHERE p_id=".$row_oid['p_id'];
 
