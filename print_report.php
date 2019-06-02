@@ -81,7 +81,7 @@ date_default_timezone_set('Asia/Bangkok');
         <th height="195" scope="row"><table width="489" border="0" style="text-align: left;">
           <tr>
             <th width="186" style="text-align: left;" scope="row"><p>&nbsp; &nbsp; ชื่อสมาชิก</p></th>
-            <td width="293" align="left" valign="bottom"><p><?php echo $row_cartdone['mem_name'];?></p></td>
+            <td width="293" align="left" valign="bottom"><p><?php echo $row_cartdone['mem_fname'].$row_cartdone['mem_lname'];?></p></td>
           </tr>
           <tr>
             <th style="text-align: left;" scope="row"><p>&nbsp; &nbsp; ที่อยู่</p></th>

@@ -125,7 +125,7 @@ if($_SESSION['MM_Username']!=''){
 
         <div class="form-group">
           <div class="col-sm-12">
-            <input type="text"  name="name" value="<?php echo $row_buyer['mem_name']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" /><br>
+            <input type="text"  name="name" value="<?php echo $row_buyer['mem_fname'].$row_buyer['mem_lname']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" /><br>
           </div>
         </div>
         <div class="form-group">

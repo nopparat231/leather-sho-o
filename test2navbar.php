@@ -414,7 +414,7 @@ if (isset($_SESSION['shopping_cart'])) {
 
 
 					<li>
-						<a href="" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown"><?php echo $row_mlogin['mem_name'];?><span class="[ caret ]"></span></a>
+						<a href="" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown"><?php echo $row_mlogin['mem_fname'];?><span class="[ caret ]"></span></a>
 						<ul class="[ dropdown-menu ]" role="menu">
 							<li>
 								<a href="my_order.php?mem_id=<?php echo $row_mlogin['mem_id']; ?>" class="[ animate ]" >แก้ไขข้อมูลส่วนตัว<span class="[ pull-right glyphicon glyphicon-wrench ]" ></span></a>

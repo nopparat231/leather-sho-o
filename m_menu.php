@@ -1,6 +1,6 @@
 
   	<li>
-  	<a href="" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown"><?php echo $row_mlogin['mem_name'];  ?><span class="[ caret ]"></span></a>
+  	<a href="" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown"><?php echo $row_mlogin['mem_fname'];  ?><span class="[ caret ]"></span></a>
 	<ul class="[ dropdown-menu ]" role="menu">
 	<li>
 
