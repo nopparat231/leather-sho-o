@@ -96,8 +96,16 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
 
   <p align="center"> <a class="btn btn-danger btn-sm" href="my_order.php?page=mycart" id="hp"> รายการสั่งซื้อทั้งหมด </a></p>
 
+  <?php
+  $status =  $row_cartdone['order_status'];
+  if ($status == 1) { ?>
+    <a href="print_report.php?order_id=<?php echo $colname_cartdone;?>&tex=พิมพ์ใบแจ้งหนี้" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบแจ้งหนี้ </a>
 
-  <a href="print_report.php?order_id=<?php echo $colname_cartdone;?>" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบเสร็จ </a>
+  <?php }else{ ?>
+    <a href="print_report.php?order_id=<?php echo $colname_cartdone;?>&tex=พิมพ์ใบเสร็จ" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบเสร็จ </a>
+
+  <?php }  ?>
+  
 
 
   <table width="700" border="1" align="center" class="table">
@@ -123,6 +131,11 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
 
                 จำนวน <?php echo  number_format($row_cartdone['pay_amount'],2);?> บาท<br />
                 วันที่ชำระ <?php echo date($row_cartdone['pay_date']);?></font><br />
+                <?php $new_startDate = date("d-m-Y",strtotime($row_cartdone['order_date'])); ?>
+                วันที่สั่งซื้อ <?php
+
+
+                echo date($new_startDate);?></font><br />
                 <h4 style="color:blue">
                   เลขพัสดุ :  <?php echo $row_cartdone['postcode'];?>
                 </h4>
@@ -194,9 +207,14 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
     ?>
   </table>
   <?php
+  //echo  $row_cartdone['order_date'];    
    // $status =  $row_cartdone['order_status'];
   if($status > 1){ }else{?>
-    <?php include 'model_ex.php'; ?>
+    <?php 
+
+    include 'model_ex.php';
+
+    ?>
 
     <button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModal">ชำระสินค้า</button>
     <br /><br />    <br /><br />

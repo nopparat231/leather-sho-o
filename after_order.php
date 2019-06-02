@@ -48,13 +48,14 @@ $q = $p_qty;
 <form id="frmcart" name="frmcart" method="post" action="?act=update&oct=after" >
     <table width="100%" border="0" aligh="center" class="table table-hover">
         <tr>
-            <td height="40" colspan="7" align="center" bgcolor="#FFE4E1"><strong><b>ตระกร้าสินค้า</b></strong></td>
+            <td height="40" colspan="8" align="center" bgcolor="#FFE4E1"><strong><b>ตระกร้าสินค้า</b></strong></td>
         </tr>
         <tr >
             <td><center>สินค้า</center></td>
             <td><center>ไซส์</center></td>
             <td><center>ราคา</center></td>
             <td><center>จำนวน</center></td>
+            <td><center>หน่วยนับ</center></td>
             <td><center>ค่าจัดส่ง</center></td>
             <td align="left">รวม</td>
             <td><center></center></td>
@@ -90,8 +91,8 @@ $q = $p_qty;
 
                 echo "<td width='15%' align='center'>";
 
-                echo "<input type='number' value='$p_qty' min='0' max='" .$row['p_qty']. "' size='1' name='amount[$p_id]' /></td>";
-
+                echo "<input type='number' value='$p_qty' min='1' max='" .$row['p_qty']. "' size='1' name='amount[$p_id]' /></td>";
+                echo "<td align='center' width='5%'>" .$row["p_unit"]. "</td>";
 
                 echo "<td width='10%' align='center'>".number_format($ems,2). "</td>";
                 //echo "<input type='number' name='amount[$p_id]' value='$p_qty' size='2'/></td>";
@@ -109,20 +110,20 @@ $q = $p_qty;
 
 
             echo "<tr>";
-            echo "<td  align='left' colspan='5'><b>จัดส่ง</b></td>";
+            echo "<td  align='left' colspan='7'><b>จัดส่ง</b></td>";
             echo "<td align='center'>"."<b>".number_format($sumems,2)."</b>"."</td>";
             echo "</tr>";
 
             echo "<tr>";
-            echo "<td  align='left' colspan='5'><b>ภาษี 9%</b></td>";
+            echo "<td  align='left' colspan='7'><b>ภาษี 9%</b></td>";
             echo "<td align='center'>"."<b>".number_format($tax,2)."</b>"."</td>";
-            echo "<td ></>";
+            //echo "<td ></>";
             echo "</tr>";
 
             echo "<tr class='success'>";
-            echo "<td colspan='5' bgcolor='#CEE7FF' align='center'><b>ราคารวม</b></td>";
+            echo "<td colspan='7' bgcolor='#CEE7FF' align='center'><b>ราคารวม</b></td>";
             echo "<td align='center' bgcolor='#CEE7FF'>"."<b>".number_format($total,2)."</b>"."</td>";
-            echo "<td class='success'></>";
+           //echo "<td class='success'></td>";
             echo "</tr>";
 
         }
@@ -131,11 +132,11 @@ $q = $p_qty;
         if ($p_qty > $row["p_qty"]) {
 // echo $p_qty;
 // echo $row["p_qty"];
-         ?>
-         <script>alert('รายการสินค้า "<?php echo $row["p_name"] ?>" มีสินค้าเพียง "<?php echo $row["p_qty"] ?>" ชิ้น!'); </script>
-         <tr >
+           ?>
+           <script>alert('รายการสินค้า "<?php echo $row["p_name"] ?>" มีสินค้าเพียง "<?php echo $row["p_qty"] ?>" ชิ้น!'); </script>
+           <tr >
 
-            <td colspan="6" >
+            <td colspan="7" >
                 <input type="button" name="Submit2" value="< เลือกสินค้าเพิ่ม" class="btn btn-info pull-left" onclick="window.location='index.php';" />
 
                 <input type="button" name="Submit2" value="สั่งซื้อ" disabled class="btn btn-success pull-right" onclick="window.location='confirm_order.php?p_id=$p_id&oct=order';" />
@@ -146,7 +147,7 @@ $q = $p_qty;
 
               <tr >
 
-                <td colspan="6" >
+                <td colspan="7" >
                     <input type="button" name="Submit2" value="< เลือกสินค้าเพิ่ม" class="btn btn-info pull-left" onclick="window.location='index.php';" />
 
                     <input type="button" name="Submit2" value="สั่งซื้อ" class="btn btn-success pull-right" onclick="window.location='confirm_order.php?p_id=$p_id&oct=order';" />

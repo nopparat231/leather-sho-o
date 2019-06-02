@@ -49,7 +49,7 @@ if($_SESSION['MM_Username']!=''){
   <table width="700" border="0" align="center" class="table"  >
 
     <tr>
-      <td width="1558" colspan="7" align="center">
+      <td width="1558" colspan="8" align="center">
         <strong>สั่งซื้อสินค้า</strong></td>
       </tr>
       <tr class="success">
@@ -58,6 +58,7 @@ if($_SESSION['MM_Username']!=''){
         <td align="center">ไซส์</td>
         <td align="center">ราคา</td>
         <td align="center">จำนวน</td>
+        <td><center>หน่วยนับ</center></td>
         <td align="center">ค่าจัดส่ง</td>
         <td align="center">รวม/รายการ</td>
       </tr>
@@ -86,6 +87,7 @@ if($_SESSION['MM_Username']!=''){
             echo "<td align='center'>" . $row["p_size"] . "</td>";
             echo "<td align='center'>" .number_format($row['p_price'],2) ."</td>";
             echo "<td align='center'>$p_qty</td>";
+            echo "<td align='center'>" .$row["p_unit"]. "</td>";
             echo "<td width='10%' align='center'>".number_format($ems,2). "</td>";
             echo "<td align='center'>".number_format($sum,2)."</td>";
             echo "</tr>";
@@ -102,15 +104,15 @@ if($_SESSION['MM_Username']!=''){
           $tax = $total*0.09;
           $total += $tax;
           echo "<tr class='success'>";
-          echo "<td  align='left' colspan='6'><b>จัดส่ง</b></td>";
+          echo "<td  align='left' colspan='7'><b>จัดส่ง</b></td>";
           echo "<td align='center'>"."<b>".number_format($sumems,2)."</b>"."</td>";
           echo "</tr>";
           echo "<tr class='success'>";
-          echo "<td  align='left' colspan='6'><b>ภาษี 9%</b></td>";
+          echo "<td  align='left' colspan='7'><b>ภาษี 9%</b></td>";
           echo "<td align='center'>"."<b>".number_format($tax,2)."</b>"."</td>";
           echo "</tr>";
           echo "<tr class='success'>";
-          echo "<td colspan='6' bgcolor='#CEE7FF' align='center'><b>ราคารวม</b></td>";
+          echo "<td colspan='7' bgcolor='#CEE7FF' align='center'><b>ราคารวม</b></td>";
           echo "<td align='center' bgcolor='#CEE7FF'>"."<b>".number_format($total,2)."</b>"."</td>";
           echo "</tr>";
           ?>
