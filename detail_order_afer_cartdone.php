@@ -105,7 +105,7 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
     <a href="print_report.php?order_id=<?php echo $colname_cartdone;?>&tex=พิมพ์ใบเสร็จ" class="btn btn-primary btn-sm pull-right" target="_blank" id="hp" >  <span class="icon icon-print"></span> พิมพ์ใบเสร็จ </a>
 
   <?php }  ?>
-  
+
 
 
   <table width="700" border="1" align="center" class="table">
@@ -208,10 +208,10 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
     ?>
   </table>
   <?php
-  //echo  $row_cartdone['order_date'];    
+  //echo  $row_cartdone['order_date'];
    // $status =  $row_cartdone['order_status'];
   if($status > 1){ }else{?>
-    <?php 
+    <?php
 
     include 'model_ex.php';
 
