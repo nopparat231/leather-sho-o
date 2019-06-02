@@ -26,7 +26,7 @@ $p_img22 = $_POST['p_img22'];
 $p_img33 = $_POST['p_img33'];
 $p_img44 = $_POST['p_img44'];
 $p_img55 = $_POST['p_img55'];
-
+$s_sell = $_POST['s_sell'];
 $p_img1 = (isset($_POST['p_img1']) ? $_POST['p_img1'] : '');
 $p_img2 = (isset($_POST['p_img2']) ? $_POST['p_img2'] : '');
 $p_img3 = (isset($_POST['p_img3']) ? $_POST['p_img3'] : '');
@@ -159,6 +159,7 @@ p_qty='$p_qty',
 p_size='$p_size',
 p_ems='$p_ems',
 p_unit='$p_unit',
+s_sell='$s_sell',
 p_img1='$newname',
 p_img2='$newname2',
 p_img3='$newname3',
