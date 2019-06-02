@@ -150,7 +150,7 @@ $totalRows_prd = mysql_num_rows($prd);
                           <td colspan="2">
                             <label for=""></label>
 
-                            <select class="form-control" id="sel1" name="s_sell">
+                            <select class="form-control" id="sel1" name="p_sell">
                               <option value="บ.1" <?php echo $n; ?>>บ.1</option>
                               <option value="บ.2" <?php echo $ng; ?>>บ.2</option>
                               <option value="บ.3" <?php echo $ns; ?>>บ.3</option>

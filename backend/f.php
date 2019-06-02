@@ -2,7 +2,6 @@
 
 <p align="center" style="padding-top:100px">
 
-@ 2018  
 
 
 </p>

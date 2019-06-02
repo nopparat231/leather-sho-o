@@ -20,7 +20,7 @@ $p_qty = $_POST['p_qty'];
 $p_size = $_POST['p_size'];
 $p_ems = $_POST['p_ems'];
 $p_unit = $_POST['p_unit'];
-$s_sell = $_POST['s_sell'];
+$p_sell = $_POST['p_sell'];
 $p_img1 = (isset($_POST['p_img1']) ? $_POST['p_img1'] : '');
 $p_img2 = (isset($_POST['p_img2']) ? $_POST['p_img2'] : '');
 $p_img3 = (isset($_POST['p_img3']) ? $_POST['p_img3'] : '');
@@ -147,7 +147,7 @@ $sql ="INSERT INTO tbl_product
 	p_size,
 	p_ems,
 	p_unit,
-	s_sell,
+	p_sell,
 	p_img1,
 	p_img2,
 	p_img3,
@@ -167,7 +167,7 @@ $sql ="INSERT INTO tbl_product
 	'$p_size',
 	'$p_ems',
 	'$p_unit',
-	'$s_sell',
+	'$p_sell',
 	'$newname',
 	'$newname2',
 	'$newname3',

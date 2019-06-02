@@ -83,15 +83,15 @@ $totalRows_prd = mysql_num_rows($prd);
   <thead>
     <tr>
 
-      <th width="5%">ลำดับที่</th>
-      <th width="15%">ประเภท</th>
-      <th width="25%">ชื่อสินค้า</th>
-
-      <th width="7%">จำนวน</th>
-      <th width="5%">ไซส์</th>
-      <th width="5%">ค่าจัดส่ง</th>
-      <th width="5%">การเข้าชม</th>
-      <th width="7%">ราคา</th>
+      <th>ลำดับที่</th>
+      <th>ประเภท</th>
+      <th>ชื่อสินค้า</th>
+      <th>ชื่อตัวแทนจำหน่าย</th>
+      <th>จำนวน</th>
+      <th>ไซส์</th>
+      <th>ค่าจัดส่ง</th>
+      <th>การเข้าชม</th>
+      <th>ราคา</th>
 
     </tr>
   </thead>
@@ -107,7 +107,8 @@ $totalRows_prd = mysql_num_rows($prd);
           <td valign="top"><?php echo $row_prd['t_name']; ?></td>
           <td valign="top"><b> <?php echo $row_prd['p_name']; ?></b>
           </td>
-
+          <td valign="top"><b> <?php echo $row_prd['p_sell']; ?></b>
+          </td>
           <td align="center" valign="top">
            <?php echo $row_prd['p_qty']; ?>
 
@@ -122,6 +123,7 @@ $totalRows_prd = mysql_num_rows($prd);
         <td align="center" valign="top">
           <?php echo $row_prd['p_view'];?>
         </td>
+
         <td align="right" valign="top"><?php echo number_format($row_prd['p_price'],2); ?></td>
       </tr>
       <?php
@@ -131,6 +133,7 @@ $totalRows_prd = mysql_num_rows($prd);
 </tbody>
 <tfoot>
   <tr>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
