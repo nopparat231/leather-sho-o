@@ -122,33 +122,63 @@ if($_SESSION['MM_Username']!=''){
         <h3 align="center" style="color:green">
           <span class="glyphicon glyphicon-shopping-cart"> </span>
         ที่อยู่ในการจัดส่งสินค้า  </h3>
+        <div class="col-sm-6">
+          <div class="form-group">
 
-        <div class="form-group">
-          <div class="col-sm-12">
             <input type="text"  name="name" value="<?php echo $row_buyer['mem_fname'].$row_buyer['mem_lname']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" /><br>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-12">
-            <textarea name="address" class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address']; ?></textarea><br>
-          </div>
 
-        </div>
-        <div class="form-group">
-          <div class="col-sm-12">
+          </div>
+          <div class="form-group">
+
+            <textarea name="address" class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address']; ?></textarea><br>
+
+
+          </div>
+          <div class="form-group">
+
             <input type="text"  name="phone" value="<?php echo $row_buyer['mem_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" /><br>
+
           </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-12">
+          <div class="form-group">
+
             <input type="email"  name="email" class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" /><br>
+
           </div>
         </div>
+
+
+<button onclick="myFunction()">Try it</button>
+
+        <div class="col-sm-6" id="myDIV">
+          <div class="form-group">
+
+            <input type="text"  name="name" value="<?php echo $row_buyer['mem_fname'].$row_buyer['mem_lname']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" /><br>
+
+          </div>
+          <div class="form-group">
+
+            <textarea name="address" class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address']; ?></textarea><br>
+
+
+          </div>
+          <div class="form-group">
+
+            <input type="text"  name="phone" value="<?php echo $row_buyer['mem_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" /><br>
+
+          </div>
+          <div class="form-group">
+
+            <input type="email"  name="email" class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" /><br>
+
+          </div>
+        </div>
+
+
         <br>
         <div class="form-group">
-          <div class="col-sm-12" align="center">
+          <div class="col-sm-6" align="center">
             <input name="mem_id" type="hidden" id="mem_id" value="<?php echo $row_buyer['mem_id']; ?>">
-<br>
+            <br>
             <button type="submit" class="btn btn-primary" id="btn">
             ยืนยันสั่งซื้อ </button>
           </div>
@@ -168,3 +198,15 @@ if($_SESSION['MM_Username']!=''){
  ?>
  <br>
  <br>
+
+ <script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
