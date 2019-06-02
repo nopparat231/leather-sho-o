@@ -66,9 +66,9 @@ if (isset($_POST['mem_username'])) {
   <div class="row" style="padding-top:100px">
     <div class="col-md-4"></div>
     <div class="col-md-4" style="background-color:#f4f4f4">
-      <h3 align="center">
+      <h4 align="center">
         <span class="glyphicon glyphicon-lock"> </span>
-      กรุณา เข้าสู่ระบบ ก่อนทำรายการ ! </h3>
+      กรุณาเข้าสู่ระบบก่อนทำรายการ</h4>
       <form  name="formlogin" action="<?php echo $loginFormActionUser; ?>" method="POST" id="login" class="form-horizontal">
         <div class="form-group">
           <div class="col-sm-12">
