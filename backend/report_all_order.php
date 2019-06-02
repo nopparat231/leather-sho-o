@@ -98,9 +98,9 @@ $totalRows_mycart = mysql_num_rows($mycart);
       </style>
 
 
-      
 
-      <h3 align="center">รายสั่งซื้อ<?php echo $strNewDate; ?></h3>
+
+      <h3 align="center">รายงานข้อมูลการสั่งซื้อ<?php echo $strNewDate; ?></h3>
 
 
       <form action="report_all_order.php" method="post">
@@ -108,18 +108,18 @@ $totalRows_mycart = mysql_num_rows($mycart);
        <div class="row">
 
          <div class="col-md-1">
-          <label><font size="2">จากวัน</font></label> 
+          <label><font size="2">จากวัน</font></label>
         </div>
         <div class="col-md-4">
           <input id="from" name="start_date" type="text"  autocomplete="off"  />
         </div>
         <div class="col-md-1">
-          <label><font size="2">ถึงวันที่</font></label>  
+          <label><font size="2">ถึงวันที่</font></label>
         </div>
         <div class="col-md-4">
           <input  id="to" name="end_date" type="text"  autocomplete="off"  />
-       </div>      
-       
+       </div>
+
        <div class="col-md-2">
         <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
       </div>
@@ -135,14 +135,14 @@ $totalRows_mycart = mysql_num_rows($mycart);
         <th>รายการ</th>
 
         <th>สถานะ</th>
-        
+
         <th>วันที่ทำรายการ</th>
         <th>ราคารวม</th>
       </tr>
     </thead>
     <tbody>
       <?php if ($totalRows_mycart > 0) { ?>
-        <?php 
+        <?php
         $i = 1;
         do { ?>
           <tr>
@@ -171,7 +171,7 @@ $totalRows_mycart = mysql_num_rows($mycart);
               <?php echo number_format($row_mycart['ctotal'],2);?>
             </td>
           </tr>
-          <?php 
+          <?php
           $i += 1;
         } while ($row_mycart = mysql_fetch_assoc($mycart)); ?>
       </tbody>

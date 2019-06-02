@@ -47,28 +47,28 @@ $totalRows_ptype = mysql_num_rows($ptype);
 	<?php include('h.php');?>
     <?php include('datatable.php');?>
   </head><?php //include('menu.php');?>  <?php include('navbar.php');?>
-  <body>  
+  <body>
   <div class="container">
-  
+
   	<div class="row">
-    
+
 <div class="col-md-3">
-  
+
 </div>
     <div class="col-md-9">
-        <h3 align="center"> ประเภทสินค้า </h3>
+        <h3 align="center"> รายงานข้อมูลประเภทสินค้า </h3>
         <table id="example1" class="display" cellspacing="0" border="1">
 		<thead>
           <tr>
              <th align="center">ลำดับที่</th>
              <th align="center">รหัสประเภท</th>
             <th align="center">ชื่อประเภท</th>
-            
+
           </tr>
         </thead>
         <tbody>
         <?php if($totalRows_ptype>0){?>
-          <?php 
+          <?php
 $i = 1;
           do { ?>
             <tr>
@@ -76,7 +76,7 @@ $i = 1;
                <td  align="center" valign="top"><?php echo $row_ptype['t_type']; ?></td>
               <td  align="center" valign="top"><?php echo $row_ptype['t_name']; ?></td>
             </tr>
-            <?php 
+            <?php
   $i += 1;
           } while ($row_ptype = mysql_fetch_assoc($ptype)); ?>
         <?php } ?>

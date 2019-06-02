@@ -71,24 +71,24 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
 
       </div>
       <div class="col-md-9">
-        <h3 align="center"> รายการ ผู้ดูแลระบบ   </h3>
+        <h3 align="center"> รายงานผู้ดูแลระบบ</h3>
 
         <form action="list_admin.php" method="post">
           <?php include 'thaidate.php'; ?>
           <div class="row">
 
            <div class="col-md-1">
-            <label><font size="2">จากวัน</font></label> 
+            <label><font size="2">จากวัน</font></label>
           </div>
           <div class="col-md-4">
             <input id="from" name="start_date" type="text"  autocomplete="off"  />
           </div>
           <div class="col-md-1">
-            <label><font size="2">ถึงวันที่</font></label>  
+            <label><font size="2">ถึงวันที่</font></label>
           </div>
           <div class="col-md-4">
             <input  id="to" name="end_date" type="text"  autocomplete="off"  />
-          </div>      
+          </div>
 
           <div class="col-md-2">
             <input type="submit" name="search" id="search" value="ค้นหา" class="btn btn-info" />
@@ -101,8 +101,9 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
           <thead>
             <tr align="center">
               <th>ลำดับที่</th>
-              <th>รหัส</th>
-              <th>ข้อมูล</th>
+              <th>รหัสผู้ใช้ระบบ</th>
+              <th>ชื่อสมาชิก</th>
+              <th>ชื่อผู้ใช้</th>
               <th>ที่อยู่</th>
               <th>สถานะ</th>
               <th>วันที่สมัคร</th>
@@ -114,13 +115,13 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
               <?php  } ?>
             </tr>
           </thead>
-          <?php 
+          <?php
 
           $i = 1;
           do { ?>
             <tr>
               <td align="center" ><?php echo $i; ?></td>
-              <td align="center"><?php 
+              <td align="center"><?php
               if ($row_listadmin['status'] == 'staff') {
                 $ida = 'ST';
               }elseif ($row_listadmin['status'] == 'admin') {
@@ -130,14 +131,14 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
               }
 
               echo $ida; ?><?php echo $row_listadmin['admin_id']; ?></td>
-              <td><?php echo "ชื่อ : ",$row_listadmin['admin_name']; ?><br />
-                <?php echo "User : ",$row_listadmin['admin_user']; ?><br />
-                <?php echo "Pass : ",'**********'; ?></td>
+              <td><?php echo "ชื่อ : ",$row_listadmin['admin_name']; ?><br /></td>
+                <td><?php echo "User : ",$row_listadmin['admin_user']; ?><br />
+              </td>
                 <td><?php echo "ที่อยู่ : " ,$row_listadmin['admin_address']; ?><br />
                   <?php echo "เบอร์โทร : " ,$row_listadmin['admin_tel']; ?><br />
                   <?php echo "E-mail : " ,$row_listadmin['admin_email']; ?>
                 </td>
-                <td align="center"><?php 
+                <td align="center"><?php
                 if ($row_listadmin['status'] == 'staff') {
                   $stu = 'พนักงาน';
                 }elseif ($row_listadmin['status'] == 'admin') {
@@ -174,5 +175,3 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
 mysql_free_result($listadmin);
 ?>
 <?php  include('f.php');?>
-
-

@@ -76,7 +76,7 @@ $totalRows_prd = mysql_num_rows($prd);
         th { white-space: nowrap; }
       </style>
 
-      <h3 align="center"> รายการตรวจรับสินค้า  </h3>
+      <h3 align="center"> รายงานตรวจรับสินค้า  </h3>
 
       <table width="100%" border="1" cellspacing="0" class="display" id="example">
         <?php $r = '<h3 align="center">รายการสินค้า</h3>' ?>
@@ -98,7 +98,7 @@ $totalRows_prd = mysql_num_rows($prd);
         <tbody>
           <?php if($totalRows_prd>0){?>
 
-            <?php 
+            <?php
             $i = 1;
 
             do { ?>
