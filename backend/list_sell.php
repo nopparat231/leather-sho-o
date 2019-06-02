@@ -36,7 +36,7 @@ $totalRows_prd = mysql_num_rows($prd);
 
       </div>
       <div class="col-md-9" align="center">
-        <h3 align="center"> <a href="add_product.php" class="btn btn-primary"> เพิ่มสินค้า </a> รายการตรวจรับสินค้า </h3>
+        <h3 align="center"> <a href="add_product.php" class="btn btn-primary"> เพิ่มสินค้า </a> จัดการตรวจรับสินค้า </h3>
         <br>
 
         <form action="add_sell_db.php" method="post" enctype="multipart/form-data">
@@ -81,8 +81,8 @@ $totalRows_prd = mysql_num_rows($prd);
 
         $("#btn1").on('change', function(){
 
-          $.post("list_sell_aj.php", { 
-            data1: $("#btn1").val()}, 
+          $.post("list_sell_aj.php", {
+            data1: $("#btn1").val()},
             function(result){
               $("#div1").html(result);
             }
@@ -95,7 +95,7 @@ $totalRows_prd = mysql_num_rows($prd);
 
       //   $("#button").click(function(){
 
-      //     $.post("add_sell_db.php", { 
+      //     $.post("add_sell_db.php", {
       //       s_pid: $("#btn1").val(),
       //       s_old: $("#s_old").val(),
       //       s_add: $("#s_add").val(),
@@ -104,4 +104,3 @@ $totalRows_prd = mysql_num_rows($prd);
       //   });
       // });
     </script>
-
