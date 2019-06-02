@@ -126,8 +126,8 @@ $totalRows_prd = mysql_num_rows($prd);
                       <td width="129" align="right" valign="middle">ไซส์ :</td>
                       <td colspan="2"><label for="p_size"></label>
                         <input name="p_size" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                      type = "text"
-                      maxlength = "3"  required id="p_size" /></td>
+                        type = "text"
+                        maxlength = "3"  required id="p_size" /></td>
                       </tr>
                       <tr>
                         <td align="right" valign="middle">&nbsp;</td>
@@ -144,12 +144,31 @@ $totalRows_prd = mysql_num_rows($prd);
                           <td align="right" valign="middle">&nbsp;</td>
                           <td colspan="2">&nbsp;</td>
                         </tr>
+
+                        <tr>
+                          <td align="right" valign="middle">ตัวแทนจำหน่าย :</td>
+                          <td colspan="2">
+                            <label for=""></label>
+
+                            <select class="form-control" id="sel1" name="s_sell">
+                              <option value="บ.1" <?php echo $n; ?>>บ.1</option>
+                              <option value="บ.2" <?php echo $ng; ?>>บ.2</option>
+                              <option value="บ.3" <?php echo $ns; ?>>บ.3</option>
+                            </select>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td align="right" valign="middle">&nbsp;</td>
+                          <td colspan="2">&nbsp;</td>
+                        </tr>
+
                         <tr>
                           <td align="right" valign="middle">ประเภทสินค้า :</td>
                           <td colspan="2">
                             <label for=""></label>
-                            <select name="t_id" id="t_id" required="required">
-                              <option value="">กรุณาเลือกประเภท</option>
+                            <select  class="form-control" name="t_id" id="t_id" required="required">
+                             
                               <?php
                               do {
                                 ?>
@@ -269,16 +288,16 @@ $totalRows_prd = mysql_num_rows($prd);
                     <?php include('f.php');?>
 
 
-<script type="text/javascript">
-  
-  function validate() {
-  var element = document.getElementById('input-field');
-  element.value = element.value.replace(/[^a-zA-Zก-๙. @]+/, '');
-};
+                    <script type="text/javascript">
 
-function num() {
-  var element = document.getElementById('input-num');
-  element.value = element.value.replace(/[^0-9]+/, '');
-};
-</script>
+                      function validate() {
+                        var element = document.getElementById('input-field');
+                        element.value = element.value.replace(/[^a-zA-Zก-๙. @]+/, '');
+                      };
+
+                      function num() {
+                        var element = document.getElementById('input-num');
+                        element.value = element.value.replace(/[^0-9]+/, '');
+                      };
+                    </script>
 
