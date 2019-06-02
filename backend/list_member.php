@@ -72,7 +72,7 @@ $totalRows_mem = mysql_num_rows($mem);
 
       </div>
       <div class="col-md-9">
-        <h3 align="center"> รายการ ข้อมูลสมาชิค </h3>
+        <h3 align="center"> รายการ ข้อมูลสมาชิก </h3>
         <form action="list_member.php" method="post">
           <?php include 'thaidate.php'; ?>
           <div class="row">

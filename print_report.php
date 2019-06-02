@@ -11,7 +11,7 @@
   }
   @charset "UTF-8";
 </style>
-<?php include 'detail_order_afer_cartdone_DB.php'; 
+<?php include 'detail_order_afer_cartdone_DB.php';
 
 
 date_default_timezone_set('Asia/Bangkok');
@@ -21,7 +21,7 @@ date_default_timezone_set('Asia/Bangkok');
 <center>
   <br>
   <br>
-  <a href="" class="btn btn-primary btn-lg" target="_blank" id="hp" onclick="window.print();" >  <span class="glyphicon glyphicon-print"></span> พิมพ์ใบเสร็จ </a> 
+  <a href="" class="btn btn-success " target="_blank" id="hp" onclick="window.print();" >  <span class="glyphicon glyphicon-print"></span> พิมพ์ใบเสร็จ </a>
 
   <br>
   <br>
@@ -29,19 +29,19 @@ date_default_timezone_set('Asia/Bangkok');
   <form id="form1" name="form1" method="post" action="">
     <table width="1081" height="499" border="0">
       <tr>
+
         <th width="21" height="298" scope="row" >&nbsp;</th>
-        <th width="493" scope="row" ><img src="img/logo.jpg" width="200" height="200" /></th>
+        <th width="493" scope="row" ><img src="img/logo.jpg" width="300" height="300" /></th>
 
         <th width="553" align="center" nowrap="nowrap">
-          <h3><strong>บริษัท CHATA จํากัด</strong></h3>
-          <p> 414 ซอย สลีม36 ถนนสลีม แขวงสุรยิวงศ์เขตบางรกั กรุงเทพ 10500 </p>
-          <p>  414 Silom36 silomRd. Suriyawong Bangrak Bangkok (Thailand) 10500</p>
-          <p> โทร. 081-493-3899 เลขประจําตวัผูเสียภาษอีากร 110200836647 </p>
+          <align="left"><h3><strong>ร้าน จันผา</strong></h3>
+          <p> ชั้น 3 ห้อง B362 MEGAPLAZA สะพานเหล็ก </p>
+          <p> โทร. 080-419-4419 / 095-826-5356 LINE ID. 080-419-4419</p>
           <p>&nbsp;</p>
-          <table width="416" border="1" cellpadding="0" cellspacing="0">
+          <table width="416" border="0" cellpadding="0" cellspacing="0">
             <tr>
-              <th width="406" align="left" scope="row"><h4 align="center"><strong>ใบเสร็จรับเงิน / ใบกํากับภาษี</strong></h4>
-                <h4 align="center">ORIGINAL RECEIPT / TAX INVOICE </h4></th>
+              <th width="406" align="center" scope="row"><h2 align="left"><strong>ใบแจ้งหนี้</strong></h2>
+                <h2 align="left">INVOICE</h2></th>
               </tr>
             </table>
             <h4>&nbsp;</h4></th>
@@ -50,7 +50,7 @@ date_default_timezone_set('Asia/Bangkok');
             <th scope="row">&nbsp;</th>
             <th height="195" scope="row"><table width="489" border="0" style="text-align: left;">
               <tr>
-                <th width="186" style="text-align: left;" scope="row"><p>&nbsp; &nbsp; นามลูกค้า</p></th>
+                <th width="186" style="text-align: left;" scope="row"><p>&nbsp; &nbsp; ชื่อสมาชิก</p></th>
                 <td width="293" align="left" valign="bottom"><p><?php echo $row_cartdone['mem_name'];?></p></td>
               </tr>
               <tr>
@@ -61,10 +61,7 @@ date_default_timezone_set('Asia/Bangkok');
                   </p>
                 </td>
               </tr>
-              <tr>
-                <th style="text-align: left;"scope="row"><p>&nbsp; &nbsp; เลขประจำตัวผู้เสียภาษี</p></th>
-                <td align="left" valign="bottom"> <p>12321321213</p></td>
-              </tr>
+
             </table>        <h3>&nbsp;</h3></th>
             <td><table width="224" border="0" align="right">
               <tr>
@@ -104,25 +101,25 @@ date_default_timezone_set('Asia/Bangkok');
           <col width="20" />
         </table>
         <table width="1081" border="1" cellpadding="0" cellspacing="0">
-          <tr align="center" class="bg-primary">
-            <td width="103" nowrap="nowrap" scope="row">ลำดับ</td>
-            <td width="156" nowrap="nowrap">รหัสสินค้า</td>
-            <td width="295" nowrap="nowrap">รายละเอียด</td>
-            <td width="47" nowrap="nowrap">ไซส์</td>
-            <td width="80" nowrap="nowrap">จำนวน</td>
-            <td width="88" nowrap="nowrap">หน่วย</td>
-            <td width="124" nowrap="nowrap">ราคา/หน่วย</td>
-            <td width="170" nowrap="nowrap">จำนวนเงิน</td>
+          <tr align="center" class="bg-danger">
+            <td width="103" nowrap="nowrap" scope="row"><B>ลำดับ</td>
+            <td width="156" nowrap="nowrap"><B>รหัสสินค้า</td>
+            <td width="295" nowrap="nowrap"><B>รายละเอียด</td>
+            <td width="47" nowrap="nowrap"><B>ไซส์</td>
+            <td width="80" nowrap="nowrap"><B>จำนวน</td>
+            <td width="88" nowrap="nowrap"><B>หน่วย</td>
+            <td width="124" nowrap="nowrap"><B>ราคา/หน่วย</td>
+            <td width="170" nowrap="nowrap"><B>จำนวนเงิน</td>
           </tr>
 
 
-          <?php 
+          <?php
           $i = 1;
 
 
           do { ?>
 
-            <?php 
+            <?php
             $t_id = $row_cartdone['t_id'];
             include 't_id.php';
             $sum  = $row_cartdone['p_price']*$row_cartdone['p_c_qty'];
@@ -145,7 +142,7 @@ date_default_timezone_set('Asia/Bangkok');
             </tr>
 
 
-            <?php 
+            <?php
             $i += 1;
           } while ($row_cartdone = mysql_fetch_assoc($cartdone));
 
@@ -234,11 +231,11 @@ date_default_timezone_set('Asia/Bangkok');
             <td align="center">&nbsp;</td>
           </tr>
         </table>
-        <?php include 'detail_order_afer_cartdone_DB.php'; 
+        <?php include 'detail_order_afer_cartdone_DB.php';
         include 'number_to_thai.php';
 
         ?>
-        <?php 
+        <?php
         $tax = $total*0.07;
         $total += $tax;
 
@@ -247,8 +244,8 @@ date_default_timezone_set('Asia/Bangkok');
         <table width="1081" border="1" cellpadding="0" cellspacing="0">
           <tr>
             <th width="70%" align="left" scope="row">&nbsp;ตัวอักษร : (<?php echo convert($total); ?>)</th>
-            <td width="20%"> &nbsp;รวมเงิน<br />
-            &nbsp;TOTAL</td>
+            <td width="20%"> &nbsp;<B>รวมเงิน<br />
+            &nbsp;<B>TOTAL</td>
 
             <td width="10%" align="right"><?php echo number_format($totalp,2);?></td>
           </tr>
@@ -257,50 +254,41 @@ date_default_timezone_set('Asia/Bangkok');
             <?php if ($row_cartdone['b_name'] <> ''){
               $checked ='checked';
             }else{}?>
-            <th align="left" valign="bottom" scope="row"> &nbsp; &nbsp;
-              <input type="checkbox" name="checkbox2" id="checkbox2" <?php echo $checked; ?> />
-              <label for="checkbox2"></label>
-              เงินโอน .......<?php echo number_format($row_cartdone['pay_amount'],2);?>...... บาท ..... ธนาคาร <?php 
-              echo $row_cartdone['b_name'];?> ..... เลขที่บัญชี <?php 
-              echo $row_cartdone['b_number'];?></th>
-              <td>&nbsp;ค่าจัดส่ง<br />
-              &nbsp;SHIPPING CHARGE</td>
+            <th align="left" valign="bottom" scope="row"> &nbsp; &nbsp;</th>
+              <td>&nbsp;<B>ค่าจัดส่ง<br />
+              &nbsp;<B>SHIPPING CHARGE</td>
               <td align="right">&nbsp; <?php echo number_format($sumems,2); ?></td>
             </tr>
 
-            <tr> <th align="left" valign="bottom" scope="row"> &nbsp; &nbsp;<input type="checkbox" name="checkbox" id="checkbox" />
-              <label for="checkbox"></label>
-              เงินสด ................................................... บาท
-            </th>
+            <tr> <th align="left" valign="bottom" scope="row"> </th>
 
-
-            <td>&nbsp;ภาษีมูลค่าเพิ่ม<br />
-            &nbsp;VAT 7%</td>
+            <td>&nbsp;<B>ภาษีมูลค่าเพิ่ม<br />
+            &nbsp;<B>VAT 7%</td>
             <td align="right"><?php echo number_format($tax,2);?></td>
           </tr>
           <tr>
             <th align="left" scope="row">&nbsp;</th>
-            <td>&nbsp;ยอดรวมสุทธิ<br />
-            &nbsp;GRAND TOTAL</td>
+            <td>&nbsp;<B>ยอดรวมสุทธิ<br />
+            &nbsp;<B>GRAND TOTAL</td>
             <td align="right"><strong><?php echo number_format($total,2);?></strong></td>
           </tr>
         </table>
         <p>&nbsp;</p>
         <table width="691" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="943" colspan="22" align="center"><h4>กรณีชำระด้วยเช็ค ใบเสร็จฯ นี้จะสมบูรณ์ต่อเมื่อบริษัทฯ    ได้รับเงินแล้วเท่านั้น</h4></td>
+            <td width="943" colspan="22" align="center"><h4>กรณีชำระด้วยเช็ค ใบแจ้งหนี้ จะสมบูรณ์ต่อเมื่อบริษัทฯ    ได้รับเงินแล้วเท่านั้น</h4></td>
           </tr>
         </table>
         <table width="1081" border="1" cellpadding="0" cellspacing="0">
           <tr>
             <th height="53" align="center" valign="bottom" scope="row"> &nbsp;ผู้รับสินค้า ............................................................</th>
             <th align="center" valign="bottom"> &nbsp;ผู้ส่งสินค้า ............................................................</th>
-            <th align="center" valign="bottom"><p> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ในนาม บริษัท CHATA จำกัด</p></th>
+            <th align="center" valign="bottom"> &nbsp;ลงวันที่  .................................................................</th>
           </tr>
           <tr>
             <th height="63" valign="bottom" scope="row"> &nbsp;ลงวันที่  .................................................................</th>
             <th valign="bottom">&nbsp;ลงวันที่  .................................................................</th>
-            <th align="center" valign="bottom">&nbsp;ลงวันที่  .................................................................</th>
+            <th align="center" valign="bottom"></th>
           </tr>
         </table>
         <p>&nbsp;</p>

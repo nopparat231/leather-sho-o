@@ -58,7 +58,7 @@
     <td class="text-left"><?php echo $row_mlogin['mem_tel'];?></td>
   </tr>
   <tr>
-    <th class="pull-left" scope="row">สมัครสมาชิค :</th>
+    <th class="pull-left" scope="row">สมัครสมาชิก :</th>
     <td class="text-left"><?php echo $row_mlogin['dateinsert'];?></td>
   </tr>
 </table><br />

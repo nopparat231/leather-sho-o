@@ -11,15 +11,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="img/1.jpg" alt="Los Angeles" style="width:100%;height: 30%">
+        <img src="img/001.jpg" alt="Los Angeles" style="width:100%;height: 30%">
       </div>
 
       <div class="item">
-        <img src="img/2.jpg" alt="Chicago" style="width:100%;height: 30%">
+        <img src="img/002.jpg" alt="Chicago" style="width:100%;height: 30%">
       </div>
-    
+
       <div class="item">
-        <img src="img/3.jpg" alt="New york" style="width:100%;height: 30%">
+        <img src="img/003.jpg" alt="New york" style="width:100%;height: 30%">
       </div>
     </div>
 

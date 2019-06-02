@@ -57,7 +57,7 @@ if (isset($_POST['admin_user'])) {
   $LoginRS = mysql_query($LoginRS__query, $condb) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
 
-  
+
   if ($loginFoundUser) {
    $loginStrGroup = "";
 
@@ -132,7 +132,7 @@ else {
             </div>
           </div>
           <!-- /.col -->
-          
+
           <div class="col-xs-4">
             <button type="submit" class="btn btn-primary btn-block btn-flat">เข้าสู่ระบบ</button>
           </div>

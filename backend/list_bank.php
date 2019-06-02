@@ -51,13 +51,13 @@ $totalRows_lbk = mysql_num_rows($lbk);
 
   <?php //include('menu.php');?>
   <div class="container">
-  
-         
-  
+
+
+
     <div class="row">
-     
+
       <div class="col-md-3">
-  
+
 </div>
     <div class="col-md-9">
         <h3 align="center"> รายการธนาคาร  <a href="add_bank.php" class="btn btn-primary"> + เพิ่ม </a> </h3>
@@ -67,7 +67,7 @@ $totalRows_lbk = mysql_num_rows($lbk);
             <tr align="center">
 
               <th width="15%">ข้อมูล</th>
-              <th width="10%">Logo</th>
+              <th width="10%">ตราธนาคาร</th>
 
               <th width="5%">แก้ไข </th>
               <th width="5%">ลบ</th>
@@ -77,10 +77,10 @@ $totalRows_lbk = mysql_num_rows($lbk);
               <tr>
 
                 <td>
-                <?php echo "ชื่อบัญชี : ",$row_lbk['b_name']; ?><br />
+                <?php echo "ชื่อธนาคาร : ",$row_lbk['b_name']; ?><br />
                 <?php echo "เลขบัญชี : ",$row_lbk['b_number']; ?><br />
                 <?php echo "ประเภท : ",$row_lbk['b_type']; ?><br />
-                <?php echo "เชื่อบัญชี : ",$row_lbk['b_owner']; ?></br>
+                <?php echo "ชื่อบัญชี : ",$row_lbk['b_owner']; ?></br>
                 <?php echo "สาขา : ",$row_lbk['bn_name']; ?></td>
 
                 <td><center><img src="../bimg/<?php echo $row_lbk['b_logo'];?>" width="100px"></center>

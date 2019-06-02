@@ -53,7 +53,7 @@ $totalRows_lbk = mysql_num_rows($lbk);
 
 
   <div class="col-md-3">
-  
+
 </div>
     <div class="col-md-9">
       <h3 align="center"> รายการ ธนาคาร   </h3>
@@ -61,12 +61,12 @@ $totalRows_lbk = mysql_num_rows($lbk);
         <thead>
           <tr align="center">
             <th>ลำดับที่</th>
-            <th>ชื่ิอธนาคาร</th>
+            <th>ชื่อธนาคาร</th>
             <th>เลขบัญชี</th>
             <th>ประเภท</th>
 
             <th>สาขา</th>
-            
+
             <th>ชื่อบัญชี</th>
 
 

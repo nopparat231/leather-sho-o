@@ -1,12 +1,12 @@
 
 <div class="container">
   <h2></h2>  <!-- Trigger the modal with a button -->
-  
+
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -96,11 +96,11 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
         </div>
       </div>
-      
+
     </div>
   </div>
-  
+
 </div>

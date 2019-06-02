@@ -84,7 +84,7 @@
 
 	});
 
-           <?php $m = '<h3 align="center">รายการ ข้อมูลสมาชิค</h3>' ?>
+           <?php $m = '<h3 align="center">รายการ ข้อมูลสมาชิก</h3>' ?>
            $('#example5').DataTable( {
 
 
