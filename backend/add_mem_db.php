@@ -6,7 +6,9 @@ error_reporting( error_reporting() & ~E_NOTICE );
 
 $mem_username = $_POST['mem_username'];
 $mem_password = $_POST['mem_password'];
-$mem_name = $_POST['mem_name'];
+$numna= $_POST['numna'];
+$mem_fname = $_POST['mem_fname'];
+$mem_lname = $_POST['mem_lname'];
 $mem_tel = $_POST['mem_tel'];
 $mem_address = $_POST['mem_address'];
 $mem_email = $_POST['mem_email'];
@@ -42,11 +44,11 @@ if ($num > 0 ){
 
 $sql ="INSERT INTO tbl_member
 
-		(mem_username,  mem_password, mem_name , mem_tel ,mem_address ,mem_email ,status ,sid ,active)
+		(mem_username,  mem_password, mem_fname , mem_fname , mem_tel ,mem_address ,mem_email ,status ,sid ,active)
 
 		VALUES
 
-		('$mem_username', '$mem_password', '$mem_name' , '$mem_tel' ,'$mem_address' ,'$mem_email' ,'$status' , '$sid','$active')";
+		('$mem_username', '$mem_password', '$mem_fname' , '$mem_lname' , '$mem_tel' ,'$mem_address' ,'$mem_email' ,'$status' , '$sid','$active')";
 
 		$result = mysql_query($sql, $condb) or die("Error in query : $sql" .mysql_error());
 }

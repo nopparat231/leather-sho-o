@@ -9,7 +9,8 @@ error_reporting( error_reporting() & ~E_NOTICE );
 $order_id = $_GET['order_id'];
 $postcode = $_GET['postcode'];
 $status = $_GET['status'];
-$mem_name = $_GET['mem_name'];
+$mem_fname = $_GET['mem_fname'];
+$mem_lname = $_GET['mem_lname'];
 $mem_email = $_GET['mem_email'];
 
 
@@ -23,7 +24,7 @@ $mem_id = mysql_insert_id($condb);
 		$strTo = $mem_email;
 		$strSubject = "your order ".$order_id." is ready to ship from the seller";
 		$strHeader = "Content-type: text/html; charset=UTF-8\n"; // or UTF-8 //
-		$strMessage = "คำสั่งซื้อของคุณ : ".$mem_name."<br>";
+		$strMessage = "คำสั่งซื้อของคุณ : ".$mem_fname."&nbsp;&nbsp;".$mem_lname."<br>";
 	
 		$strMessage .= "เลขที่ Order : ".$order_id." ได้ทำการจัดส่งแล้ว <br>";
 		$strMessage .= "เลขที่ติดตามสินค้าคือ : ".$postcode."<br>";

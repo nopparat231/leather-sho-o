@@ -84,12 +84,44 @@ $totalRows_editmem = mysql_num_rows($editmem);
             <input  name="mem_password" type="password" required class="form-control" id="mem_password" placeholder="password" pattern="^[a-zA-Z0-9]+$" value="<?php echo $row_editmem['mem_password']; ?>" minlength="2" />
           </div>
         </div>
-        <div class="form-group">
-        <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
-          <div class="col-sm-5" align="left">
-            <input  name="mem_name" type="text" required class="form-control" id="input-field" placeholder="ชื่อ-สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" value="<?php echo $row_editmem['mem_name']; ?>"  value="<?php echo $row_editmem['mem_pass']; ?>" minlength="2"/>
-          </div>
-        </div>
+        
+
+        <?php
+    $n = "";
+    $ng = "";
+    $ns = "";
+    if ($row_mlogin['numna'] == 'นาย'){
+      $n = "selected='selected'";
+    }elseif ($row_mlogin['numna'] == 'นาง') {
+      $ng = "selected='selected'";
+    }elseif ($row_mlogin['numna'] == 'นางสาว') {
+     $ns = "selected='selected'";
+   } ?>
+
+   <div class="form-group">
+    <div class="col-sm-2" align="right"> คำนำหน้า : </div>
+    <div class="col-sm-10" align="left">
+      <select class="form-control" id="sel1" name="numna">
+        <option value="นาย" <?php echo $n; ?>>นาย</option>
+        <option value="นาง" <?php echo $ng; ?>>นาง</option>
+        <option value="นางสาว" <?php echo $ns; ?>>นางสาว</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
+    <div class="col-sm-5" align="left">
+      <input  name="mem_fname" type="text" pattern="^[a-zA-Zก-๙ ]+$" required class="form-control" id="input-field" placeholder="ชื่อ" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น"  value="<?php echo $row_editmem['mem_fname']; ?>"  value="<?php echo $row_editmem['mem_pass']; ?>" />
+
+    </div>
+    <div class="col-sm-5" align="left">
+      <input  name="mem_lname" type="text" pattern="^[a-zA-Zก-๙ ]+$" required class="form-control" id="input-field" placeholder="สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น"  value="<?php echo $row_editmem['mem_lname']; ?>"  value="<?php echo $row_editmem['mem_pass']; ?>" />
+
+    </div>
+  </div>
+
 
 
 

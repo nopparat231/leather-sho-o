@@ -101,7 +101,8 @@ $totalRows_mem = mysql_num_rows($mem);
           <tr align="center">
             <th>ลำดับที่</th>
             <th>รหัส</th>
-            <th>ข้อมูล</th>
+            <th>ชื่อ-สกุล</th>
+            <th>ชื่อผู้ใช้</th>
             <th>ที่อยู่</th>
             <th>สถานะ</th>
             <th>วันที่สมัคร</th>
@@ -119,9 +120,8 @@ $totalRows_mem = mysql_num_rows($mem);
           <tr>
            <td align="center" ><?php echo $i; ?></td>
            <td align="center">US<?php echo $row_mem['mem_id']; ?></td>
-           <td><?php echo "ชื่อ : ",$row_mem['mem_name']; ?><br />
-            <?php echo "User : ",$row_mem['mem_username']; ?><br />
-            <?php echo "Pass : ",'**********' ?></td>
+           <td><?php echo $row_mem['mem_fname']."&nbsp;&nbsp;".$row_mem['mem_lname'];?><br /></td>
+            <td><?php echo "User : ",$row_mem['mem_username']; ?><br /></td>
             <td><?php echo "ที่อยู่ : " ,$row_mem['mem_address']; ?><br />
               <?php echo "เบอร์โทร : " ,$row_mem['mem_tel']; ?><br />
               <?php echo "E-mail : " ,$row_mem['mem_email']; ?>
