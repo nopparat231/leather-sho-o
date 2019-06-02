@@ -130,7 +130,8 @@ $totalRows_cartdone = mysql_num_rows($cartdone);
                 เลข บ/ช <?php echo $row_cartdone['b_number'];?> <br />
 
                 จำนวน <?php echo  number_format($row_cartdone['pay_amount'],2);?> บาท<br />
-                วันที่ชำระ <?php echo date($row_cartdone['pay_date']);?></font><br />
+                <?php $old_startDate = date("d-m-Y",strtotime($row_cartdone['pay_date'])); ?>
+                วันที่ชำระ <?php echo date($old_startDate);?></font><br />
                 <?php $new_startDate = date("d-m-Y",strtotime($row_cartdone['order_date'])); ?>
                 วันที่สั่งซื้อ <?php
 
