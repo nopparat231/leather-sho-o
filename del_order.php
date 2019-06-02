@@ -11,15 +11,24 @@ $p = $_GET['p'];
 
 mysql_select_db($database_condb);
 
-$sqlpp ="SELECT * FROM tbl_product WHERE p_id='$p'";
+$sqloid ="SELECT * FROM tbl_order_detail WHERE order_id='$order_id'";
+$resultoid = mysql_query($sqloid, $condb) or die("Error in query : $sql" .mysql_error());
+$count = mysql_num_rows($resultoid);
+//$row_oid = mysql_fetch_assoc($resultoid);
+
+while ($row_oid = mysql_fetch_assoc($resultoid)) {
+	
+$sqlpp ="SELECT * FROM tbl_product WHERE p_id=".$row_oid['p_id'];
 
 $resultpp = mysql_query($sqlpp, $condb) or die("Error in query : $sql" .mysql_error());
 $row_pp = mysql_fetch_assoc($resultpp);
 $sq = $row_pp['p_qty']+$q;
 
-$sqlp ="UPDATE tbl_product SET p_qty='$sq' WHERE p_id='$p'";
+$sqlp ="UPDATE tbl_product SET p_qty='$sq' WHERE p_id=".$row_oid['p_id'];
 
 $resultp = mysql_query($sqlp, $condb) or die("Error in query : $sql" .mysql_error());
+
+}
 
 
 $sql ="UPDATE tbl_order SET order_status='$order_status' WHERE order_id='$order_id'";
