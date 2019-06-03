@@ -169,15 +169,15 @@ $totalRows_prd = mysql_num_rows($prd);
                       $n = "";
                       $ng = "";
                       $ns = "";
-                      if ($row_mlogin['numna'] == 'บ.1'){
+                      if ($row_eprd['p_sell'] == 'บ.1'){
                         $n = "selected='selected'";
-                      }elseif ($row_mlogin['numna'] == 'บ.2') {
+                      }elseif ($row_eprd['p_sell'] == 'บ.2') {
                         $ng = "selected='selected'";
-                      }elseif ($row_mlogin['numna'] == 'บ.3') {
+                      }elseif ($row_eprd['p_sell'] == 'บ.3') {
                        $ns = "selected='selected'";
                      } ?>
 
-                     <select class="form-control" id="sel1" name="s_sell">
+                     <select class="form-control" id="sel1" name="p_sell">
                       <option value="บ.1" <?php echo $n; ?>>บ.1</option>
                       <option value="บ.2" <?php echo $ng; ?>>บ.2</option>
                       <option value="บ.3" <?php echo $ns; ?>>บ.3</option>
