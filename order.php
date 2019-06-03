@@ -122,70 +122,136 @@ if($_SESSION['MM_Username']!=''){
         <h3 align="center" style="color:green">
           <span class="glyphicon glyphicon-shopping-cart"> </span>
         ที่อยู่ในการจัดส่งสินค้า  </h3>
-        <div class="col-sm-6">
-          <div class="form-group">
+        <center>       
+         <input type="radio" name="select" value="1" id="a1" checked>ใช้ที่อยู่ 1 &nbsp;&nbsp;&nbsp;  
+         <input type="radio" name="select" value="2" id="a2">ใช้ที่อยู่ 2
+       </center>
+       <br>
+       <div class="col-sm-6">
 
-            <input type="text"  name="name" value="<?php echo $row_buyer['mem_fname'].$row_buyer['mem_lname']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" /><br>
+        <?php
+        $n = "";
+        $ng = "";
+        $ns = "";
+        if ($row_mlogin['numna'] == 'นาย'){
+          $n = "selected='selected'";
+        }elseif ($row_mlogin['numna'] == 'นาง') {
+          $ng = "selected='selected'";
+        }elseif ($row_mlogin['numna'] == 'นางสาว') {
+         $ns = "selected='selected'";
+       } ?>
 
-          </div>
-          <div class="form-group">
+       <div class="form-group">
+            
+          <select class="form-control" id="numna" name="numna">
+            <option value="นาย" <?php echo $n; ?>>นาย</option>
+            <option value="นาง" <?php echo $ng; ?>>นาง</option>
+            <option value="นางสาว" <?php echo $ns; ?>>นางสาว</option>
+          </select>
+        
+      </div>
 
-            <textarea name="address" class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address']; ?></textarea><br>
+      <div class="form-group">
 
+        <input type="text" id="fname" name="fname"  value="<?php echo $row_buyer['mem_fname']; ?>" class="form-control" required placeholder="ชื่อ"/>
 
-          </div>
-          <div class="form-group">
+      </div>
 
-            <input type="text"  name="phone" value="<?php echo $row_buyer['mem_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" /><br>
+      <div class="form-group">
 
-          </div>
-          <div class="form-group">
+        <input type="text" id="lname" name="lname"  
+        value="<?php echo $row_buyer['mem_lname']; ?>" class="form-control" required placeholder="สกุล"/>
 
-            <input type="email"  name="email" class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" /><br>
+      </div>
+      <div class="form-group">
 
-          </div>
-        </div>
-
-
-<button onclick="myFunction()">Try it</button>
-
-        <div class="col-sm-6" id="myDIV">
-          <div class="form-group">
-
-            <input type="text"  name="name" value="<?php echo $row_buyer['mem_fname'].$row_buyer['mem_lname']; ?>" class="form-control" required placeholder="ชื่อ-สกุล" /><br>
-
-          </div>
-          <div class="form-group">
-
-            <textarea name="address" class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address']; ?></textarea><br>
-
-
-          </div>
-          <div class="form-group">
-
-            <input type="text"  name="phone" value="<?php echo $row_buyer['mem_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" /><br>
-
-          </div>
-          <div class="form-group">
-
-            <input type="email"  name="email" class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" /><br>
-
-          </div>
-        </div>
+        <textarea name="address" id="address"  class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address']; ?></textarea>
 
 
-        <br>
-        <div class="form-group">
-          <div class="col-sm-6" align="center">
-            <input name="mem_id" type="hidden" id="mem_id" value="<?php echo $row_buyer['mem_id']; ?>">
-            <br>
-            <button type="submit" class="btn btn-primary" id="btn">
-            ยืนยันสั่งซื้อ </button>
-          </div>
-        </div>
-      </form>
+      </div>
+      <div class="form-group">
+
+        <input  type="text" min="10" max="10" name="phone" id="phone"  value="<?php echo $row_buyer['mem_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
+
+      </div>
+      <div class="form-group">
+
+        <input type="email"  name="email" id="email"  class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" />
+
+      </div>
+
     </div>
-  </div>
+
+
+
+    <div class="col-sm-6" >
+
+        <?php
+        $n = "";
+        $ng = "";
+        $ns = "";
+        if ($row_mlogin['numna2'] == 'นาย'){
+          $n = "selected='selected'";
+        }elseif ($row_mlogin['numna2'] == 'นาง') {
+          $ng = "selected='selected'";
+        }elseif ($row_mlogin['numna2'] == 'นางสาว') {
+         $ns = "selected='selected'";
+       } ?>
+
+       <div class="form-group">
+            
+          <select class="form-control" id="numna2" name="numna2" disabled>
+            <option value="" >เลือกคำนำหน้า</option>
+            <option value="นาย" <?php echo $n; ?>>นาย</option>
+            <option value="นาง" <?php echo $ng; ?>>นาง</option>
+            <option value="นางสาว" <?php echo $ns; ?>>นางสาว</option>
+          </select>
+        
+      </div>
+      <div class="form-group">
+
+        <input type="text" id="fname2" name="fname2" disabled value="<?php echo $row_buyer['mem_fname2']; ?>" class="form-control" required placeholder="ชื่อ"/>
+
+      </div>
+
+      <div class="form-group">
+
+        <input type="text" id="lname2" name="lname2" disabled 
+        value="<?php echo $row_buyer['mem_lname2']; ?>" class="form-control" required placeholder="สกุล"/>
+
+      </div>
+      <div class="form-group">
+
+        <textarea name="address2" id="address2" disabled class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address2']; ?></textarea>
+
+
+      </div>
+      <div class="form-group">
+
+        <input type="text" min="10" max="10" id="phone2"  name="phone2" disabled value="<?php echo $row_buyer['mem_tel2']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
+
+      </div>
+      <div class="form-group">
+
+        <input type="email" id="email2"  name="email2" disabled class="form-control" value="<?php echo $row_buyer['mem_email2']; ?>" required placeholder="อีเมล์" />
+
+      </div>
+
+
+    </div>
+
+    <br>
+    <div class="form-group">
+      <div class="col-sm-6" align="center">
+        <input name="mem_id" type="hidden" id="mem_id2" value="<?php echo $row_buyer['mem_id']; ?>">
+        <br>
+        <button type="submit" class="btn btn-primary" id="btn">
+        ยืนยันสั่งซื้อ </button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
 </div>
 
 <?php
@@ -199,14 +265,48 @@ if($_SESSION['MM_Username']!=''){
  <br>
  <br>
 
+
  <script>
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+  $(document).ready(function(){
+    $("#a1").click(function(){
+
+      document.getElementById("numna").disabled = false;
+      document.getElementById("fname").disabled = false;
+      document.getElementById("lname").disabled = false;
+      document.getElementById("address").disabled = false;
+      document.getElementById("phone").disabled = false;
+      document.getElementById("email").disabled = false;
+
+
+      document.getElementById("numna2").disabled = true;
+      document.getElementById("fname2").disabled = true;
+      document.getElementById("lname2").disabled = true;
+      document.getElementById("address2").disabled = true;
+      document.getElementById("phone2").disabled = true;
+      document.getElementById("email2").disabled = true;
+
+    });
+    $("#a2").click(function(){
+     document.getElementById("numna").disabled = true;
+     document.getElementById("fname").disabled = true;
+     document.getElementById("lname").disabled = true;
+     document.getElementById("address").disabled = true;
+     document.getElementById("phone").disabled = true;
+     document.getElementById("email").disabled = true;
+
+     document.getElementById("numna2").disabled = false;
+     document.getElementById("fname2").disabled = false;
+     document.getElementById("lname2").disabled = false;
+     document.getElementById("address2").disabled = false;
+     document.getElementById("phone2").disabled = false;
+     document.getElementById("email2").disabled = false;
+   });
+  });
+
+
+  function enableBtn() {
+   // alert("etet");
+   document.getElementById("name2").disabled = true;
+ }
 </script>
 
