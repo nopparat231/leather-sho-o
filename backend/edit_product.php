@@ -169,18 +169,20 @@ $totalRows_prd = mysql_num_rows($prd);
                       $n = "";
                       $ng = "";
                       $ns = "";
-                      if ($row_eprd['p_sell'] == 'บ.1'){
+                      if ($row_eprd['p_sell'] == 'koramex'){
                         $n = "selected='selected'";
-                      }elseif ($row_eprd['p_sell'] == 'บ.2') {
+                      }elseif ($row_eprd['p_sell'] == 'fashion shoes') {
                         $ng = "selected='selected'";
-                      }elseif ($row_eprd['p_sell'] == 'บ.3') {
-                       $ns = "selected='selected'";
-                     } ?>
+                      }    
+                     //  elseif ($row_eprd['p_sell'] == 'บ.3') {
+                     //   $ns = "selected='selected'";
+                     // } 
+                     ?>
 
                      <select class="form-control" id="sel1" name="p_sell">
-                      <option value="บ.1" <?php echo $n; ?>>บ.1</option>
-                      <option value="บ.2" <?php echo $ng; ?>>บ.2</option>
-                      <option value="บ.3" <?php echo $ns; ?>>บ.3</option>
+                      <option value="koramex" <?php echo $n; ?>>koramex</option>
+                      <option value="fashion shoes" <?php echo $ng; ?>>fashion shoes</option>
+                     <!--  <option value="บ.3" <?php echo $ns; ?>>บ.3</option> -->
                     </select>
                   </td>
                 </tr>

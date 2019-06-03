@@ -153,14 +153,14 @@ if($_SESSION['MM_Username']!=''){
 
       <div class="form-group">
 
-        <input type="text" id="fname" name="fname"  value="<?php echo $row_buyer['mem_fname']; ?>" class="form-control" required placeholder="ชื่อ"/>
+        <input type="text" id="fname" name="fname"  pattern="^[a-zA-Zก-๙ ]+$" value="<?php echo $row_buyer['mem_fname']; ?>" class="form-control" required placeholder="ชื่อ"maxlength="50" onkeyup="validate1();" />
 
       </div>
 
       <div class="form-group">
 
-        <input type="text" id="lname" name="lname"  
-        value="<?php echo $row_buyer['mem_lname']; ?>" class="form-control" required placeholder="สกุล"/>
+        <input type="text" id="lname" name="lname" pattern="^[a-zA-Zก-๙ ]+$" 
+        value="<?php echo $row_buyer['mem_lname']; ?>" class="form-control" required placeholder="สกุล" maxlength="50"onkeyup="validate3();"/>
 
       </div>
       <div class="form-group">
@@ -171,12 +171,13 @@ if($_SESSION['MM_Username']!=''){
       </div>
       <div class="form-group">
 
-        <input  type="text" min="10" max="10" name="phone" id="phone"  value="<?php echo $row_buyer['mem_tel']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
+        <input  type="text" min="10" max="10" name="phone" id="phone"  value="<?php echo $row_buyer['mem_tel']; ?>" required  class="form-control" placeholder="เบอร์โทรศัพท์" pattern="[0-9]{10}" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="tel" maxlength = "10" onkeyup="num1();"/>
 
       </div>
       <div class="form-group">
 
-        <input type="email"  name="email" id="email"  class="form-control" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" />
+        <input type="email"  name="email" id="email"  class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $row_buyer['mem_email']; ?>" required placeholder="อีเมล์" title="กรุณากรอก อีเมล ให้ถูกต้อง"/>
 
       </div>
 
@@ -210,30 +211,32 @@ if($_SESSION['MM_Username']!=''){
       </div>
       <div class="form-group">
 
-        <input type="text" id="fname2" name="fname2" disabled value="<?php echo $row_buyer['mem_fname2']; ?>" class="form-control" required placeholder="ชื่อ"/>
+        <input type="text" id="fname2" name="fname2" pattern="^[a-zA-Zก-๙ ]+$" disabled value="<?php echo $row_buyer['mem_fname2']; ?>" class="form-control" required placeholder="ชื่อ"maxlength="50" onkeyup="validate();"/>
 
       </div>
 
       <div class="form-group">
 
-        <input type="text" id="lname2" name="lname2" disabled 
-        value="<?php echo $row_buyer['mem_lname2']; ?>" class="form-control" required placeholder="สกุล"/>
+        <input type="text" id="lname2" name="lname2" pattern="^[a-zA-Zก-๙ ]+$" disabled 
+        value="<?php echo $row_buyer['mem_lname2']; ?>" class="form-control" required placeholder="สกุล"maxlength="50" onkeyup="validate2();"/>
 
       </div>
       <div class="form-group">
 
-        <textarea name="address2" id="address2" disabled class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"><?php echo $row_buyer['mem_address2']; ?></textarea>
+        <textarea name="address2" id="address2" disabled class="form-control"  rows="3"  required placeholder="ที่อยู่ในการส่งสินค้า"maxlength="150"><?php echo $row_buyer['mem_address2']; ?></textarea>
 
 
       </div>
       <div class="form-group">
 
-        <input type="text" min="10" max="10" id="phone2"  name="phone2" disabled value="<?php echo $row_buyer['mem_tel2']; ?>" class="form-control" required placeholder="เบอร์โทรศัพท์" />
+        <input type="text" min="10" max="10" id="phone2"  name="phone2" disabled value="<?php echo $row_buyer['mem_tel2']; ?>" required class="form-control" placeholder="เบอร์โทรศัพท์" 
+          pattern="[0-9]{10}" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="tel" maxlength = "10" onkeyup="num();"/>
 
       </div>
       <div class="form-group">
 
-        <input type="email" id="email2"  name="email2" disabled class="form-control" value="<?php echo $row_buyer['mem_email2']; ?>" required placeholder="อีเมล์" />
+        <input type="email" id="email2"  name="email2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" disabled class="form-control" value="<?php echo $row_buyer['mem_email2']; ?>" required placeholder="อีเมล์" title="กรุณากรอก อีเมล ให้ถูกต้อง"/>
 
       </div>
 
@@ -269,7 +272,6 @@ if($_SESSION['MM_Username']!=''){
  <script>
   $(document).ready(function(){
     $("#a1").click(function(){
-
       document.getElementById("numna").disabled = false;
       document.getElementById("fname").disabled = false;
       document.getElementById("lname").disabled = false;
@@ -307,6 +309,32 @@ if($_SESSION['MM_Username']!=''){
   function enableBtn() {
    // alert("etet");
    document.getElementById("name2").disabled = true;
+
  }
+  function validate() {
+    var element = document.getElementById('fname2');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  }
+  function validate1() {
+    var element = document.getElementById('fname');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  }
+  function validate2() {
+    var element = document.getElementById('lname2');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  }
+  function validate3() {
+    var element = document.getElementById('lname');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  }
+
+  function num() {
+    var element = document.getElementById('phone2');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  }
+  function num1() {
+    var element = document.getElementById('phone');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  }
 </script>
 

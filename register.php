@@ -54,11 +54,11 @@
       <div class="form-group">
         <div class="col-sm-2" align="right"> ชื่อ-สกุล : </div>
         <div class="col-sm-5" align="left">
-          <input  name="mem_fname" type="text" pattern="^[a-zA-Zก-๙ ]+$" required class="form-control" id="input-field" placeholder="ชื่อ" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" />
+          <input  name="mem_fname" type="text" pattern="^[a-zA-Zก-๙ ]+$" required class="form-control" id="input-field" placeholder="ชื่อ" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" maxlength="50"/>
 
         </div>
         <div class="col-sm-5" align="left">
-          <input  name="mem_lname" type="text" pattern="^[a-zA-Zก-๙ ]+$" required class="form-control" id="input-field" placeholder="สกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" />
+          <input  name="mem_lname" type="text" pattern="^[a-zA-Zก-๙ ]+$" required class="form-control" id="input-field1" placeholder="สกุล" onkeyup="validate1();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น" maxlength="50"/>
 
         </div>
       </div>
@@ -113,7 +113,10 @@
     var element = document.getElementById('input-field');
     element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
   };
-
+  function validate1() {
+    var element = document.getElementById('input-field1');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  };
   function num() {
     var element = document.getElementById('input-num');
     element.value = element.value.replace(/[^0-9]+/, '');
