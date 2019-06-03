@@ -84,7 +84,7 @@
              <option value="staff">พนักงาน</option>
              <?php endif ?>
              <?php if (isset($_GET['superadmin'])): ?>
-             <option value="superadmin">ผู้จัดการ</option>
+             <option value="superadmin">ผู้บริหาร</option>
              <?php endif ?>
 
           </select>
