@@ -144,7 +144,7 @@ $totalRows_listadmin = mysql_num_rows($listadmin);
                 }elseif ($row_listadmin['status'] == 'admin') {
                   $stu = 'ผู้ดูแลระบบ';
                 }elseif ($row_listadmin['status'] == 'superadmin') {
-                  $stu = 'ผู้จัดการ';
+                  $stu = 'ผู้บริหาร';
                 }elseif ($row_listadmin['status'] == 'ex') {
                  $stu = "<font color='red'>ยกเลิกบัญชี</font>";
                }

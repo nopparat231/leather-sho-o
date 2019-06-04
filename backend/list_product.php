@@ -69,7 +69,7 @@ $totalRows_prd = mysql_num_rows($prd);
            <table width="100%" border="1" cellspacing="0" class="display" id="example">
 		<thead>
          <tr>
-            <th width="5%">id</th>
+            <th width="5%">รหัสสินค้า</th>
             <th width="10%">ประเภท</th>
             <th width="40%">รายละเอียด</th>
             <th width="7%">ราคา</th>

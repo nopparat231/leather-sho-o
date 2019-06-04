@@ -54,7 +54,7 @@ $sql ="INSERT INTO tbl_admin
 
 		if($result){
 			echo "<script>";
-			echo "alert('เพิ่ม admin เรียบร้อยแล้ว');";
+			echo "alert('เพิ่ม ผู้ดูแลระบบ เรียบร้อยแล้ว');";
 			echo "window.location ='list_admin.php'; ";
 			echo "</script>";
 		} else {
