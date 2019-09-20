@@ -84,23 +84,23 @@ $totalRows_mycart = mysql_num_rows($mycart);
 				</td>
 				<td> <?php echo $row_mycart['order_date'];?></td>
 				<td><center>
-		<?php if ($status == 4): ?>
-			<a href="del_order.php?order_id=<?php echo $row_mycart['oid'];?>&order_status=4&q=<?php echo $row_mycart['p_c_qty'];?>&p=<?php echo $row_mycart['p_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการยกเลิกคำสั่งซื้อ');" disabled>
-					ยกเลิก </a></center>
-			<?php else: ?>
-				<a href="del_order.php?order_id=<?php echo $row_mycart['oid'];?>&order_status=4&q=<?php echo $row_mycart['p_c_qty'];?>&p=<?php echo $row_mycart['p_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการยกเลิกคำสั่งซื้อ');">
-					ยกเลิก </a></center>
-		<?php endif ?>
-					
-				</td>
-			</tr>
+					<?php if ($status == 4): ?>
+						<a href="del_order.php?order_id=<?php echo $row_mycart['oid'];?>&order_status=4&q=<?php echo $row_mycart['p_c_qty'];?>&p=<?php echo $row_mycart['p_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการยกเลิกคำสั่งซื้อ');" disabled>
+						ยกเลิก </a></center>
+						<?php else: ?>
+							<a href="del_order.php?order_id=<?php echo $row_mycart['oid'];?>&order_status=4&q=<?php echo $row_mycart['p_c_qty'];?>&p=<?php echo $row_mycart['p_id'];?>" class="btn btn-danger btn-xs" onClick="return confirm('ยืนยันการยกเลิกคำสั่งซื้อ');">
+							ยกเลิก </a></center>
+						<?php endif ?>
+						
+					</td>
+				</tr>
 
-		<?php } while ($row_mycart = mysql_fetch_assoc($mycart)); } ?> 
-	</table>
+			<?php } while ($row_mycart = mysql_fetch_assoc($mycart)); } ?> 
+		</table>
 
-	<?php
+		<?php
 
-mysql_free_result($mycart);
-mysql_free_result($mm);
+		mysql_free_result($mycart);
+		mysql_free_result($mm);
 
-?>
+		?>
